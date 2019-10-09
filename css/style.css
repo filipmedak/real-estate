@@ -1,0 +1,77 @@
+/* Basic settings */
+
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html
+{
+  margin: 0 auto;
+	font-family: 'Oswald', sans-serif;
+	max-width: 100%;
+}
+
+
+/* Navigation */
+
+.nav 
+{
+  background-color: #ADD8E6;
+  overflow: hidden;
+}
+
+.nav a 
+{
+  float: left;
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+  
+.nav .icon 
+{
+  display: none;
+}
+
+
+
+
+/* Media query: 600px */
+
+@media screen and (max-width: 600px) {
+    .nav a:not(:first-child)
+     {
+       display: none;
+    }
+
+    .nav a.icon 
+    {
+      float: right;
+      display: block;
+    }
+
+    .nav.responsive 
+    {
+      position: relative;
+    }
+
+    .nav.responsive a.icon 
+    {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .nav.responsive a 
+    {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
