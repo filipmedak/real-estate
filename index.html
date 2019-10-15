@@ -4,38 +4,137 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Real estate site</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
+        
     </head>
 
     <body>
             <!-- Navigation -->
 
-            <div class="nav" id="rwdNav">
-                <a href="#" id="logo"><img src="img/logo.png" alt="Company logo"></a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">
+                    <img src="img/logo.png" height="35" alt="mdb logo">
+                </a>
                 
-                <div class="languages">
-                    <button class="dropbtn"><img src="img/eng_lang.png" class="img_lang" alt="English Flag"></button>
-                    <div class="dropdown">
-                        <a href="#"><img src="img/cro_lang.png" class="img_lang" alt="Croatian Flag"></a>
-                        <a href="#"><img src="img/ger_lang.png" class="img_lang" alt="German Flag"></a>
+                <div class="bd-highlight">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Languages</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Croatian</a>
+                        <a class="dropdown-item" href="#">English</a>
+                        <a class="dropdown-item" href="#">German</a>
+                        </div>
+                    </li>
+                </div>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="includes/login.php">Profile <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Nekretnine</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="#">Usluge</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="#">Test</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="#">Kontakt</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="#">Uvjeti</a>
+                    </li>
+                  </ul>
+                </div>
+            </nav>
+
+            <!-- END -->
+
+            <!-- Search engine -->
+
+            <div id='searchEngine' class="text-center p-4">
+                
+                <h2 class="pt-3">Search for real estates!</h2>
+
+                <!-- Location autoseach-->    
+                <div class="input-group mt-3">
+                    <input type="text" class="form-control" placeholder="Insert location:" aria-label="" aria-describedby="basic-addon1">
+                </div>
+
+                <!--Type of real estate-->
+                <div class="input-group mt-3">
+                        <select class="custom-select" id="inputGroupSelect04">
+                          <option selected>Type of real estate:</option>
+                          <option value="1">House</option>
+                          <option value="2">Apartment</option>
+                          <option value="3">Cottage</option>
+                        </select>
+                </div>
+                
+                <!--Choise-->
+                <div class="input-group mt-3 mb-3">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline1">Sale</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline2">Lease</label>
                     </div>
                 </div>
-           
-                <label for="toggle">&#9776;</label>
-                <input type="checkbox" id="toggle"/>
-                <div class='hamburger'>
-                    <a href="includes/login.php">Korisnički račun</a>
-                    <a href="#">Ponuda nekretnina</a>
-                    <a href="#">Usluge</a>
-                    <a href="#">O nama</a>
-                    <a href="#">Kontakt</a>
-                    <a href="#">Uvjeti korištenja</a>
+
+                <!--Search button-->
+                <a href="#"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5">Search!</button></a>
+
+                <!--Expand button-->
+                <div id="accordion" class="mt-3">
+                        <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                      More detailed search.
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                  <div class="card-body">
+                                    Ma name jeff.
+                                  </div>
+                                </div>
+                        </div>
                 </div>
+
             </div>
 
-    
+            <!-- END -->
+
+            <!-- Services -->
+
+            <!-- END -->
+
+            <!-- Contact -->
+
+            <!-- END -->
+
+            <!-- Footer -->
+
+            <!-- END -->
+
+
+            <!-- JavaScript -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>
