@@ -1,75 +1,221 @@
 /* Basic settings */
+html, body{
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    margin: 0 auto;
+}
+
+/* Navigation */
+
+#navigation{
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
 
 .navbar{
     display: grid;
-    grid-template-columns: 4fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
-.navbar a{
+.navbar-light .navbar-toggler{
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+}
+
+#logo{
+    text-transform: uppercase;
+    align-self: center;
+    place-self: center;
+    letter-spacing: 3px;
+    font-size: 1.6em;
+}
+
+.nav-item{
+    text-transform: uppercase;
+}
+
+.navbar-brand img{
+    width: 50px;
+    height: auto;
+}
+
+#navigation, .bg-light{
+    background-color: #fff!important;
+}
+
+.navbar-light .navbar-nav .nav-link{
     color: #000;
+    font-weight: bold;
+    padding: 15px 0;
+    border-top: 2px solid #000;
+    white-space: nowrap;
+    margin-left: -20px;
+    margin-right: -20px;
+    overflow: hidden;
 }
 
-.navbar img{
-    margin-left: 0;
+.callLogo{
+    justify-self: end;
+    margin-right: 10px;
+    border-radius: 100%;
 }
+
+.callLogo img{
+    animation: shadow-pulse 1s infinite;
+    width: 40px;
+    height: auto;
+}
+
+@keyframes shadow-pulse
+{
+  0% {
+    box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+  }
+}
+
 
 .navbar-toggler{
     width: 56px;
+    justify-self: end;
 }
 
 .bd-highlight{
     list-style-type: none;
+    align-self: end;
 }
 
-#searchEngine{
-    background: url("./img/promoImage.jpg");
-    background-color: #e8f1ff;
-    height: 80vh;
+#navbarTogglerDemo02{
+    grid-column: 1/5;
 }
+
+.navbar-light .navbar-toggler{
+    border-color: transparent;
+}
+
+.navbar-light .navbar-toggler-icon{
+    background-image: url("../img/hamburgerIcon.png");
+}
+
+.first{
+    border-top: 2px solid #000!important;
+}
+
+#navbarDropdownMenuLink{
+    border: 2px solid #000;
+    max-width: 85px;
+    padding: 5px;
+    margin: 0 0 15px 0;
+    color: #000;
+    border-radius: 5px;
+}
+
+.dropdown-menu{
+    margin-right: 50px!important;
+    left: -50px;
+    border: 2px solid #000;
+}
+
+#dropdown{
+    justify-self: end;
+}
+
 
 /* Search engine */
+#searchEngine{
+    background-image: url("../img/promoImage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rebeccapurple;
+    height: 600px;
+    position: relative;
+    z-index: 300;
+}
+
+#searchEngineBar{
+    background-color: rgba(144,144,144, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    border-bottom: 2px solid #000;
+    justify-items: center;
+    z-index: 200;
+}
+
+#searchEngineBarText{
+    display: grid;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    border: 2px solid #000;
+}
+
 
 /* Small devices (576px) */
 
 @media (min-width: 576px) 
 { 
-    .navbar img{
-        margin-left: 8%;
-    }
+    
 }
 
 
 /* Large devices (992px) */
 
 @media (min-width: 992px) 
-{
-    .navbar{
-        grid-template-columns: 2fr 1fr 1fr;
+{ 
+    .navbar-light .navbar-nav .nav-link{
+        border: none;
+        margin: 0;
     }
 
-    .navbar-expand-lg .navbar-nav .nav-link{
-        margin: 0 20px; 
+    .navbar-collapse{
+        flex-grow: 0;
     }
 
-    .bd-highlight{
-        justify-self: end;
+    #navbarTogglerDemo02{
+        grid-column: 2;
+        grid-row: 1;
     }
 
-    .navbar-toggler-icon{
-        margin-left: 50px;
+    .navbar-light .navbar-nav .nav-link{
+        padding: 0 25px;
+        border: none!important;
+        margin-top: 0;
     }
-    
+
+    .first{
+        margin-top: 0;
+        border-top: none;
+    }
+
+    .callLogo{
+        grid-column: 3;
+    }
+
+    #dropdown, #navbarTogglerDemo02{
+        justify-self: center;
+    }
+
+    #navbarDropdownMenuLink{
+        padding-top: 5px;
+    }
 }
 
 /* Extra large devices (1200px) */
 
 @media (min-width: 1200px) 
 { 
-    .navbar-expand-lg .navbar-nav .nav-link{
-        margin: 0 40px; 
-    }
 
-    .navbar-expand-lg:last-child .navbar-nav:last-child .nav-link:last-child{
-        margin-right: 40px;
-    }
 }
