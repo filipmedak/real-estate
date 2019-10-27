@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Real estate site</title>
+        <title>Real Estate Site</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,26 +14,34 @@
     </head>
 
     <body>
-
       <!-- Navigation -->
       <div id="navigation">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <!--<a class="navbar-brand" href="#">
-            <img src="img/logo.png" height="60" alt="mdb logo">
-          </a>-->
-
           <div id="logo">
-            <p class="text-center font-weight-bolder mt-3">Firma</p>
+            <p class="text-center font-weight-bolder mt-3">Firm</p>
           </div>
-          
-
+  
           <div class="bd-highlight font-weight-bold" id="dropdown">
-            <li class="nav-item dropdown mt-2">
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lang</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item font-weight-bold" href="#">Croatian</a>
-                <a class="dropdown-item font-weight-bold" href="#">English</a>
-                <a class="dropdown-item font-weight-bold" href="#">German</a>
+                  <a class="dropdown-item font-weight-bold" href="#"><img src="img/cro_lang.png" id="croIcon" alt="Smiley face" height="30" width="30"></a>
+                  <a class="dropdown-item font-weight-bold" href="#"><img src="img/ger_lang.png" id="gerIcon" alt="Smiley face" height="30" width="30"></a>
+                  <a class="dropdown-item font-weight-bold" href="#"><img src="img/eng_lang.png" id="engIcon" alt="Smiley face" height="30" width="30"></a>
+                </div>
+            </li>
+          </div>
+
+          <div class="bd-highlight font-weight-bold" id="dropdownProfile">
+            <li class="nav-item dropdown mt-2">
+                <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="img/profileIcon.png" alt="Smiley face" height="25" width="25">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item font-weight-bold profileColor" href="#">Signed in as:</a>
+                  <a class="dropdown-item font-weight-bold profileColor" href="#">Pero Peric</a>
+                  <a class="dropdown-item font-weight-bold profileColor" href="#"><img src="img/loginIcon.png" alt="Smiley face" height="20" width="20">Log In</a>
+                  <a class="dropdown-item font-weight-bold profileColor" href="#"><img src="img/signupIcon.png" alt="Smiley face" height="20" width="20">Sign Up</a>
                 </div>
             </li>
           </div>
@@ -45,19 +53,28 @@
           <div class="collapse navbar-collapse text-center" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <a class="nav-link first" href="#">Nekretnine<span class="sr-only">(current)</span></a>
+                <a class="nav-link first" href="#">Real estate<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Profil</a>
+                <a class="nav-link" href="#">Profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Usluge</a>
+                <a class="nav-link" href="#">Services</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Kontakt</a>
+                <a class="nav-link" href="#">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Uvjeti</a>
+                <a class="nav-link" href="#">Terms</a>
+              </li>
+              <li class="nav-item mobileOnly">
+                <a class="nav-link" href="#">Signed in as: Pero Peric</a>
+              </li>
+              <li class="nav-item mobileOnly">
+                <a class="nav-link" href="#"><img src="img/loginIcon.png" alt="Smiley face" height="20" width="20">Log In</a>
+              </li>
+              <li class="nav-item mobileOnly">
+                <a class="nav-link" href="#"><img src="img/signupIcon.png" alt="Smiley face" height="20" width="20">Sign Up</a>
               </li>
             </ul>
           </div>
@@ -68,8 +85,8 @@
 
       <!-- Search engine -->
       <div id='searchEngine' class="text-center p-4">
-        <div id="searchEngineBar" class="p-5">
-          <div id="searchEngineBarText" class="p-5">
+        <div id="searchEngineBar" class="p-4">
+          <div id="searchEngineBarText" class="p-4">
             <h2 class="pt-3">Search for real estates!</h2>
             <!-- Location autoseach-->    
             <div class="input-group mt-3">

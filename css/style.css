@@ -60,29 +60,6 @@ html, body{
     overflow: hidden;
 }
 
-.callLogo{
-    justify-self: end;
-    margin-right: 10px;
-    border-radius: 100%;
-}
-
-.callLogo img{
-    animation: shadow-pulse 1s infinite;
-    width: 40px;
-    height: auto;
-}
-
-@keyframes shadow-pulse
-{
-  0% {
-    box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.6);
-  }
-  100% {
-    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
-  }
-}
-
-
 .navbar-toggler{
     width: 56px;
     justify-self: end;
@@ -128,6 +105,61 @@ html, body{
     justify-self: end;
 }
 
+.profileColor:first-child{
+    margin-top: -8px;
+}
+
+.profileColor:last-child{
+    margin-bottom: -8px;  
+}
+
+.profileColor, .mobileOnly{
+    background: rgb(220,220,220);
+}
+
+.mobileOnly{
+    margin-left: -50px;
+    margin-right: -50px;
+}
+
+.dropdown-menu img{
+    margin-right: 10px;
+}
+
+#dropdownProfile{
+    display: none;
+}
+
+.navbar-nav:last-child{
+    margin-bottom: -8px;
+}
+
+.dropdown-item{
+    border-bottom: 2px solid #000;
+}
+
+.dropdown-item:last-child{
+    border-bottom: none;
+}
+
+#dropdown .dropdown-menu{
+    left: 0;
+    min-width: 0;
+    width: 75px!important;
+}
+
+#croIcon{
+    margin: 0 0 5px 0;
+}
+
+#gerIcon{
+    margin: 5px 20px 5px 0;
+}
+
+#engIcon{
+    margin-top: 5px;
+}
+
 
 /* Search engine */
 #searchEngine{
@@ -141,7 +173,7 @@ html, body{
 }
 
 #searchEngineBar{
-    background-color: rgba(144,144,144, 0.5);
+    background-color: rgba(220,220,220, 0.5);
     position: absolute;
     top: 0;
     left: 0;
@@ -163,6 +195,7 @@ html, body{
 }
 
 
+
 /* Small devices (576px) */
 
 @media (min-width: 576px) 
@@ -174,7 +207,11 @@ html, body{
 /* Large devices (992px) */
 
 @media (min-width: 992px) 
-{ 
+{   
+    /* Navigation */
+    .navbar{
+        grid-template-columns: 1fr 2fr 0.5fr 0.5fr;
+    }
     .navbar-light .navbar-nav .nav-link{
         border: none;
         margin: 0;
@@ -200,16 +237,30 @@ html, body{
         border-top: none;
     }
 
-    .callLogo{
-        grid-column: 3;
+    .mobileOnly{
+        display: none;
     }
 
-    #dropdown, #navbarTogglerDemo02{
+    #navbarTogglerDemo02{
         justify-self: center;
+    }
+
+    #dropdown{
+        justify-self: end;
+        margin-right: 20px;
     }
 
     #navbarDropdownMenuLink{
         padding-top: 5px;
+    }
+
+    #dropdownProfile{
+        width: 40px;
+        display: block;
+    }
+
+    #dropdownProfile .dropdown-menu .dropdown-item{
+        padding: 10px 20px;
     }
 }
 
