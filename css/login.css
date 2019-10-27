@@ -1,7 +1,36 @@
+body{
+    background: cadetblue;
+    background-image: url("../img/promoImage.jpg");
+}
+
+.form-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.form-container h1{
+    color: white;
+    text-transform: uppercase;
+}
+form{
+    padding:30px;
+    background: #000000b5;
+}
+form .btn{
+    background-color: #155724;
+    border-color: #ffffff;
+    max-width: 450px;
+    margin:0 auto;
+}
+form .btn:hover{
+    background-color: #0f501e;
+    border-color: #ffffff;
+}
+
 .form-signin{
     width:80%;
     margin:0 auto;
     max-width: 600px!important;
-    
 }
 
