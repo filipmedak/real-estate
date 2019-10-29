@@ -1,7 +1,14 @@
 body{
-    background: cadetblue;
+    background: #212530;
     background-image: url("../img/promoImage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+.form-control::-webkit-input-placeholder { color: rgba(255, 255, 255, 0.555); }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: rgba(255, 255, 255, 0.555); }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: rgba(255, 255, 255, 0.555); }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: rgba(255, 255, 255, 0.555); }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: rgba(255, 255, 255, 0.555); }
 
 .form-container{
     height: 100vh;
@@ -15,7 +22,16 @@ body{
 }
 form{
     padding:30px;
-    background: #000000b5;
+    background: #000000db;
+}
+.form-control{
+    background: transparent;
+    color: white;
+}
+.form-control:focus{
+    background: transparent;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(21, 87, 36, 0.39);
 }
 form .btn{
     background-color: #155724;
@@ -27,9 +43,15 @@ form .btn:hover{
     background-color: #0f501e;
     border-color: #ffffff;
 }
+form .btn:active{
+    background-color: #155724;
+    border-color: #ffffff;
+    max-width: 450px;
+    margin:0 auto;
+}
 
 .form-signin{
-    width:80%;
+    width:100%;
     margin:0 auto;
     max-width: 600px!important;
 }

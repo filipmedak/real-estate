@@ -1,9 +1,6 @@
 <?php
 
-function backToForm($error,$name){
-    header('Location: register.php?error='.$error.'&name='.$name);
-    exit();
-}
+include 'functions.php';
 
 
 if(isset($_POST['register'])){
