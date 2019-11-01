@@ -1,0 +1,32 @@
+.admin-nav{
+    max-width: 400px;
+}
+.admin-list{
+    padding: 0;
+    margin:0;
+    list-style: none;
+}
+.admin-list li{
+    border:2px solid #000;
+    height: 60px;
+    border-top: none;
+    border-left: none;
+}
+.admin-list li a{
+    font-weight: bold;   
+}
+
+.admin-info{
+    border-right:2px solid #000;
+    background:darkgrey;
+    height: calc(100vh - 510px);
+    width:400px;
+}
+.content{
+    position: absolute;
+    top: 100px;
+    left: 410px;
+    background: #a9a9a959;
+    height: calc(100vh - 110px);
+    width: 100%;
+}
