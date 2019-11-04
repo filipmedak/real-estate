@@ -14,8 +14,21 @@
     </head>
 
     <body>
+        
       <!-- Navigation -->
       <div id="navigation">
+        <div id="navigationTop">
+          <div id="navigationTopContent">
+              <p id="navigationTopContent01"><img src="img/phoneIcon.svg" alt="..." width="20">Info: +395 273 8765</p>
+              <p id="navigationTopContent02Mobile">8:00 | 16:00</p>
+              <p id="navigationTopContent02Desktop">Radno vrijeme: 8:00 | 16:00</p>
+              <div id="navigationTopContent03">
+                  <img src="img/facebookIcon.png" alt="..." width="25">
+                  <img src="img/twitterIcon.png" alt="..." width="25">
+                  <img src="img/instagramIcon.png" alt="..." width="25">
+              </div>
+          </div>
+        </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div id="logo">
             <p class="text-center font-weight-bolder mt-3">Firm</p>
@@ -80,6 +93,7 @@
           </div>
         </nav>
       </div>
+      
       <!-- Navigation !END! -->      
       
 
@@ -101,40 +115,71 @@
                 <option value="3">Cottage</option>
               </select>
             </div>
-            <!--Choise-->
-            <div class="input-group mt-3 mb-3">
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadioInline1">Sale</label>
-              </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadioInline2">Lease</label>
-              </div>
-            </div>
-    
+               
             <!--Search button-->
-            <a href="#"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5">Search!</button></a>
+            <a href="#"><button type="button" class="blueButton btn btn-dark mt-3 pl-5 pr-5">Search!</button></a>
     
             <!--Expand button-->
             <div id="accordion" class="mt-3">
               <div class="card">
-                <div class="card-header" id="headingTwo">
+                <div class="card-header" id="searchEngineButtonExtend">
                   <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <button class="searchEngineButtonExtend btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                       More detailed search.
                     </button>
                   </h5>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                   <div class="card-body">
-                    <p>Ma name jeff.</p>
-                    <p>Ma name jeff.</p>
-                    <p>Ma name jeff.</p>
-                    <p>Ma name jeff.</p>
-                    <p>Ma name jeff.</p>
-                    <p>Ma name jeff.</p>
-                    <p>Ma name jeff.</p>
+                    <!--Additional setting for search-->
+                    <div class="form-group">
+                      <div class="input-group mt-3">
+                        <input type="text" class="form-control" placeholder="Min price:" aria-label="" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Max price:" aria-label="" aria-describedby="basic-addon1">
+                      </div>
+                      <div class="input-group mt-3">
+                        <input type="text" class="form-control" placeholder="Min rooms:" aria-label="" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Max rooms" aria-label="" aria-describedby="basic-addon1">
+                      </div>
+                      <div class="input-group mt-3 mb-3">
+                        <input type="text" class="form-control" placeholder="Min square meters:" aria-label="" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="Max square meters:" aria-label="" aria-describedby="basic-addon1">
+                      </div>
+                      <div id="searchEngineBarTextDetails">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                          <label class="form-check-label" for="inlineCheckbox1">New building</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                          <label class="form-check-label" for="inlineCheckbox2">Old building</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                          <label class="form-check-label" for="inlineCheckbox3">Lift</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+                          <label class="form-check-label" for="inlineCheckbox4">Balcony</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+                          <label class="form-check-label" for="inlineCheckbox5">Garage</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option6">
+                          <label class="form-check-label" for="inlineCheckbox6">Parking</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option7">
+                          <label class="form-check-label" for="inlineCheckbox7">View of sea/woods</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="option8">
+                          <label class="form-check-label" for="inlineCheckbox8">Discount</label>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -223,32 +268,28 @@
               <img src="img/evaluationIcon.svg" alt="..." width="100px">
               <h3 class="text-center">Evaluation</h3>
               <p class="ml-3 mr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <a href="#"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5">Find out more!</button></a>
+              <a href="#"><button type="button" class="blueButton btn btn-dark mt-3 pl-5 pr-5">Find out more!</button></a>
             </div>
             <div id="servicesSection2" class="m-5 pt-4 pb-4">
               <img src="img/brokingIcon.svg" alt="..." width="123px">
               <h3 class="text-center">Broking</h3>
               <p class="ml-3 mr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <a href="#"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5">Find out more!</button></a>
+              <a href="#"><button type="button" class="blueButton btn btn-dark mt-3 pl-5 pr-5">Find out more!</button></a>
             </div>
             <div id="servicesSection3" class="m-5 pt-4 pb-4">
               <img src="img/salesIcon.svg" alt="..." width="125px">
               <h3 class="text-center">Sales</h3>
               <p  class="ml-3 mr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <a href="#"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5">Find out more!</button></a>
+              <a href="#"><button type="button" class="blueButton btn btn-dark mt-3 pl-5 pr-5">Find out more!</button></a>
             </div>
           </div>
         </div>
       </div>
       <!-- END -->
 
-      <!-- Contact -->
-
-      <!-- END -->
-
       <!-- Footer -->
       <footer>
-        <div id="footer" class="mt-5">
+        <div id="footer" class="pt-5 pb-5">
           <div id="footerSection1" class="ml-5 mr-5">
             <p>Real Estate</p>
             <p>Profile</p>

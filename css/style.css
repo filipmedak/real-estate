@@ -7,11 +7,6 @@ html, body{
     margin: 0 auto;
 }
 
-/* 
-Grey color: #E1E1E1
-NavyBlue color: #3B4483
-*/
-
 /* Navigation */
 
 #navigation{
@@ -39,6 +34,7 @@ NavyBlue color: #3B4483
     place-self: center;
     letter-spacing: 3px;
     font-size: 1.6em;
+    color: #3B4483;
 }
 
 .nav-item{
@@ -165,20 +161,62 @@ NavyBlue color: #3B4483
     margin-top: 5px;
 }
 
+#navigationTop{
+    background: #3B4483;
+    border-bottom: 2px solid #000;
+    color: #fff;
+}
+
+#navigationTopContent{
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 25px 1fr 1fr 25px; 
+    align-items: center;
+    white-space: nowrap;
+    font-size: 0.8em;
+}
+
+#navigationTopContent01{
+    grid-column: 2;
+}
+
+#navigationTopContent01 img{
+    margin-right: 10px;
+}
+
+#navigationTopContent02Mobile{
+    justify-self: end;
+}
+
+#navigationTopContent02Desktop{
+    display: none;
+}
+
+#navigationTopContent03{
+    display: none;
+}
+
+#navigationTopContent p{
+    margin: 10px 0;
+    padding: 0;
+}
+
+
 
 /* Search engine */
 #searchEngine{
     background-image: url("../img/promoImage.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rebeccapurple;
+    background-color: #fff;
     height: 550px;
     position: relative;
     z-index: 300;
 }
 
 #searchEngineBar{
-    background-color: rgba(220,220,220, 0.5);
+    background-color: rgba(225,225,225, 0.4);
     position: absolute;
     top: 0;
     left: 0;
@@ -199,8 +237,25 @@ NavyBlue color: #3B4483
     border: 2px solid #000;
 }
 
+#searchEngineBarTextDetails{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 #accordion .card{
     border: 2px solid #000;
+}
+
+.blueButton{
+    background: #3B4483;
+}
+
+#searchEngineButtonExtend{
+    background: #e1e1e1;
+}
+
+.searchEngineButtonExtend{
+    color: #000;
 }
 
 /* Promo */
@@ -239,8 +294,11 @@ NavyBlue color: #3B4483
     margin-right: 5px;
 }
 
-/* Services */
+.searchEngineButton{
+    background: #3B4483;
+}
 
+/* Services */
 #services{
     background: rgb(220,220,220);
     background-image: url("../img/servicesBackground.jpg");
@@ -248,7 +306,7 @@ NavyBlue color: #3B4483
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;   
-    height: 575px;
+    height:1900px;
     position: relative;
     z-index: 300;
 }
@@ -286,12 +344,11 @@ NavyBlue color: #3B4483
 
 /* Footer */
 footer{
-    background: #fff;
+    color: #000;
 }
 
 #footer{
     max-width: 1400px;
-    height: 225px;
     margin: 0 auto;
     display: grid;
     grid-row-gap: 25px;
@@ -311,13 +368,67 @@ footer{
 
 #footerBottom{
     border-top: 2px solid #000;
+    background: #3B4483;
+    color: #fff;
 }
 
+
+@media (min-width: 375px){
+    /*Services*/
+    #services{ 
+        height:1725px;
+    }
+}
 
 /* Small devices (576px) */
 
 @media (min-width: 576px) 
 { 
+    /* Navigation */
+
+    #navigationTopContent{
+        grid-template-columns: 1fr 1fr 1fr;
+        font-size: 0.9em;
+        padding-right: 15px;
+    }
+
+    #navigationTopContent01{
+        grid-column: 1;
+        justify-self: start;
+    }
+
+    #navigationTopContent01 img{
+        margin-left: 25px;
+    }
+
+    #navigationTopContent02Desktop{
+        justify-self: center;
+    }
+
+    #navigationTopContent02Desktop p{
+        margin-right: 25px;
+    }
+
+
+    #navigationTopContent02Mobile{
+        display: none;
+    }
+
+    #navigationTopContent02Desktop{
+        grid-column: 3;
+        display: inline;
+        justify-self: end;
+    }
+
+    #navigationTopContent03{
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 50px;
+    }
+
     /* Promo */
     #promo .card-deck{
         grid-template-columns: 1fr 1fr;
@@ -340,8 +451,10 @@ footer{
     #footer{
         grid-template-columns: 1fr 1fr;
     }
-    
-    
+    /*Services*/
+    #services{ 
+        height:1200px;
+    }
 }
 
 
@@ -404,6 +517,18 @@ footer{
         padding: 10px 20px;
     }
 
+    #navigationTopContent{
+        padding-right: 0;
+    }
+
+    #navigationTopContent01, #navigationTopContent02Desktop{
+        justify-self: center;
+    }
+
+    #navigationTopContent01 img{
+        margin-left: -20px;
+    }
+
     /* Promo */
     #promo .card-deck{
         grid-template-columns: 1fr 1fr 1fr;
@@ -414,7 +539,11 @@ footer{
         grid-row: 3;
     }
 
-    /* Services */
+    /*Services*/
+    #services{ 
+        height:600px;
+    }
+
     #servicesContent{
         grid-template-columns: 1fr 1fr 1fr;
     }
