@@ -1,16 +1,19 @@
 /* Basic settings */
 html, body{
     max-width: 100%;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
     font-family: 'Montserrat', sans-serif;
     font-size: 1em;
     margin: 0 auto;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 /* Navigation */
 
 #navigation{
-    border-top: 2px solid #000;
     border-bottom: 2px solid #000;
 }
 
@@ -135,6 +138,11 @@ html, body{
     margin-bottom: -8px;
 }
 
+#navigation .dropdown-item{
+    padding: 0;
+    padding-left: 21px;
+}
+
 .dropdown-item{
     border-bottom: 2px solid #000;
 }
@@ -238,8 +246,17 @@ html, body{
 }
 
 #searchEngineBarTextDetails{
+    grid-template-columns: 1fr;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+}
+
+#collapseTwo{
+    max-width: 300px;
+}
+
+#collapseTwo .form-control{
+    font-size: 0.77em;
+    white-space: normal;
 }
 
 #accordion .card{
@@ -256,6 +273,39 @@ html, body{
 
 .searchEngineButtonExtend{
     color: #000;
+}
+
+.navigationDisplayToggle{
+    display: none;
+}
+
+/* Sticky language */
+
+.sticky {
+    position: sticky;
+    top: 33%;
+    z-index: 10000;
+    width: 50px;
+    display: grid;
+    display: none;
+}
+
+.sticky a{
+    padding: 0;
+    margin: 0;
+    padding: 10px 0 10px 17px;
+    background:#fff;
+    border-right: 2px solid #000;
+}
+
+.sticky a:first-child{
+    border-top: 2px solid #000;
+    padding-top: 15px;
+}
+
+.sticky a:last-child{
+    border-bottom: 2px solid #000;
+    padding-bottom: 15px;
 }
 
 /* Promo */
@@ -306,7 +356,7 @@ html, body{
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;   
-    height:1900px;
+    height:1700px;
     position: relative;
     z-index: 300;
 }
@@ -342,6 +392,21 @@ html, body{
     font-size: 0.9em;
 }
 
+/* BackToTop */
+#backToTop{
+    position: fixed;
+    z-index: 999999;
+    bottom: 10px;
+    right: 20px;
+    display: none;
+}
+
+#backToTop a img{
+    border: 2px solid #000;
+    border-radius: 100%;
+    padding: 5px 12px;
+}
+
 /* Footer */
 footer{
     color: #000;
@@ -358,6 +423,11 @@ footer{
     display: none;
 }
 
+#footerSection1 a{
+    text-decoration: none;
+    color: #000;
+}
+
 #footerSection2{
     justify-self: center;
 }
@@ -370,6 +440,11 @@ footer{
     border-top: 2px solid #000;
     background: #3B4483;
     color: #fff;
+}
+
+#footerSection3 .form-control{
+    margin-bottom: 10px!important;
+    font-weight: bold;
 }
 
 
@@ -427,6 +502,21 @@ footer{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-column-gap: 50px;
+        padding-left: 25px;
+    }
+
+    /* SearchEngine */
+    #searchEngineBarTextDetails{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #collapseTwo{
+        max-width: none;
+    }
+
+    #collapseTwo .form-control{
+        font-size: 1em;
+        white-space: normal;
     }
 
     /* Promo */
@@ -453,7 +543,7 @@ footer{
     }
     /*Services*/
     #services{ 
-        height:1200px;
+        height:1050px;
     }
 }
 
@@ -502,6 +592,7 @@ footer{
     #dropdown{
         justify-self: end;
         margin-right: 20px;
+        display: none;
     }
 
     #navbarDropdownMenuLink{
@@ -515,6 +606,10 @@ footer{
 
     #dropdownProfile .dropdown-menu .dropdown-item{
         padding: 10px 20px;
+        margin-top: 0;
+    }
+    #dropdownProfile .dropdown-menu .dropdown-item:first-child{
+        margin-top: -8px;
     }
 
     #navigationTopContent{
@@ -527,6 +622,27 @@ footer{
 
     #navigationTopContent01 img{
         margin-left: -20px;
+    }
+
+    .navigationDisplayToggle{
+        display: inline;
+        white-space: nowrap;
+        justify-self: center;
+        font-weight: bold;
+    }
+
+    .hiddenDesktop{
+        display: none;
+    }
+
+    /* SearchEngine */
+
+    #searchEngine{
+        margin-top: -187px;
+    }
+
+    .sticky{
+        display: grid;
     }
 
     /* Promo */
