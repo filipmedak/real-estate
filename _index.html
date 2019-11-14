@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -8,26 +7,24 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
         <script src="https://kit.fontawesome.com/282723246a.js" crossorigin="anonymous"></script>
-        
     </head>
 
     <body>
-
       <!-- Navigation -->
       <div id="navigation">
         <div id="navigationTop">
           <div id="navigationTopContent">
-              <p id="navigationTopContent01"><img src="img/navPhoneIcon.jpg" alt="..." width="15">Info: +395 273 8765</p>
+              <p id="navigationTopContent01"><a href="tel:+3952738765"><i class="fas fa-phone-volume"></i>Info: +395 273 8765</a></p>
               <p id="navigationTopContent02Mobile">8:00 | 16:00</p>
               <p id="navigationTopContent02Desktop">Radno vrijeme: 8:00 | 16:00</p>
               <div id="navigationTopContent03">
-                  <img src="img/facebookIcon.png" alt="..." width="25">
-                  <img src="img/twitterIcon.png" alt="..." width="25">
-                  <img src="img/instagramIcon.png" alt="..." width="25">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
               </div>
           </div>
         </div>
@@ -40,9 +37,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lang</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item font-weight-bold" href="#"><img src="img/cro_lang.png" id="croIcon" alt="Smiley face" height="30" width="30"></a>
-                  <a class="dropdown-item font-weight-bold" href="#"><img src="img/ger_lang.png" id="gerIcon" alt="Smiley face" height="30" width="30"></a>
-                  <a class="dropdown-item font-weight-bold" href="#"><img src="img/eng_lang.png" id="engIcon" alt="Smiley face" height="30" width="30"></a>
+                  <a class="dropdown-item font-weight-bold" href="#"><img src="img/cro_lang.png" id="croIcon" alt="Croatian Flag Icon" height="30" width="30"></a>
+                  <a class="dropdown-item font-weight-bold" href="#"><img src="img/ger_lang.png" id="gerIcon" alt="German Flag Icon" height="30" width="30"></a>
+                  <a class="dropdown-item font-weight-bold" href="#"><img src="img/eng_lang.png" id="engIcon" alt="English Flag Icon" height="30" width="30"></a>
                 </div>
             </li>
           </div>
@@ -54,11 +51,11 @@
           <div class="bd-highlight font-weight-bold" id="dropdownProfile">
             <li class="nav-item dropdown mt-2">
                 <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img src="img/profileIcon.png" alt="Smiley face" height="25" width="25">
+                  <i class="fas fa-user"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item font-weight-bold profileColor" href="includes/login.php"><img src="img/loginIcon.png" alt="Smiley face" height="20" width="20">Log In</a>
-                  <a class="dropdown-item font-weight-bold profileColor" href="includes/register.php"><img src="img/signupIcon.png" alt="Smiley face" height="20" width="20">Sign Up</a>
+                  <a class="dropdown-item font-weight-bold profileColor" href="includes/login.php"><i class="fas fa-sign-in-alt"></i>Log In</a>
+                  <a class="dropdown-item font-weight-bold profileColor" href="includes/register.php"><i class="fas fa-user-plus"></i>Sign Up</a>
                 </div>
             </li>
           </div>
@@ -88,10 +85,10 @@
                 <a class="nav-link" href="#">Hello, Pero Peric</a>
               </li>
               <li class="nav-item mobileOnly">
-                <a class="nav-link" href="#"><img src="img/loginIcon.png" alt="Smiley face" height="20" width="20">Log In</a>
+                <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i>Log In</a>
               </li>
               <li class="nav-item mobileOnly">
-                <a class="nav-link" href="#"><img src="img/signupIcon.png" alt="Smiley face" height="20" width="20">Sign Up</a>
+                <a class="nav-link" href="#"><i class="fas fa-user-plus"></i>Sign Up</a>
               </li>
             </ul>
           </div>
@@ -100,10 +97,10 @@
       <!-- Navigation !END! -->      
 
       <!-- Sticky Language Menu - Desktop only -->
-      <div class="sticky">
-          <a class="dropdown-item font-weight-bold" href="#"><img src="img/cro_lang.png" id="croIcon" alt="Smiley face" height="30" width="30"></a>
-          <a class="dropdown-item font-weight-bold" href="#"><img src="img/ger_lang.png" id="gerIcon" alt="Smiley face" height="30" width="30"></a>
-          <a class="dropdown-item font-weight-bold" href="#"><img src="img/eng_lang.png" id="engIcon" alt="Smiley face" height="30" width="30"></a>
+      <div id="sticky">
+        <a class="dropdown-item font-weight-bold" class="stickyLang" href="#"><img src="img/cro_lang.png" id="croIcon" alt="Smiley face" height="30" width="30"></a>
+        <a class="dropdown-item font-weight-bold" class="stickyLang" href="#"><img src="img/ger_lang.png" id="gerIcon" alt="Smiley face" height="30" width="30"></a>
+        <a class="dropdown-item font-weight-bold" class="stickyLang" href="#"><img src="img/eng_lang.png" id="engIcon" alt="Smiley face" height="30" width="30"></a>
       </div>
       <!-- Sticky Language Menu - Desktop only  !END!-->
 
@@ -113,11 +110,12 @@
           <div id="searchEngineBarText" class="p-4" data-aos="zoom-in" data-aos-duration="2000">
             <h2 class="pt-3">Search for real estates!</h2>
             <!-- Location autoseach-->    
-            <div class="input-group mt-3">
-                <input type="text" class="form-control" placeholder="Insert location:" aria-label="" aria-describedby="basic-addon1">
+            <div class="form-group mt-4">
+                <input type="text" id="search" class="form-control" placeholder="Insert location:">
             </div>
+            <div id="match-list"></div>
             <!--Type of real estate-->
-            <div class="input-group mt-3">
+            <div class="input-group">
               <select class="custom-select" id="inputGroupSelect04">
                 <option selected>Type of real estate:</option>
                 <option value="1">House</option>
@@ -213,7 +211,7 @@
                 <p class="card-text"><img src="img/sizeIcon.png" alt=".." width="25px">Size: <b>53,38m²</b></p>
                 <p class="card-text"><img src="img/roomIcon.png" alt=".." width="25px">Rooms: <b>5</b></p>
                 <p class="card-text text-center text-muted">ID: <b>7328193</b></p>
-                <p class="card-text text-start text-muted""><b>More</b>></p>
+                <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
               </div>
             </div>
           </div>
@@ -228,7 +226,7 @@
                 <p class="card-text"><img src="img/sizeIcon.png" alt=".." width="25px">Size: <b>40,12m²</b></p>
                 <p class="card-text"><img src="img/roomIcon.png" alt=".." width="25px">Rooms: <b>3</b></p>
                 <p class="card-text text-center text-muted">ID: <b>8762983</b>></p>
-                <p class="card-text text-start text-muted""><b>More</b>></p>
+                <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
               </div>
             </div>
           </div>
@@ -243,7 +241,7 @@
                 <p class="card-text"><img src="img/sizeIcon.png" alt=".." width="25px">Size: <b>70,24m²</b></p>
                 <p class="card-text"><img src="img/roomIcon.png" alt=".." width="25px">Rooms: <b>4</b></p>
                 <p class="card-text text-center text-muted">ID: <b>2955432</b>></p>
-                <p class="card-text text-start text-muted""><b>More</b>></p>
+                <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
               </div>
             </div>
           </div>
@@ -258,7 +256,7 @@
                 <p class="card-text"><img src="img/sizeIcon.png" alt=".." width="25px">Size: <b>87,21m²</b></p>
                 <p class="card-text"><img src="img/roomIcon.png" alt=".." width="25px">Rooms: <b>6</b></p>
                 <p class="card-text text-center text-muted">ID: <b>9647267</b>></p>
-                <p class="card-text text-start text-muted""><b>More></b></p>
+                <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
               </div>
             </div>
           </div>
@@ -273,21 +271,21 @@
       <!-- Services -->
       <div id="services">
         <div id="servicesBar">
-          <div id="servicesContent" class="pt-2 text-center"</div>
+          <div id="servicesContent" class="mt-5 mb-5 text-center"</div>
             <div id="servicesSection1" class="m-4 pt-4 pb-4" data-aos="zoom-in" data-aos-duration="1000">
-              <img src="img/evaluationIcon.svg" alt="..." width="100px">
+              <i class="fas fa-search-dollar"></i>
               <h3 class="text-center">Evaluation</h3>
               <p class="ml-3 mr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               <a href="#"><button type="button" class="blueButton btn btn-dark mt-3 pl-5 pr-5">Find out more!</button></a>
             </div>
             <div id="servicesSection2" class="m-4 pt-4 pb-4" data-aos="zoom-in" data-aos-duration="1000">
-              <img src="img/brokingIcon.svg" alt="..." width="123px">
+              <i class="fas fa-handshake"></i>
               <h3 class="text-center">Broking</h3>
               <p class="ml-3 mr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               <a href="#"><button type="button" class="blueButton btn btn-dark mt-3 pl-5 pr-5">Find out more!</button></a>
             </div>
             <div id="servicesSection3" class="m-4 pt-4 pb-4" data-aos="zoom-in" data-aos-duration="1000">
-              <img src="img/salesIcon.svg" alt="..." width="125px">
+              <i class="fas fa-balance-scale"></i>
               <h3 class="text-center">Sales</h3>
               <p  class="ml-3 mr-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               <a href="#"><button type="button" class="blueButton btn btn-dark mt-3 pl-5 pr-5">Find out more!</button></a>
@@ -311,9 +309,9 @@
           </div>
           <div id="footerSection2" class="ml-5 mr-5">
             <h4 class="text-center">FIRM d.o.o</h4>
-            <p><img src="img/mapIcon.svg" alt="..." width="30px">Vukovarska ul. 150</p>
-            <p><img src="img/phoneIcon.svg" alt="..." width="30px">081 098 372</p>
-            <p><img src="img/mailIcon.svg" alt="..." width="30px">firma@mail.com</p>
+            <p><i class="fas fa-map-marked-alt"></i>Vukovarska ul. 150</p>
+            <p><a href="tel:+3952738765"><i class="fas fa-phone-volume"></i>Info: +395 273 8765</a></p>
+            <p><a href="mailto:firma@mail.com"><i class="far fa-envelope"></i>firma@mail.com</a></p>
           </div>
           <div id="footerSection3" class="ml-5 mr-5 text-center">
             <form action="https://www.enformed.io/808pr7ew" class='contact_form'>
@@ -324,10 +322,6 @@
               <input type="submit" class="form-group" value="Send" />
             </div>
           </div>
-        <!-- BackToTopBtn-->
-        <div id="backToTop">
-          <a href="#"><img src="img/arrowUpIcon.svg" height="50" alt="..."></a>
-        </div>
         </div>
         <div id="footerBottom" class="text-center pt-4 pb-3 font-weight-bolder">
           <p>FIRM d.o.o by LeffeCake</p>
