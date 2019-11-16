@@ -177,7 +177,7 @@ echo '
 <!-- Services -->
 <div id="services">
   <div id="servicesBar">
-    <div id="servicesContent" class="pt-5 text-center">
+    <div id="servicesContent" class="pt-5 text-center"</div>
       <div id="servicesSection1" class="m-4 pt-4 pb-4" data-aos="zoom-in" data-aos-duration="1000">
         <img src="img/evaluationIcon.svg" alt="..." width="100px">
         <h3 class="text-center">Evaluation</h3>
