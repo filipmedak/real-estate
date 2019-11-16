@@ -13,6 +13,7 @@ echo
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/realEstate.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://kit.fontawesome.com/282723246a.js" crossorigin="anonymous"></script>
@@ -37,7 +38,7 @@ echo
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div id="logo">
-            <p class="text-center font-weight-bolder mt-3">Firm</p>
+            <p class="text-center font-weight-bolder mt-3"><a href="index.php">Firm</a></p>
           </div>
   
           <div class="bd-highlight font-weight-bold" id="dropdown">
@@ -74,7 +75,7 @@ echo
           <div class="collapse navbar-collapse text-center" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <a class="nav-link first" href="#">Real estate<span class="sr-only">(current)</span></a>
+                <a class="nav-link first" href="realEstate.php">Real estate<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Profile</a>

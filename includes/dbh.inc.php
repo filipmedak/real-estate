@@ -4,7 +4,7 @@
 $servername="localhost";
 $dbUsername="root";
 $dbPassword="";
-$dbName="login_system";
+$dbName="realestateproject";
 
 $connection=mysqli_connect($servername, $dbUsername, $dbPassword, $dbName);
 
