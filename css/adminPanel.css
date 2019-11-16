@@ -13,7 +13,14 @@
     border-left: none;
 }
 .admin-list li a{
-    font-weight: bold;   
+    font-weight: bold;
+    line-height: 60px;  
+    transition: all 0.3s; 
+}
+.admin-list li a:hover{
+    background:#000;
+    color:white!important;
+    text-decoration: none;
 }
 
 .admin-info{
@@ -29,4 +36,24 @@
     background: #a9a9a959;
     height: calc(100vh - 110px);
     width: 100%;
+}
+
+/* ----------------Admin settings------------------- */
+
+/* ----------------Content------------------- */
+
+.content-form{
+    border:1px solid red;
+    max-width: 500px;
+    margin:20px 0 0 20px;
+    text-align: center;
+}
+.content-form span{
+    display: inline-block;
+    width:40%;
+    text-align: right;
+    margin-right:10px;
+}
+.imgUpload{
+    width:240px;
 }
