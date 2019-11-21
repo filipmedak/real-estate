@@ -1,0 +1,74 @@
+[
+	{
+		"abbr": "ZG",
+		"name": "Zagreb"
+	},
+	{
+		"abbr": "OS",
+		"name": "Osijek"
+	},
+	{
+		"abbr": "RI",
+		"name": "Rijeka"
+	},
+	{
+		"abbr": "ZA",
+		"name": "Zadar"
+	},
+	{
+		"abbr": "PU",
+		"name": "Pula"
+	},
+	{
+		"abbr": "DA",
+		"name": "Daruvar"
+	},
+	{
+		"abbr": "BJ",
+		"name": "Bjelovar"
+	},
+	{
+		"abbr": "GA",
+		"name": "Garešnica"
+	},
+	{
+		"abbr": "VI",
+		"name": "Virovitica"
+	},
+	{
+		"abbr": "GP",
+		"name": "Grubišno Polje"
+	},
+	{
+		"abbr": "DUB",
+		"name": "Dubrava"
+	},
+	{
+		"abbr": "DU",
+		"name": "Dubrovnik"
+	},
+	{
+		"abbr": "MA",
+		"name": "Makarska"
+	},
+	{
+		"abbr": "CRIK",
+		"name": "Crivkenica"
+	},
+	{
+		"abbr": "FJ",
+		"name": "Sv. Filip i Jakov"
+	},
+	{
+		"abbr": "PL",
+		"name": "Ploće"
+	},
+	{
+		"abbr": "VU",
+		"name": "Vukovar"
+	},
+	{
+		"abbr": "SI",
+		"name": "Sisak"
+	}
+]
