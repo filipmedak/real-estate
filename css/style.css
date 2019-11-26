@@ -31,13 +31,17 @@ html{
     justify-self: start;
 }
 
-#logo{
+#logo a{
     text-transform: uppercase;
     align-self: center;
     place-self: center;
     letter-spacing: 3px;
     font-size: 1.6em;
     color: #3B4483;
+}
+
+#logo a:hover{
+    text-decoration: none;
 }
 
 .nav-item{

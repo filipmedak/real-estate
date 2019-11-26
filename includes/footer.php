@@ -1,10 +1,10 @@
-<?php
+<?php 
 
-//footer.php
+//footer
 
-echo 
-'<!-- Footer -->
-      <footer>
+echo '
+<!-- Footer -->
+    <footer>
         <div id="footer" class="pt-5 pb-2 font-weight-bolder" data-aos="fade-down" data-aos-duration="1500">
           <div id="footerSection1" class="ml-5 mr-5">
             <a href="#"><p>Real Estate</p></a>
@@ -15,9 +15,9 @@ echo
           </div>
           <div id="footerSection2" class="ml-5 mr-5">
             <h4 class="text-center">FIRM d.o.o</h4>
-            <p><img src="img/mapIcon.svg" alt="..." width="30px">Vukovarska ul. 150</p>
-            <p><img src="img/phoneIcon.svg" alt="..." width="30px">081 098 372</p>
-            <p><img src="img/mailIcon.svg" alt="..." width="30px">firma@mail.com</p>
+            <p><i class="fas fa-map-marked-alt"></i>Vukovarska ul. 150</p>
+            <p><a href="tel:+3952738765"><i class="fas fa-phone-volume"></i>Info: +395 273 8765</a></p>
+            <p><a href="mailto:firma@mail.com"><i class="far fa-envelope"></i>firma@mail.com</a></p>
           </div>
           <div id="footerSection3" class="ml-5 mr-5 text-center">
             <form action="https://www.enformed.io/808pr7ew" class="contact_form">
@@ -28,10 +28,6 @@ echo
               <input type="submit" class="form-group" value="Send" />
             </div>
           </div>
-        <!-- BackToTopBtn-->
-        <div id="backToTop">
-          <a href="#"><img src="img/arrowUpIcon.svg" height="50" alt="..."></a>
-        </div>
         </div>
         <div id="footerBottom" class="text-center pt-4 pb-3 font-weight-bolder">
           <p>FIRM d.o.o by LeffeCake</p>
