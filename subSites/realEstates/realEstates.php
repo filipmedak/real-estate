@@ -40,6 +40,7 @@
 <!---------------------------------------------------- NEW CONTENT!! --------------------------------------------------------------->
 
 <div id="realEsateContent">
+    <form action="" method="POST">
     <div id="realEstateSearchBar">
         <div id="searchBar" class="mb-4">
             <h3 class="text-center">Filter your results:</h3>
@@ -52,15 +53,15 @@
                 </select>
             </div>
             <div class="input-group mt-3">
-                <select class="custom-select" id="inputGroupSelect04">
+                <select class="custom-select" name="locationEs" id="inputGroupSelect04">
                     <option selected>City:</option>
-                    <option value="1">Zagreb</option>
-                    <option value="2">Bjelovar</option>
-                    <option value="3">Gospić</option>
+                    <option value="zagreb">Zagreb</option>
+                    <option value="bjelovar">Bjelovar</option>
+                    <option value="gospic">Gospić</option>
                 </select>
             </div>
             <div class="input-group mt-3">
-                <select class="custom-select" id="inputGroupSelect04">
+                <select class="custom-select" name="typeEs" id="inputGroupSelect04">
                     <option selected>Type of real estate:</option>
                     <option value="house">House</option>
                     <option value="apartment">Apartment</option>
@@ -71,7 +72,7 @@
                 <input type="text" id="search" class="form-control" placeholder="Post ID:">
             </div>
             <!--Search button-->
-            <a href="#"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5">Search!</button></a>
+            <a href="#"><input type="submit" name="getEstates" class="btn btn-dark mt-3 pl-5 pr-5"></a>
     
             <!--Expand button-->
             <div id="accordion" class="mt-3 pb-5">
@@ -186,9 +187,47 @@
             </div>
         </div>
     </div>
+    </form>
     <div id="searchResults">  
+
         <div class="card-deck">
-            <div class="card shadow-lg mt-5 mb-5" data-aos="fade-up" data-aos-duration="1500">
+
+        <?php
+        include("getEstates.php");
+        echo $result;
+        ?>
+            
+        </div> 
+        <a href="#" id="moreBtn"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5">More posts.</button></a>
+    </div>
+</div>
+
+<!---------------------------------------------------- NEW CONTENT!! --------------------------------------------------------------->
+    
+<?php include ('../../includes/footer.php'); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Ovako je bilo prije -->
+
+
+           <!--  <div class="card shadow-lg mt-5 mb-5" data-aos="fade-up" data-aos-duration="1500">
                 <img src="../../img/promoImage01.jpg" class="card-img-top" alt="Real estate image">
                 <div class="card-body">
                     <h3 class="card-title text-center pb-1">House in Zagreb</h5>
@@ -224,7 +263,7 @@
                     <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>53,38m²</b></p>
                     <p class="card-text">Location: <b>Zagreb</b></p>
                     <p class="card-text text-center text-muted">ID: <b>7328193</b></p>
-                    <p class="card-text text-center text-muted""><a href="../activePost/activePost.html"><b>More ></b></a></p>
+                    <p class="card-text text-center text-muted"><a href="../activePost/activePost.html"><b>More ></b></a></p>
                 </div>
             </div>
             <div class="card shadow-lg mt-5 mb-5" data-aos="fade-up" data-aos-duration="1500">
@@ -343,12 +382,4 @@
                     <p class="card-text text-center text-muted">ID: <b>7328193</b></p>
                     <p class="card-text text-center text-muted""><a href="#"><b>More ></b></a></p>
                 </div>
-            </div>
-            <a href="#" id="moreBtn"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5">More posts.</button></a>
-        </div>
-    </div>
-</div>
-
-<!---------------------------------------------------- NEW CONTENT!! --------------------------------------------------------------->
-    
-<?php include ('../../includes/footer.php'); ?>
+            </div>-->
