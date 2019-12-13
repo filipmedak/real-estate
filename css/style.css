@@ -450,7 +450,7 @@ html{
     height: 100%;
     z-index: 200;
     border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
+    /* border-bottom: 2px solid #000; */
 }
 
 #servicesContent{
@@ -470,6 +470,7 @@ html{
     border-radius: 10px;
     font-size: 0.9em;
     transition: 0.5s;
+    border: 3px solid #fff;
 }
 
 #servicesSection1:hover, #servicesSection2:hover, #servicesSection3:hover{
@@ -484,6 +485,7 @@ html{
 /* Footer */
 footer{
     color: #000;
+    border-top: 2px solid #000;
 }
 
 #footer{

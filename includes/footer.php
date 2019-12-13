@@ -5,7 +5,7 @@
 echo '
 <!-- Footer -->
     <footer>
-        <div id="footer" class="pt-5 pb-2 font-weight-bolder" data-aos="fade-down" data-aos-duration="1500">
+        <div id="footer" class="pt-5 pb-2 font-weight-bolder">
           <div id="footerSection1" class="ml-5 mr-5">
             <a href="#"><p>Real Estate</p></a>
             <a href="#"><p>Profile</p></a>

@@ -57,8 +57,9 @@
         unset($images[0]);
         unset($images[1]);
 
-        echo '<div class="activePost">
-        <h2 class="text-center mt-5 pb-3">'.$type.' in '.$location.'</h2>
+        echo '<div class="background">
+        <div class="activePost">
+        <h2 class="text-center pt-5 pb-3">'.$type.' in '.$location.'</h2>
         <p class="smallDescription pt-2">'.$row["price"].'€ ~ '.($row["price"]*7.44).'kn</p>
         <img src='.$imgPath.$images[2].' class="card-img-top p-3 mainImg" alt="Real estate image">
         <div id="smallImageGallery">';
@@ -92,9 +93,9 @@
             </div>
         </div>
         
-        <div id="basicInformation" class="text-center">
-            <h3 class="mt-5 mb-5">Basic Information</h3>
-            <div class="basicInformationGrid blue">
+        <div id="basicInformation" class="text-center">';
+            // <h3 class="mt-5 mb-5">Basic Information</h3>
+            echo '<div class="basicInformationGrid blue">
                 <p>Location:</p>
                 <p class="boldWhite">'.$location.'</p>
             </div>
@@ -199,6 +200,7 @@
                 <p>Discount:</p>
                 <p class="boldBlack">No</p>
             </div>
+        </div>
         </div>
         </div>';
     }

@@ -198,7 +198,7 @@
         ?>
             
         </div> 
-        <a href="#" id="moreBtn"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5">More posts.</button></a>
+        <a href="#" id="moreBtn"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5 mb-5">More posts.</button></a>
     </div>
 </div>
 
