@@ -199,12 +199,15 @@
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
 /* JS Gallery */
 
+/* .wrapper-gallery{
+    margin: 0 20vw;
+} */
+
 #index-gallery{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-gap: 10px;
-    justify-self: stretch;
     grid-template-areas: 
     "img1 img1 img1"
     "img2 img3 img4";
@@ -212,15 +215,11 @@
 
 #index-gallery .gallery-img{
     width: 100%;
-    height: 200px;
+    height: 300px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     cursor: pointer;
-}
-
-#index-gallery .gallery-img:first-child{
-    height: 300px;
 }
 
 /* Images */
@@ -245,8 +244,24 @@
     background-image: url("../../img/estates/1/thumbnail/img4.jpg");
 }
 
-#index-.gallery .hidden{
-    display: none;
+#index-gallery .img5{
+    grid-area: img5;
+    background-image: url("../../img/estates/1/thumbnail/img5.jpg");
+}
+
+#index-gallery .img6{
+    grid-area: img6;
+    background-image: url("../../img/estates/1/thumbnail/img6.jpg");
+}
+
+#index-gallery .img7{
+    grid-area: img7;
+    background-image: url("../../img/estates/1/thumbnail/img7.jpg");
+}
+
+#index-gallery .img8{
+    grid-area: img8;
+    background-image: url("../../img/estates/1/thumbnail/img8.jpg");
 }
 
 
@@ -292,7 +307,7 @@
 
 .img-window img{
     max-height: 80vh;
-    max-width: 95vw;
+    max-width: 80vw;
 }
 
 /* Next image */
@@ -303,10 +318,9 @@
     background-color: #111111;
     position: fixed;
     top: 48vh;
-    padding: 10px 30px;
     z-index: 500;
     font-family: Arial, Helvetica, sans-serif;
-    color: #ffffff!important;
+    color: #ffffff;
     cursor: pointer;
     text-transform: uppercase;
 }
@@ -323,10 +337,9 @@
     background-color: #111111;
     position: fixed;
     top: 48vh;
-    padding: 10px 30px;
     z-index: 500;
     font-family: Arial, Helvetica, sans-serif;
-    color: #ffffff!important;
+    color: #ffffff;
     cursor: pointer;
     text-transform: uppercase;
 }
@@ -368,8 +381,8 @@
 
     /* Main Grid */
     .activePost{
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 75px 50px 400px auto;
+        grid-template-columns: 1fr 1.3fr;
+        grid-template-rows: 75px 100px auto;
         height: 3000px;
         padding-top: 50px;
         max-width: 1250px;
@@ -392,30 +405,31 @@
     .activePost .smallDescription{
         grid-row: 2;
         grid-column: 1/3;
+        padding-bottom: 50px;
     }
 
-    /* Image gallery */
-    .activePost #index-gallery{
+    /* Main Image */
+    .activePost .mainImg:first-of-type{
+        grid-row: 3;
         grid-column: 2;
-        padding-top: 50px;
-        margin-right: 100px;
+        align-self: start;
+        padding-top: 0!important; 
+        max-height: 450px;
+        width: 100%; 
     }
 
-    #index-gallery .gallery-img:first-child{
-        height: 340px;
-    }
-
-    .gallery-img a{
-        padding-bottom: 215px;
+    /* Smaller Images */
+    .activePost #smallImageGallery{
+        grid-row: 4;
+        grid-column: 2;
     }
 
     /* Basic Information */
     .activePost #basicInformation{
-        grid-row: 3;
+        grid-row: 3/5;
         grid-column: 1;
         max-width: 400px;
-        padding-top: 50px;
-        
+        padding-bottom: 5px;
     }
 
     .activePost #basicInformation h3{
@@ -450,6 +464,12 @@
         grid-column: 1;
         max-width: 400px;
     }
+
+    /* Suggested Posts */
+    /* .activePost #suggestedPosts{
+        grid-row: 9;
+        grid-column: 1/3;
+    } */
 
     .activePost #suggestedPosts .card-deck{
         display: grid;

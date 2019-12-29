@@ -38,7 +38,14 @@
 
 
 <!---------------------------------------------------- NEW CONTENT!! --------------------------------------------------------------->
-    
+<!-- GLAVNA SLIKA IZNAD SMALL IMAGE GALLERY -->
+<!--<img src='.$imgPath.$images[2].' class="card-img-top p-3 mainImg" alt="Real estate image"> -->
+
+<!-- FOR EACH UNUTAR SMALL IMAGE GALLERY -->    
+<!-- foreach ($images as $key => $value) {
+            echo '<img src='.$imgPath.$value.' class="card-img-top p-1" alt="Real estate image">';
+        } -->
+
 <?php
     require_once("../../includes/dbh.inc.php");
 
@@ -61,14 +68,25 @@
         <div class="activePost">
         <h2 class="text-center pt-5 pb-3">'.$type.' in '.$location.'</h2>
         <p class="smallDescription pt-2">'.$row["price"].'€ ~ '.($row["price"]*7.44).'kn</p>
-        <img src='.$imgPath.$images[2].' class="card-img-top p-3 mainImg" alt="Real estate image">
-        <div id="smallImageGallery">';
-        foreach ($images as $key => $value) {
-            echo '<img src='.$imgPath.$value.' class="card-img-top p-1" alt="Real estate image">';
-        }
+        
+        <section id="index-gallery" class="wrapper-gallery">
+            <div class="gallery-img img1">
+                <div><a href="#">Click for bigger image</a></div>
+            </div>
+            <div class="gallery-img img2">
+                <div><a href="#">Click</a></div>
+            </div>
+            <div class="gallery-img img3">
+                <div><a href="#">Click</a></div>
+            </div>
+            <div class="gallery-img img4">
+                <div><a href="#">Click</a></div>
+            </div>
+            </section>
+        ';
+        
 
         echo'
-        </div>
         <div id="smallDescription" class="mt-4">
             <p>Post ID: <span>'.$id.'</span></p>
             <p>Posted: <span>25.11.2019</span></p>
@@ -204,6 +222,8 @@
         </div>
         </div>';
     }
+
+    echo '<script src="../../js/gallery.js"></script>';
 ?>
 
     <!-- <div class="activePost"> -->
@@ -347,6 +367,8 @@
                 <p class="boldBlack">No</p>
             </div>
         </div> -->
+
+        <!-- SUGGESTED POST HTML!!! --
 
         <div id="suggestedPosts" class="text-center mt-5">
             <h3 class="mb-5">More posts like this..</p>
