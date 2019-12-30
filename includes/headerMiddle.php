@@ -29,10 +29,10 @@ echo '
             <div class="bd-highlight font-weight-bold" id="dropdown">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lang</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item font-weight-bold" href="#"><img src="../../img/cro_lang.png" id="croIcon" alt="Croatian Flag Icon" height="30" width="30"></a>
-                    <a class="dropdown-item font-weight-bold" href="#"><img src="../../img/ger_lang.png" id="gerIcon" alt="German Flag Icon" height="30" width="30"></a>
-                    <a class="dropdown-item font-weight-bold" href="#"><img src="../../img/eng_lang.png" id="engIcon" alt="English Flag Icon" height="30" width="30"></a>
+                <div class="dropdown-menu mobileImg" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item font-weight-bold" href="#"><img src="img/cro_lang.png" id="croIcon" alt="Croatian Flag Icon" height="30" width="30"></a>
+                    <a class="dropdown-item font-weight-bold" href="#"><img src="img/ger_lang.png" id="gerIcon" alt="German Flag Icon" height="30" width="30"></a>
+                    <a class="dropdown-item font-weight-bold" href="#"><img src="img/eng_lang.png" id="engIcon" alt="English Flag Icon" height="30" width="30"></a>
                 </div>
             </li>
             </div>
@@ -46,10 +46,6 @@ echo '
                 <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item font-weight-bold profileColor" href="includes/login.php"><i class="fas fa-sign-in-alt"></i>Log In</a>
-                    <a class="dropdown-item font-weight-bold profileColor" href="includes/register.php"><i class="fas fa-user-plus"></i>Sign Up</a>
-                </div>
             </li>
             </div>
 

@@ -1,41 +1,45 @@
 <?php include ('includes/headerTop.php'); ?>
 
+<link rel="stylesheet" href="css/style.css">
+
 <?php include ('includes/headerMiddle.php'); ?>
 
-<link rel="stylesheet" href="css/style.css">
+
 
 <!-- Navigation Links -->
 
+
 <li class="nav-item">
-<a class="nav-link first" href="subSites/realEstates/realEstates.php">Real estates<span class="sr-only">(current)</span></a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="subSites/services/services.php">Services</a>
+  <a class="nav-link" href="#">Home</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="subSites/contact/contact.php">Contact</a>
+  <a class="nav-link" href="subSites/realEstates/realEstates.php">Real estates</a>
+</li>
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About us</a>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Service</a>
+    <a class="dropdown-item" href="#">Adresses</a>
+    <a class="dropdown-item" href="#">Finding real estate</a>
+  </div>
+</li>
+<li class="nav-item dropdown longerDropdown">
+  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Living in croatia</a>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Regions</a>
+    <a class="dropdown-item" href="#">General info</a>
+    <a class="dropdown-item" href="#">Useful links</a>
+  </div>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="subSites/terms/terms.php">Terms</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="subSites/profile/profile.php">Profile</a>
-</li>
-<li class="nav-item mobileOnly">
-<a class="nav-link" href="#">Hello, Pero</a>
-</li>
-<li class="nav-item mobileOnly">
-<a class="nav-link" href="includes/login.php"><i class="fas fa-sign-in-alt"></i>Log In</a>
-</li>
-<li class="nav-item mobileOnly">
-<a class="nav-link" href="includes/register.php"><i class="fas fa-user-plus"></i>Sign Up</a>
+  <a class="nav-link" href="subSites/contact/contact.php">Contact</a>
 </li>
 
 
 <?php include ('includes/headerBottom.php'); ?>
 
-<!-- Sticky Language Menu - Desktop only -->
-<div id="sticky">
+    <!-- Sticky Language Menu - Desktop only -->
+    <div id="sticky">
       <a class="dropdown-item font-weight-bold" class="stickyLang" href="#"><img src="img/cro_lang.png" id="croIcon" alt="Croatian Flag Icon" height="30" width="30"></a>
       <a class="dropdown-item font-weight-bold" class="stickyLang" href="#"><img src="img/ger_lang.png" id="gerIcon" alt="German Flag Icon" height="30" width="30"></a>
       <a class="dropdown-item font-weight-bold" class="stickyLang" href="#"><img src="img/eng_lang.png" id="engIcon" alt="English Flag Icon" height="30" width="30"></a>

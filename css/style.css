@@ -1,7 +1,6 @@
 /* Basic settings */
 html, body{
     max-width: 100%;
-    /* overflow-x: hidden; */
     font-family: 'Montserrat', sans-serif;
     font-size: 1em;
     margin: 0 auto;
@@ -109,42 +108,13 @@ html{
 }
 
 .dropdown-menu{
-    margin-right: 50px!important;
-    left: -50px;
-    border: 2px solid #000;
+    padding: 0!important;
+    border: none;
 }
 
-#dropdown{
-    justify-self: end;
-}
 
-.profileColor{
-    background: #3B4483;
-    color: #fff;
-    font-weight: lighter!important;
-}
-
-.profileColor:first-child{
-    margin-top: -8px;
-}
-
-.profileColor:last-child{
-    margin-bottom: -8px;  
-}
-
-.mobileOnly{
-    margin-left: -50px;
-    margin-right: -50px;
-    background: #3B4483;
-}
-
-.mobileOnly .nav-link{
-    color: #fff!important;
-    font-weight: lighter!important;
-}
-
-.mobileOnly i{
-    margin-right: 5px;
+.longerDropdown .dropdown-menu{
+    margin-left: 25px!important;
 }
 
 .dropdown-menu i{
@@ -152,8 +122,62 @@ html{
     font-size: 1em;
 }
 
+
+#dropdown{
+    justify-self: end;
+}
+
 #dropdownProfile{
     display: none;
+}
+
+.backgroundBlack{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#profileNavigation .interface{
+    color: #000;
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    z-index: 1500;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 20px;
+    grid-template-rows: 75px 50px 300px;
+    align-items: center;
+    border: 2px solid #fff;
+    background: #fff;
+    cursor: auto;
+    top: 50;
+    left: 50;
+    border-radius: 25px;
+    position: fixed;
+    padding:25px 35px;
+}
+
+#profileNavigation .interface #btnPos .profileBtn{
+    font-size: 25px;
+    text-decoration: none;
+    color: #3B4483;
+}
+
+#profileNavigation .interface button{
+    background: #3B4483;
+}
+
+#profileNavigation .interface #myTabContent{
+    grid-column: 1/3;
 }
 
 .navbar-nav:last-child{
@@ -161,11 +185,19 @@ html{
 }
 
 #navigation .dropdown-item{
-    padding: 0;
-    padding-left: 21px;
+    text-align: center;
+    white-space: normal;
+    padding: 10px 0;
+    font-weight: bold;
 }
 
-.dropdown-item{
+.dropdown-item:last-child, .dropdown-item:first-child{
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-item:last-child{
+    border-bottom: none;
     border-bottom: 2px solid #000;
 }
 
@@ -177,14 +209,16 @@ html{
     left: 0;
     min-width: 0;
     width: 75px!important;
+    border: 2px solid #000;
 }
+
 
 #croIcon{
     margin: 0 0 5px 0;
 }
 
 #gerIcon{
-    margin: 5px 20px 5px 0;
+    margin: 5px 20px 5px 20px;
 }
 
 #engIcon{
@@ -384,6 +418,7 @@ html{
 #promo .card-deck .card{
     max-width: 300px;
     transition: 0.5s;
+    border: 2px solid #fff;
 }
 
 #promo .card-deck .card:hover{
@@ -545,11 +580,11 @@ footer{
 { 
     /* Navigation */
 
-        #navigationTopContent{
-            grid-template-columns: 1fr 1fr 1fr;
-            font-size: 0.9em;
-            padding: 0 15px;
-        }
+    #navigationTopContent{
+        grid-template-columns: 1fr 1fr 1fr;
+        font-size: 0.9em;
+        padding: 0 15px;
+    }
 
     #navigationTopContent01{
         grid-column: 1;
@@ -680,6 +715,7 @@ footer{
     #dropdownProfile{
         width: 40px;
         display: block;
+        padding: -50px;
     }
 
     #dropdownProfile .dropdown-menu .dropdown-item{
@@ -712,6 +748,19 @@ footer{
 
     #navigationTopContent01 a{
         margin-right: 50px;
+    }
+
+    .dropdown-menu{
+        border: 1px solid #000;
+        padding: 0!important;
+    }
+    
+    .dropdown-item{
+        border-bottom: 2px solid #000;
+    }
+
+    #gerIcon{
+        margin: 5px 20px 5px 0;
     }
 
     /* SearchEngine */
@@ -779,7 +828,6 @@ footer{
 
 
 .login-reg-window{
-    
     background: #343a40d4;
     position: fixed;
     z-index: 10001;

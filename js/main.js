@@ -63,3 +63,23 @@ window.onscroll = function() {
         previousScrollPosition = currentScrollPosition;
 }
 //-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+// Hide/show login/signup
+let buttonProfile = document.getElementById("dropdownProfile");
+let windowProfile = document.getElementById("profileNavigation");
+let windowCloseBtn = document.querySelector(".profileBtn");
+
+buttonProfile.onclick = function(){
+        windowProfile.style.display = "flex";
+        windowCloseBtn.setAttribute("onclick", "closeWindow()");
+}
+
+function closeWindow(){
+        windowProfile.style.display = "none";
+}
+
+
