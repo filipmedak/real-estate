@@ -54,8 +54,8 @@ if (!mysqli_query($connection,$sql)) {
     <div class="my-2 px-4"><span>Price in €: </span><input name="price" type="number"></div>
     <div class="my-2 px-4"><span>Size(m²): </span><input name="size" type="number"></div>
     <div class="my-2 px-4"><span>Number of rooms: </span><input name="rooms" type="number"></div>
-    <div class="my-2 px-4"><span>Cover: </span><input class="imgUpload" type="file" name="fileToUpload" id="fileToUpload"></div>
+    <div class="my-2 px-4"><span>Image: </span><input class="imgUpload" type="file" name="fileToUpload" id="fileToUpload"></div>
     </div>
 
-    <button class="btn btn-dark mt-3 pl-5 pr-5" type="submit" value="Add" name="submit">Submit</button>
+    <button class="bg-lightblue text-white border-none mt-3 pl-5 pr-5" type="submit" value="Add" name="submit">Submit</button>
 </form>
