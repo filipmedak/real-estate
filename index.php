@@ -65,7 +65,12 @@
               <option value="cottage">Cottage</option>
             </select>
           </div>
-              
+          
+          <div class="rangeSlider">
+            <p>Vrijednost: <span id="demo"></span></p>
+            <input type="range" min="1" max="100" value="50" class="mySlider" id="sliderRange">  
+          </div>
+
           <!--Search button-->
           <a href="#"><button type="button" class="blueButton btn btn-dark mt-3 pl-5 pr-5">Search!</button></a>
   
@@ -83,18 +88,6 @@
                 <div class="card-body">
                   <!--Additional setting for search-->
                   <div class="form-group">
-                    <div class="input-group mt-3">
-                      <input type="text" class="form-control" placeholder="min €" aria-label="" aria-describedby="basic-addon1">
-                      <input type="text" class="form-control" placeholder="max €" aria-label="" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mt-3">
-                      <input type="text" class="form-control" placeholder="min room" aria-label="" aria-describedby="basic-addon1">
-                      <input type="text" class="form-control" placeholder="max room" aria-label="" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mt-3 mb-3">
-                      <input type="text" class="form-control" placeholder="min m²" aria-label="" aria-describedby="basic-addon1">
-                      <input type="text" class="form-control" placeholder="max m²" aria-label="" aria-describedby="basic-addon1">
-                    </div>
                     <div id="searchEngineBarTextDetails">
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="newBuilding">

@@ -82,3 +82,14 @@ function closeWindow(){
         windowProfile.style.display = "none";
 }
 
+
+
+// Slider value
+let rangeslider = document.getElementById("sliderRange");
+let output = document.getElementById("demo");
+output.innerHTML = rangeslider.value;
+
+rangeslider.oninput = function(){
+        output.innerHTML = this.value;
+        
+}

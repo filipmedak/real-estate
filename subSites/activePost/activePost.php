@@ -95,7 +95,7 @@
         <div id="smallDescriptionImportant" class="text-center mt-4">
             <div>
                 <p class="bolderP pt-3"><i class="fas fa-expand-arrows-alt"></i><br>Estate m²</p>
-                <p>'.$row["size"].'m²</p>
+                <p>'.$row["property_size"].'m²</p>
             </div>
             <div>
                 <p class="bolderP pt-3"><i class="fas fa-globe"></i><br>Whole m²</p>
@@ -135,7 +135,7 @@
             </div>  
             <div class="basicInformationGrid">
                 <p>Living area:</p>
-                <p class="boldBlack">'.$row["size"].'m²</p>
+                <p class="boldBlack">'.$row["property_size"].'m²</p>
             </div>  
             <div class="basicInformationGrid blue">
                 <p>Yard surface:</p>

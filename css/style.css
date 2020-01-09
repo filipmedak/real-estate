@@ -342,6 +342,16 @@ html{
     max-width: 300px;
 }
 
+/* Value slider */
+
+#searchEngineBarText .rangeSlider{
+    width: 100%;
+}
+
+#searchEngineBarText .rangeSlider .mySlider{
+    width: 100%;
+}
+
 #collapseTwo .form-control{
     font-size: 0.77em;
     white-space: normal;
