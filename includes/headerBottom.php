@@ -37,32 +37,7 @@ echo '
                 </li>
             </ul>
 
-            <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade active show" id="profile">
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <span>E-mail:</span><input type="email" name="email" id="inputEmail" class="form-control my-3"  required autofocus>
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <span>Password:</span><input type="password" name="passw" id="inputPassword" class="form-control my-3"  required>
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me"><span class="ml-2">Remember me</span>
-                        </label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-                </div>
-                <div class="tab-pane fade" id="home">
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <span>E-mail:</span><input type="email" name="email" id="inputEmail" class="form-control my-3"  required autofocus>
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <span>Password:</span><input type="password" name="passw" id="inputPassword" class="form-control my-3"  required>
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me"><span class="ml-2">Remember me</span>
-                        </label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-                </div>
-            </div>
+            
         </div> 
     </div>
 ';

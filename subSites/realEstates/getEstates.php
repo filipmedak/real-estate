@@ -38,7 +38,6 @@ if (isset($_POST["getEstates"])) {
 }
 
 
-
 function fillResults($result){
     $resultAds="";
     if ($result->num_rows > 0) {
@@ -47,8 +46,10 @@ function fillResults($result){
     
             $imgPath='../../img/estates/'.$row['id'].'/';
             $images=scandir($imgPath);
+
+            
     
-            $location=ucfirst($row["city.name"]);
+            $location=ucfirst($row["city"]);
             $type=ucfirst($row["type"]);
     
             $resultAds.='<div class="card shadow-lg mt-5 mb-5" data-aos="fade-up" data-aos-duration="1500">
