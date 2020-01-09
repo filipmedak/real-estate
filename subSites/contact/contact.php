@@ -1,11 +1,9 @@
 <?php include ('../../includes/headerTop.php'); ?>
 
-<?php include ('../../includes/headerMiddle.php'); ?>
-
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/headerFooter.css">
 <link rel="stylesheet" href="contact.css">
 
-
+<?php include ('../../includes/headerMiddle.php'); ?>
 
 <!-- Navigation Links -->
 <li class="nav-item">

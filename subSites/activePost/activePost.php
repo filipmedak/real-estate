@@ -1,11 +1,9 @@
 <?php include ('../../includes/headerTop.php'); ?>
 
-<?php include ('../../includes/headerMiddle.php'); ?>
-
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/headerFooter.css">
 <link rel="stylesheet" href="activePost.css">
 
-
+<?php include ('../../includes/headerMiddle.php'); ?>
 
 <!-- Navigation Links -->
 <li class="nav-item">
@@ -68,22 +66,23 @@
         echo '<div class="background">
         <div class="activePost">
         <h2 class="text-center pt-5 pb-3">'.$type.' in '.$location.'</h2>
-        <p class="smallDescription pt-2">'.$row["price"].'€ ~ '.($row["price"]*7.44).'kn</p>
-        
-        <section id="index-gallery" class="wrapper-gallery">
-            <div class="gallery-img img1">
-                <div><a href="#">Click for bigger image</a></div>
+        <p class="smallDescription pt-2">'.$row["price"].'€ ~ '.($row["price"]*7.44).'kn</p>';
+
+        echo'
+        <div id="index-gallery">
+            <div class="gallery-img">
+                <img src="../../img/estates/1/thumbnail/img1.jpg" class="mainImg">
             </div>
-            <div class="gallery-img img2">
-                <div><a href="#">Click</a></div>
+            <div class="gallery-img">
+                <img src="../../img/estates/1/thumbnail/img2.jpg" class="secImg">
             </div>
-            <div class="gallery-img img3">
-                <div><a href="#">Click</a></div>
+            <div class="gallery-img">
+                <img src="../../img/estates/1/thumbnail/img3.jpg" class="secImg">
             </div>
-            <div class="gallery-img img4">
-                <div><a href="#">Click</a></div>
+            <div class="gallery-img">
+                <img src="../../img/estates/1/thumbnail/img4.jpg" class="secImg">
             </div>
-        </section>
+        </div>
         ';
         
 

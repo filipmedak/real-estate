@@ -82,4 +82,3 @@ function closeWindow(){
         windowProfile.style.display = "none";
 }
 
-
