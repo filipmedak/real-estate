@@ -837,32 +837,3 @@ footer{
 }
 
 
-.login-reg-window{
-    background: #343a40d4;
-    position: fixed;
-    z-index: 10001;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-}
-.login-reg-popup{
-    background: #e1e1e1;
-    width:80%;
-    height:500px;
-    max-width: 500px;
-    border-radius: 10px;
-}
-.login-reg-popup>div{
-    border-radius: 10px;
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-evenly;
-}
-.form-signin{
-    background: crimson koji k;
-}
