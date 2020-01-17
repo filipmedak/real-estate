@@ -47,8 +47,6 @@ if(galleryImages){
                     //Spusatmo gubm ispod slike na mobilnoj verziji 
                     newNextBtn.style.cssText = "right:20%; top:550px;";
                     
-                    
-
                     //Previous gumb
                     let newPrevBtn = document.createElement("a");
                     let btnPrevText = document.createTextNode("Prev");

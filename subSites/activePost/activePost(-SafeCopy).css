@@ -15,6 +15,7 @@
     margin: -10px 10px 0 10px;
 }
 
+
 .activePost .smallDescription{
     font-size: 1.2em;
     justify-self: center;
@@ -199,95 +200,34 @@
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
 /* JS Gallery */
 
-/* .wrapper-gallery{
-    margin: 0 20vw;
-} */
-
-#index-gallery{
+.activePost #index-gallery{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-gap: 10px;
-    grid-template-areas: 
-    "img1 img1 img1"
-    "img2 img3 img4";
+    grid-column-gap: 10px;
+    grid-row-gap: 25px;
 }
 
-#index-gallery .gallery-img{
-    width: 100%;
-    height: 300px;
+.activePost #index-gallery .gallery-img{
+    max-width: 166.666667px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     cursor: pointer;
 }
 
-/* Images */
-
-#index-gallery .img1{
-    grid-area: img1;
-    background-image: url("../../img/estates/1/thumbnail/img1.jpg");
+.activePost #index-gallery .gallery-img:first-child{
+    grid-column: 1/4;
+    max-width: 525px;   
 }
 
-#index-gallery .img2{
-    grid-area: img2;
-    background-image: url("../../img/estates/1/thumbnail/img2.jpg");
-}
-
-#index-gallery .img3{
-    grid-area: img3;
-    background-image: url("../../img/estates/1/thumbnail/img3.jpg");
-}
-
-#index-gallery .img4{
-    grid-area: img4;
-    background-image: url("../../img/estates/1/thumbnail/img4.jpg");
-}
-
-#index-gallery .img5{
-    grid-area: img5;
-    background-image: url("../../img/estates/1/thumbnail/img5.jpg");
-}
-
-#index-gallery .img6{
-    grid-area: img6;
-    background-image: url("../../img/estates/1/thumbnail/img6.jpg");
-}
-
-#index-gallery .img7{
-    grid-area: img7;
-    background-image: url("../../img/estates/1/thumbnail/img7.jpg");
-}
-
-#index-gallery .img8{
-    grid-area: img8;
-    background-image: url("../../img/estates/1/thumbnail/img8.jpg");
-}
-
-
-/* Images titles*/
-
-.gallery-img div{
+.activePost #index-gallery .gallery-img .mainImg{
     width: 100%;
-    height: 100%;
-    background-color: #000000;
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: auto;
 }
 
-.gallery-img a{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-.gallery-img div:hover{
-    opacity: 0.8;
-    transition: all ease-in-out 100ms;
+.activePost #index-gallery .gallery-img .secImg{
+    width: 100%;
+    height: auto;
 }
 
 /* Popup window when clicked */
@@ -307,7 +247,7 @@
 
 .img-window img{
     max-height: 80vh;
-    max-width: 80vw;
+    max-width: 95vw;
 }
 
 /* Next image */
@@ -318,9 +258,10 @@
     background-color: #111111;
     position: fixed;
     top: 48vh;
+    padding: 10px 30px;
     z-index: 500;
     font-family: Arial, Helvetica, sans-serif;
-    color: #ffffff;
+    color: #ffffff!important;
     cursor: pointer;
     text-transform: uppercase;
 }
@@ -337,9 +278,10 @@
     background-color: #111111;
     position: fixed;
     top: 48vh;
+    padding: 10px 30px;
     z-index: 500;
     font-family: Arial, Helvetica, sans-serif;
-    color: #ffffff;
+    color: #ffffff!important;
     cursor: pointer;
     text-transform: uppercase;
 }
@@ -375,14 +317,14 @@
 {  
     /* Side background */ 
     .background{
-        background: url('../../img/sideWallpaper.jpg');
+        /*background: url('../../img/sideWallpaper.jpg');*/
         padding-top: -150px;
     }
 
     /* Main Grid */
     .activePost{
-        grid-template-columns: 1fr 1.3fr;
-        grid-template-rows: 75px 100px auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 75px 50px 200px 350px 75px 50px auto;
         height: 3000px;
         padding-top: 50px;
         max-width: 1250px;
@@ -397,7 +339,6 @@
         grid-column: 1/3;
         margin: 0!important;
         padding: 0!important;
-        max-height: 200px;
         font-size: 3em;
     }
 
@@ -405,31 +346,35 @@
     .activePost .smallDescription{
         grid-row: 2;
         grid-column: 1/3;
-        padding-bottom: 50px;
     }
 
-    /* Main Image */
-    .activePost .mainImg:first-of-type{
-        grid-row: 3;
+    /* Image gallery */
+    .activePost #index-gallery{
         grid-column: 2;
-        align-self: start;
-        padding-top: 0!important; 
-        max-height: 450px;
-        width: 100%; 
+        padding-top: 50px;
+        margin-right: 100px;
     }
 
-    /* Smaller Images */
-    .activePost #smallImageGallery{
-        grid-row: 4;
-        grid-column: 2;
+    #index-gallery .gallery-img:first-child{
+        height: 340px;
+        width: auto;
+    }
+
+    .gallery-img a{
+        padding-bottom: 215px;
     }
 
     /* Basic Information */
     .activePost #basicInformation{
-        grid-row: 3/5;
+        grid-row: 3;
         grid-column: 1;
         max-width: 400px;
-        padding-bottom: 5px;
+        padding-top: 50px;
+    }
+
+    .activePost #basicInformation .basicInformationGrid, .activePost #basicInformation .basicInformationGrid p{
+        padding: 6px 0;
+        margin: 0;
     }
 
     .activePost #basicInformation h3{
@@ -439,37 +384,39 @@
     /* Post Information */
     .activePost #smallDescription{
         grid-row: 5;
-        grid-column: 2;
-        padding-top: 150px;
+        grid-column: 1;
+        align-self: end;
     }
 
     /* Important Small Description */
     .activePost #smallDescriptionImportant{
         grid-row: 5;
         grid-column: 2;
+        justify-self: start;
         align-self: start;
-        max-width: 700px;
+        max-width: 525px;
+        padding: 0;
+        margin: 0;
     }
 
     /* Button */
     .activePost a{
-        grid-row: 5;
-        grid-column: 2;
-        padding-top: 225px;
+        grid-row: 6;
+        grid-column: 1;
     }
-
+    
     /* Additional Information */
     .activePost #additionalInformation{
-        grid-row: 5;
-        grid-column: 1;
-        max-width: 400px;
+        grid-row: 6;
+        grid-column: 1/3;
+        padding-top: 150px;
     }
 
-    /* Suggested Posts */
-    /* .activePost #suggestedPosts{
-        grid-row: 9;
-        grid-column: 1/3;
-    } */
+    .activePost #additionalInformation h2{
+        font-size: 2em;
+        padding-right: 300px;
+        border-bottom: 2px solid #3B4483;   
+    }
 
     .activePost #suggestedPosts .card-deck{
         display: grid;
@@ -478,10 +425,11 @@
 
     /* Google Maps Embbed */
     .embed{
-        grid-row: 5;
+        grid-row: 10;
         grid-column: 2;
         max-width: 650px;
         align-self: center;
+        display: none;
     }
     
 }
