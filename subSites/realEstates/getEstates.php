@@ -32,7 +32,18 @@ if (isset($_POST["getEstates"])) {
     $result=fillResults($result);
     
 }else{
-    $sql = "SELECT * FROM estates";
+    $sql = "SELECT 
+    estates.price,
+    estates.rooms,
+    estates.property_size,
+    estates.id,
+    city.name as `city`,
+    estatetypes.type,
+    energy_classes.class as `en-class`
+    FROM estates
+    INNER JOIN city ON (estates.city = city.id)
+    INNER JOIN estatetypes ON (estates.type = estatetypes.id)
+    INNER JOIN energy_classes ON (estates.energy_class = energy_classes.id)"; 
     $result = $connection->query($sql);
     $result=fillResults($result);
 }
@@ -55,14 +66,14 @@ function fillResults($result){
             $resultAds.='<div class="card shadow-lg mt-5 mb-5" data-aos="fade-up" data-aos-duration="1500">
             <img src='.$imgPath.$images[2].' class="card-img-top" alt="Real estate image">
             <div class="card-body">
-                <h3 class="card-title text-center pb-1">'.$type.' in '.$location.'</h5>
+                <h3 class="card-title text-center pb-1">'.$type.' in '.$location.'</h3>
                 <p class="card-text">Price: <b>'.$row["price"].'€</b></p>
-                <p class="card-text">Type: <b>'.$type.'</b></p>
                 <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>'.$row["rooms"].'</b></p>
-                <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: '.$row["property_size"].'m²</b></p>
                 <p class="card-text">Location: <b>'.$location.'</b></p>
+                <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: '.$row["property_size"].'m²</b></p>
+                <p class="card-text">E-class: <b>'.$row["en-class"].'</b></p>
                 <p class="card-text text-center text-muted">ID: <b>'.$row["id"].'</b></p>
-                <p class="card-text text-center text-muted hov"><a href="../activePost/activePost.php?id='.$row["id"].'"><b>More ></b></a></p>
+                <p class="card-text text-center text-muted hov"><a href="../activePost/activePost.php?id='.$row["id"].'"><b>More info ></b></a></p>
             </div>
         </div>';
         }

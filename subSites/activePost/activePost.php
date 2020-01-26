@@ -42,7 +42,14 @@
     require_once("../../includes/dbh.inc.php");
 
     $id=$_GET["id"];
-    $sql="SELECT * FROM estates WHERE id=$id";
+    $sql="SELECT estates.*,
+    city.name as `city`,
+    estatetypes.type,
+    energy_classes.class as `en-class`
+    FROM estates
+    INNER JOIN city ON (estates.city = city.id)
+    INNER JOIN estatetypes ON (estates.type = estatetypes.id)
+    INNER JOIN energy_classes ON (estates.energy_class = energy_classes.id) WHERE estates.id=$id"; 
     
 
     $result = $connection->query($sql);
@@ -62,9 +69,13 @@
         <h2 class="text-center pt-5 pb-3">'.$type.' in '.$location.'</h2>
         <p class="smallDescription pt-2">'.$row["price"].'€ ~ '.($row["price"]*7.44).'kn</p>';
 
+        // print_r($images);
+
+
+
         echo'
         <div id="index-gallery">
-            <div class="gallery-img">
+        <!--    <div class="gallery-img">
                 <img src="'.$imgPath.'thumbnail/img1.jpg" class="mainImg galleryImg">
             </div>
             <div class="gallery-img">
@@ -75,7 +86,14 @@
             </div>
             <div class="gallery-img">
                 <img src="'.$imgPath.'thumbnail/img4.jpg" class="secImg galleryImg">
-            </div>
+            </div>-->';
+            foreach ($images as $key => $value) {
+                echo '
+                <div class="gallery-img">
+                    <img src="'.$imgPath.$value.'" class="mainImg galleryImg">
+                </div>';
+            }
+            echo '
         </div>';
         
 
