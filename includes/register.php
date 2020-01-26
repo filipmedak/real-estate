@@ -1,11 +1,10 @@
 <?php
 
 include 'functions.php';
+session_start();
 
-$errArray = checkForErrors();
 
-$error=$errArray[0];
-$name=$errArray[1];
+
 
 ?>
 
@@ -27,7 +26,6 @@ $name=$errArray[1];
     <link href="../css/login.css" rel="stylesheet">
 
     <style>
-
     .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -49,58 +47,58 @@ $name=$errArray[1];
 
 <body class="text-center">
     <div class="container form-container">
-    <form class="form-signin" action="register.inc.php" method="POST">
-        <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-5 font-weight-normal">Sign up</h1>
+        <form class="form-signin" action="register.inc.php" method="POST">
+            <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <h1 class="h3 mb-5 font-weight-normal">Sign up</h1>
 
-
-        <?php
-
-            if($error!=""){
-                echo '<p class="error-message">'.$error.'</p>';
-            }
-
+            <?php
+        if(isset($_SESSION["sign-error"])){
+            echo '
+            <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>'.$_SESSION["sign-error"].'
+            </div>
+            ';
+        }
         ?>
 
-        <label for="inputName" class="sr-only">Name and Lastname</label>
-        <span class="text-white">Your first name and last name:</span>
-        <?php
-        echo '<input type="name" name="name" id="inputName" class="form-control my-3" placeholder="Your name and last name" value="'.$name.'" required autofocus>';
-        ?>
 
-        <label for="inputUsername" class="sr-only">Email address</label>
-        <span class="text-white">Username:</span><input type="text" name="username" id="inputUsername" class="form-control my-3" placeholder="Username" required>
+            <span class="text-white">First name:</span>
+            <input type="text" name="firstname" id="inputName" class="form-control my-3" placeholder="First name"
+                value="" required autofocus>
 
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <span class="text-white">E-mail:</span><input type="email" name="email" id="inputEmail" class="form-control my-3" placeholder="Email address" required>
+            <span class="text-white">Last name:</span>
+            <input type="text" name="lastname" id="inputName" class="form-control my-3" placeholder="Last name" value=""
+                required>
 
-        <label for="inputConfEmail" class="sr-only">Confirm Email address</label>
-        <span class="text-white">Confirm E-mail:</span><input type="email" name="confemail" id="ConfirminputEmail" class="form-control my-3"
-            placeholder="Confirm Email address" required>
+            <span class="text-white">Username:</span>
+            <input type="text" name="username" id="inputUsername" class="form-control my-3" placeholder="Username"
+                required>
 
-        <label for="inputPassword" class="sr-only">Password</label>
-        <span class="text-white">Password:</span><input type="password" name="passw" id="inputPassword" class="form-control my-3" placeholder="Password"
-            required>
+            <span class="text-white">E-mail:</span>
+            <input type="email" name="email" id="inputEmail" class="form-control my-3" placeholder="Email address"
+                required>
 
-        <label for="inputConfPassword" class="sr-only">Confirm Password</label>
-        <span class="text-white">Confirm password:</span><input type="password" name="confpassw" id="inputConfPassword" class="form-control my-3"
-            placeholder="Confirm Password" required>
+            <span class="text-white">Password:</span>
+            <input type="password" name="passw" id="inputPassword" class="form-control my-3" placeholder="Password"
+                required>
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"><span class="text-white ml-2">Remember me</span> 
-            </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" name="register">Sign up</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
-        <a href="login.php">Already have an account? Log in.</a>
-        
-    </form>
+            <span class="text-white">Confirm password:</span>
+            <input type="password" name="confpassw" id="inputConfPassword" class="form-control my-3"
+                placeholder="Confirm Password" required>
+
+            <button class="btn btn-lg btn-primary btn-block my-5" type="submit" name="register">Sign up</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+            <a href="login.php">Already have an account? Log in.</a>
+
+        </form>
 
 
 
-    
-        </div>
+
+
+
+
+    </div>
 </body>
 
 </html>

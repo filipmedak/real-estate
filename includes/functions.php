@@ -44,12 +44,4 @@ function checkForErrors(){
 
 
 
-
-
-
-function backToForm($error,$name){
-    header('Location: register.php?error='.$error.'&name='.$name);
-    exit();
-}
-
 ?>
