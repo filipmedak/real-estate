@@ -22,7 +22,8 @@ $name=$errArray[1];
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/login.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- <link href="../css/login.css" rel="stylesheet"> -->
 
     <style>
     .bd-placeholder-img {
@@ -41,12 +42,16 @@ $name=$errArray[1];
     }
     </style>
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+    <!-- <link href="signin.css" rel="stylesheet"> -->
 </head>
 
-<body class="text-center">
+<body class="">
+<?php 
+    include("headerMiddle.php");
+    include("headerBottom.php");
+?>
     <div class="container form-container">
-    <form class="form-signin" action="login.inc.php" method="POST">
+    <form class="form-signin my-5" action="login.inc.php" method="POST">
         <?php
 
         if($error!=""){
@@ -54,25 +59,28 @@ $name=$errArray[1];
         }
 
     ?>
-
-        <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-5 font-weight-normal">Sign in</h1>
+    
+    <div class="w-50 mx-auto text-left">
+    <h1 class="h3 mb-5 font-weight-normal text-center">Sign in</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <span class="text-white">E-mail:</span><input type="email" name="email" id="inputEmail" class="form-control my-3"  required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <span class="text-white">Password:</span><input type="password" name="passw" id="inputPassword" class="form-control my-3"  required>
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"><span class="text-white ml-2">Remember me</span>
-            </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+        <span class="">E-mail:</span><input type="email" name="email" id="inputEmail" class="form-control my-3"  required autofocus>
 
-        <a href="register.php">Dont have an account? Sign up.</a>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <span class="">Password:</span><input type="password" name="passw" id="inputPassword" class="form-control my-3"  required>
+
+        <button class="btn btn-lg btn-primary btn-block my-4 " type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2019</p>
+
+        <a class="text-center d-block" href="register.php" >Dont have an account? Sign up.</a>
+    </div>
+        
+
     </form>
     
 </div>
+<?php 
+    include("footer.php");
+?>
 </body>
 
 </html>

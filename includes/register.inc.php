@@ -93,7 +93,7 @@ if(isset($_POST['register'])){
         if($stmt){
 
             //Hash the password
-            $passw=password_hash($passw, PASSWORD_DEFAULT);
+            // $passw=password_hash($passw, PASSWORD_DEFAULT);
 
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "sssss", $firstname, $lastname, $username, $email, $passw);

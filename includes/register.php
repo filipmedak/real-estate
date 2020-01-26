@@ -4,11 +4,7 @@ include 'functions.php';
 session_start();
 
 
-
-
 ?>
-
-
 
 
 <!doctype html>
@@ -23,7 +19,8 @@ session_start();
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/login.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- <link href="../css/login.css" rel="stylesheet"> -->
 
     <style>
     .bd-placeholder-img {
@@ -42,12 +39,16 @@ session_start();
     }
     </style>
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+    <!-- <link href="signin.css" rel="stylesheet"> -->
 </head>
 
 <body class="text-center">
+<?php 
+    include("headerMiddle.php");
+    include("headerBottom.php");
+?>
     <div class="container form-container">
-        <form class="form-signin" action="register.inc.php" method="POST">
+        <form class="form-signin mb-5" action="register.inc.php" method="POST">
             <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
             <h1 class="h3 mb-5 font-weight-normal">Sign up</h1>
 
@@ -61,44 +62,50 @@ session_start();
         }
         ?>
 
+            <div class="row text-left">
+                <div class="col">
+                    <span class="">First name:</span>
+                    <input type="text" name="firstname" id="inputName" class="form-control my-3"
+                        placeholder="First name" value="" required autofocus>
 
-            <span class="text-white">First name:</span>
-            <input type="text" name="firstname" id="inputName" class="form-control my-3" placeholder="First name"
-                value="" required autofocus>
+                    <span class="">Last name:</span>
+                    <input type="text" name="lastname" id="inputName" class="form-control my-3" placeholder="Last name"
+                        value="" required>
 
-            <span class="text-white">Last name:</span>
-            <input type="text" name="lastname" id="inputName" class="form-control my-3" placeholder="Last name" value=""
-                required>
+                    <span class="">Username:</span>
+                    <input type="text" name="username" id="inputUsername" class="form-control my-3"
+                        placeholder="Username" required>
+                </div>
+                <div class="col">
+                    <span class="">E-mail:</span>
+                    <input type="email" name="email" id="inputEmail" class="form-control my-3"
+                        placeholder="Email address" required>
 
-            <span class="text-white">Username:</span>
-            <input type="text" name="username" id="inputUsername" class="form-control my-3" placeholder="Username"
-                required>
+                    <span class="">Password:</span>
+                    <input type="password" name="passw" id="inputPassword" class="form-control my-3"
+                        placeholder="Password" required>
 
-            <span class="text-white">E-mail:</span>
-            <input type="email" name="email" id="inputEmail" class="form-control my-3" placeholder="Email address"
-                required>
+                    <span class="">Confirm password:</span>
+                    <input type="password" name="confpassw" id="inputConfPassword" class="form-control my-3"
+                        placeholder="Confirm Password" required>
+                </div>
+            </div>
 
-            <span class="text-white">Password:</span>
-            <input type="password" name="passw" id="inputPassword" class="form-control my-3" placeholder="Password"
-                required>
 
-            <span class="text-white">Confirm password:</span>
-            <input type="password" name="confpassw" id="inputConfPassword" class="form-control my-3"
-                placeholder="Confirm Password" required>
 
-            <button class="btn btn-lg btn-primary btn-block my-5" type="submit" name="register">Sign up</button>
+
+            <button class="btn btn-lg btn-primary btn-block my-5 w-50 mx-auto" type="submit" name="register">Sign
+                up</button>
             <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
             <a href="login.php">Already have an account? Log in.</a>
 
         </form>
 
-
-
-
-
-
-
     </div>
+
+<?php 
+    include("footer.php");
+?>
 </body>
 
 </html>
