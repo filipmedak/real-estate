@@ -5,29 +5,86 @@ require_once("../../includes/dbh.inc.php");
     
 
 
-if (isset($_POST["getEstates"])) {
+if (isset($_POST["filterEstates"])) {
 
-    // $sql = "SELECT * FROM estates WHERE type='cottage'";
-    // $useAnd=0;
+    $filter=[];
 
-    // if (isset($_POST["typeEs"])) {
-    //     $type=$_POST["typeEs"];
-    //     $sql.=' type="'.$type.'"';
-    //     $useAnd=1;
+    if (isset($_POST["cityEs"])) {
+        $filter["city"]=$_POST["cityEs"];
+    }
+    if (isset($_POST["typeEs"])) {
+        $filter["type"]=$_POST["typeEs"];
+    }
+    // if (isset($_POST["minEs"])) {
+    //     $filter["min"]=$_POST["minEs"];
     // }
-    // if (isset($_POST["locationEs"])) {
-    //     $location=$_POST["locationEs"];
-    //     if ($useAnd) {
-    //         $sql.='AND location="'.$location.'"';
-    //     }else{
-    //         $sql.=' location="'.$location.'"';
-    //         $useAnd=1;
-    //     }
-       
+    // if (isset($_POST["maxEs"])) {
+    //     $filter["max"]=$_POST["maxEs"];
     // }
-    
-    
-    $sql = "SELECT * FROM estates"; //od dolje
+
+    //Provjerava da li postoje prazne vrijednosti, zbog toga što inputi imaju value=""
+    function checkForValues($filter){
+
+        foreach ($filter as $key => $value) {
+            if ($value=="") {
+                unset($filter[$key]);
+            }
+        }
+
+        return $filter;
+    }
+
+    $filter=checkForValues($filter);
+
+    //Priprema sql querya
+    $sql="SELECT 
+    estates.price,
+    estates.rooms,
+    estates.property_size,
+    estates.id,
+    city.name as `city`,
+    estatetypes.type,
+    energy_classes.class as `en-class`
+    FROM estates
+    INNER JOIN city ON (estates.city = city.id)
+    INNER JOIN estatetypes ON (estates.type = estatetypes.id)
+    INNER JOIN energy_classes ON (estates.energy_class = energy_classes.id)
+    WHERE "; 
+
+    // Ovisno o količini elemenata u polju filter, prilagodi sql upit
+    if (count($filter)==1) {
+        foreach ($filter as $key => $value) {
+            if ($key=="city") {
+                $sql.="city.name='$value'";
+            }
+            elseif ($key=="type") {
+                $sql.="estatetypes.type='$value'";
+            }
+            // ...
+        }
+    }elseif (count($filter)>1) {
+        $and="";
+        foreach ($filter as $key => $value) {
+            if ($key=="city") {
+                $sql.=$and."city.name='$value'";
+                $and="AND ";
+            }
+            elseif ($key=="type") {
+                $sql.=$and."estatetypes.type='$value'";
+                $and="AND ";
+            }
+            // ...
+        }
+    }else{
+        $sql.="true";
+    }
+
+    // Za debug 
+    // echo '<pre>';
+    // print_r($filter);
+    // echo '</pre>';
+    // echo $sql;
+
     $result = $connection->query($sql);
     $result=fillResults($result);
     
@@ -78,7 +135,12 @@ function fillResults($result){
         </div>';
         }
     
-    } else {$resultAds.='<div class="my-3 bg-danger">Database conection error</div>';}
+    } else {$resultAds.='
+    <div class="alert alert-dismissible alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">No matches!</h4>
+        <p class="mb-0">Try <a href="#" class="alert-link">reseting the filter</a>.</p>
+    </div>';}
 
     return $resultAds;
 }

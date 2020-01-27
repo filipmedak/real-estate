@@ -53,16 +53,16 @@
                 </select>
             </div>
             <div class="input-group mt-3">
-                <select class="custom-select" name="locationEs" id="inputGroupSelect04">
-                    <option selected>City:</option>
+                <select class="custom-select" name="cityEs" id="inputGroupSelect04">
+                    <option value="" selected>City:</option>
                     <option value="zagreb">Zagreb</option>
-                    <option value="bjelovar">Bjelovar</option>
-                    <option value="gospic">Gospić</option>
+                    <option value="pula">Pula</option>
+                    <option value="rijeka">Rijeka</option>
                 </select>
             </div>
             <div class="input-group mt-3">
                 <select class="custom-select" name="typeEs" id="inputGroupSelect04">
-                    <option selected>Type of real estate:</option>
+                    <option value="" selected>Type of real estate:</option>
                     <option value="house">House</option>
                     <option value="apartment">Apartment</option>
                     <option value="cottage">Cottage</option>
@@ -72,7 +72,7 @@
                 <input type="text" id="search" class="form-control" placeholder="Post ID:">
             </div>
             <!--Search button-->
-            <a href="#"><input type="submit" name="getEstates" class="btn btn-dark mt-3 pl-5 pr-5"></a>
+            <a href="#"><input type="submit" name="filterEstates" class="btn btn-dark mt-3 pl-5 pr-5"></a>
     
             <!--Expand button-->
             <div id="accordion" class="mt-3 pb-5">
@@ -85,8 +85,8 @@
                             <!--Additional setting for search-->
                             <div class="form-group">
                                 <div class="input-group mt-3">
-                                <input type="text" class="form-control" placeholder="min €" aria-label="" aria-describedby="basic-addon1">
-                                <input type="text" class="form-control" placeholder="max €" aria-label="" aria-describedby="basic-addon1">
+                                <input type="text" name="minEs" class="form-control" placeholder="min €" aria-label="" aria-describedby="basic-addon1">
+                                <input type="text" name="maxEs" class="form-control" placeholder="max €" aria-label="" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mt-3">
                                 <input type="text" class="form-control" placeholder="min room" aria-label="" aria-describedby="basic-addon1">
