@@ -149,32 +149,12 @@
                 <p class="boldBlack">'.$row["living_space"].'m²</p>
             </div> 
             <div class="basicInformationGrid">
-                <p class="blue">Terrace:</p>
-                <p class="boldBlack">';
-                    if($row["terrace"] == 1){
-                        echo '✔';
-                    }
-                    else if($row["terrace"] == 0){
-                        echo '✘';
-                    }
-                    else{
-                        echo '';
-                    } 
-                echo '</p>
+                <p class="blue">Heating:</p>
+                <p class="boldBlack">'.$row["heating_system"].'</p>
             </div>  
             <div class="basicInformationGrid">
-               <p class="blue">Balcony:</p>
-               <p class="boldBlack">'; 
-                    if($row["balcony"] == 1){
-                        echo '✔';
-                    }
-                    else if($row["balcony"] == 0){
-                        echo '✘';
-                    }
-                    else{
-                        echo '';
-                    } 
-               echo '</p>
+               <p class="blue">Energy class:</p>
+               <p class="boldBlack">'.$row["energy_class"].'</p>
             </div>  
             <div class="basicInformationGrid">
                 <p class="blue">Year of construction:</p>
@@ -191,15 +171,152 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2780.9369209235624!2d15.94505191556919!3d45.81252167910666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765d6dbb5a8ed03%3A0x3cbbed9018ef1850!2sPivana!5e0!3m2!1shr!2shr!4v1574777272363!5m2!1shr!2shr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>     
         </div>
   
-        <div id="additionalInformation" class="text-center">
-            <h2><i class="fas fa-info-circle"></i>  Building Information</h2>
-            <p>PP hard</p>
+        <div id="buildingInformation">
+                <h2><i class="fas fa-info-circle"></i>   Building Information</h2>';
+                
+                if($row["balcony"] == 1){
+                    echo '<div><p>Balcony</p><p>✔</p></div>';
+                }
+                else if($row["balcony"] == 0){
+                    echo '<div class="ghost"><p>Balcony</p><p>✘</p></div>';
+                }
+                else{
+                    echo '';
+                }
+
+                
+                    if($row["terrace"] == 1){
+                        echo '<div><p>Terrace</p><p>✔</p></div>';
+                    }
+                    else if($row["terrace"] == 0){
+                        echo '<div class="ghost"><p>Terrace</p><p>✘</p></div>';
+                    }
+                    else{
+                        echo '';
+                    }
+
+                        if($row["parking"] == 1){
+                            echo '<div><p>Parking</p><p>✔</p></div>';
+                        }
+                        else if($row["terrace"] == 0){
+                            echo '<div class="Parking"><p>Garage</p><p>✘</p></div>';
+                        }
+                        else{
+                            echo '';
+                        }
+                        
+                            if($row["garage"] == 1){
+                                echo '<div><p>Garage</p><p>✔</p></div>';
+                            }
+                            else if($row["terrace"] == 0){
+                                echo '<div class="ghost"><p>Garage</p><p>✘</p></div>';
+                            }
+                            else{
+                                echo '';
+                            }
+                            
+                                if($row["lift"] == 1){
+                                    echo '<div><p>Lift</p><p>✔</p></div>';
+                                }
+                                else if($row["terrace"] == 0){
+                                    echo '<div class="ghost"><p>Lift</p><p>✘</p></div>';
+                                }
+                                else{
+                                    echo '';
+                                }
+
+                                    if($row["barrier_free"] == 1){
+                                        echo '<div><p>Barrier-free access</p><p>✔</p></div>';
+                                    }
+                                    else if($row["terrace"] == 0){
+                                        echo '<div class="ghost"><p>Barrier-free access</p><p>✘</p></div>';
+                                    }
+                                    else{
+                                        echo '';
+                                    }
+
+                                        if($row["internet"] == 1){
+                                            echo '<div><p>Internet access</p><p>✔</p></div>';
+                                        }
+                                        else if($row["terrace"] == 0){
+                                            echo '<div class="ghost"><p>Internet access</p><p>✘</p></div>';
+                                        }
+                                        else{
+                                            echo '';
+                                        }
+                    
+        echo'     
         </div>
     </div>
-</div>';
-    }
 
-    echo '<script src="../../js/gallery.js"></script>';
+    <div id="customInformation">
+        <h2><i class="fas fa-asterisk"></i>  Additional Information</h2>
+        <p>'.$row["description"].'</p>
+    </div>
+
+    <div id="suggestedPosts">
+        <div class="card-deck">
+            <div class="card shadow-lg mb-5" data-aos="fade-right" data-aos-duration="1500">
+                <img src="../../img/promoImage01.jpg" class="card-img-top" alt="Real estate image">
+                <div class="card-body">
+                    <h3 class="card-title text-center pt-3 pb-1">House in Zagreb</h5>
+                    <p class="card-text">Price: <b>60,000€</b></p>
+                    <p class="card-text">Type: <b>House</b></p>
+                    <p class="card-text">Location: <b>Zagreb</b></p>
+                    <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>53,38m²</b></p>
+                    <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>5</b></p>
+                    <p class="card-text text-center text-muted">ID: <b>7328193</b></p>
+                    <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
+                </div>
+            </div>
+            <div class="card shadow-lg mb-5" data-aos="fade-right" data-aos-duration="1500">
+                <img src="../../img/promoImage02.jpg" class="card-img-top" alt="Real estate image">
+                <div class="card-body">
+                    <h3 class="card-title text-center pt-3 pb-1">House in Zagreb</h5>
+                    <p class="card-text">Price: <b>60,000€</b></p>
+                    <p class="card-text">Type: <b>House</b></p>
+                    <p class="card-text">Location: <b>Zagreb</b></p>
+                    <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>53,38m²</b></p>
+                    <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>5</b></p>
+                    <p class="card-text text-center text-muted">ID: <b>7328193</b></p>
+                    <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
+                </div>
+            </div>
+            <div class="card shadow-lg mb-5" data-aos="fade-right" data-aos-duration="1500">
+                <img src="../../img/promoImage03.jpg" class="card-img-top" alt="Real estate image">
+                <div class="card-body">
+                    <h3 class="card-title text-center pt-3 pb-1">House in Zagreb</h5>
+                    <p class="card-text">Price: <b>60,000€</b></p>
+                    <p class="card-text">Type: <b>House</b></p>
+                    <p class="card-text">Location: <b>Zagreb</b></p>
+                    <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>53,38m²</b></p>
+                    <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>5</b></p>
+                    <p class="card-text text-center text-muted">ID: <b>7328193</b></p>
+                    <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
+                </div>
+            </div>
+            <div class="card shadow-lg mb-5" data-aos="fade-right" data-aos-duration="1500">
+                <img src="../../img/promoImage04.jpg" class="card-img-top" alt="Real estate image">
+                <div class="card-body">
+                    <h3 class="card-title text-center pt-3 pb-1">House in Zagreb</h5>
+                    <p class="card-text">Price: <b>60,000€</b></p>
+                    <p class="card-text">Type: <b>House</b></p>
+                    <p class="card-text">Location: <b>Zagreb</b></p>
+                    <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>53,38m²</b></p>
+                    <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>5</b></p>
+                    <p class="card-text text-center text-muted">ID: <b>7328193</b></p>
+                    <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>';
+}
+
+echo '<script src="../../js/gallery.js"></script>';
+
+
 ?>
 
 <!---------------------------------------------------- NEW CONTENT!! --------------------------------------------------------------->

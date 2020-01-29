@@ -39,6 +39,7 @@
 
 <!---------------------------------------------------- NEW CONTENT!! --------------------------------------------------------------->
 
+
 <div id="realEsateContent">
     <form action="" method="POST">
     <div id="realEstateSearchBar">
@@ -54,6 +55,7 @@
             </div>
             <div class="input-group mt-3">
                 <select class="custom-select" name="cityEs" id="inputGroupSelect04">
+                    
                     <option value="" selected>City:</option>
                     <option value="zagreb">Zagreb</option>
                     <option value="pula">Pula</option>

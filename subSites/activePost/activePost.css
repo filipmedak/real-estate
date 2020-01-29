@@ -9,15 +9,8 @@
     border-bottom: 1px solid grey;
 }
 
-.activePost #smallImageGallery{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: -10px 10px 0 10px;
-}
-
-
 .activePost .smallDescription{
-    font-size: 1.2em;
+    font-size: 1.2em; 
     justify-self: center;
 }
 
@@ -39,7 +32,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-    background: #e1e1e1;
+    background-color: rgba(225, 225, 225, 0.5);
 }
 
 .activePost #smallDescriptionImportant div{
@@ -80,8 +73,16 @@
     grid-template-columns: 1fr 1fr;
     width: 100%;
     grid-column: 1/3;
-    padding-top: 10px;
     color: #000;
+}
+
+.activePost #basicInformation .basicInformationGrid, .activePost #basicInformation .basicInformationGrid:first-of-type{
+    margin-top: 50px;
+}
+
+.activePost #basicInformation .basicInformationGrid, .activePost #basicInformation .basicInformationGrid p{
+    padding: 10px 0;
+    margin: 0;
 }
 
 .activePost #basicInformation .basicInformationGrid .boldWhite{
@@ -103,59 +104,6 @@
     border-right: none;
 }
 
-/* Google Maps */
-.embed{
-    position: relative;
-    padding-bottom: 400px;
-    height: 100px;
-    justify-self: start;
-    width: 100%;
-    overflow: hidden;
-    justify-self: stretch;
-}
-
-.embed iframe{
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 400px !important;
-    width: 100%;
-}
-
-/* Additional Information */
-
-
-
-/* Suggested posts*/
-.activePost #suggestedPosts{
-    display: grid;
-    grid-template-columns: 1fr;
-    width: 90%;
-    justify-items: center;
-}
-
-.activePost #suggestedPosts .card-deck .card{
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.activePost #suggestedPosts .card-deck .card .card-body{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    font-size: 0.5em;
-}
-
-.activePost #suggestedPosts .card-deck .card .card-body p:last-child{
-    grid-column: 1/3;
-    padding-bottom: 20px;
-}
-
-.activePost #suggestedPosts .card-deck .card .card-body h3{
-    grid-column: 1/3;
-    justify-self: center;
-    white-space: nowrap;
-    font-size: 1.5em;
-}
 
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
 /* JS Gallery */
@@ -254,6 +202,58 @@
 /* JS Gallery */
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
 
+/* Google Maps */
+.embed{
+    position: relative;
+    padding-bottom: 400px;
+    height: 100px;
+    justify-self: start;
+    width: 100%;
+    overflow: hidden;
+    justify-self: stretch;
+}
+
+.embed iframe{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 400px !important;
+    width: 100%;
+}
+
+/* Building information */
+
+.activePost #buildingInformation{
+    grid-column: 1;
+    margin-top: 60px;
+}
+
+.activePost #buildingInformation h2{
+    font-size: 2em;
+    padding-bottom: 10px;
+    border-bottom: none;
+}
+
+.activePost #buildingInformation div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    font-weight: 700;
+    font-size: 1.1em;
+    padding-bottom: 5px;
+}
+
+.activePost #buildingInformation div:first-of-type{
+    padding-top: 30px;
+}
+
+.activePost #buildingInformation .ghost{
+    opacity: 0.45;
+    font-weight: normal;
+}
+
+
+
 @media (min-width: 400px)
 {
     .activePost #smallDescriptionImportant{
@@ -266,13 +266,6 @@
     }
 }
 
-@media (min-width: 576px)
-{
-    .activePost #suggestedPosts .card-deck{
-        display: grid;
-        grid-template-columns: 1fr 1fr!important;
-    }
-}
 
 @media (min-width: 956px)
 {  
@@ -289,7 +282,7 @@
         height: 3000px;
         padding-top: 50px;
         max-width: 1500px;
-        max-height: 1750px;
+        max-height: 1550px;
         background: white;
         margin: 0 auto;
     }
@@ -329,11 +322,10 @@
         grid-row: 3;
         grid-column: 1;
         max-width: 450px;
-        padding-top: 50px;
     }
 
     .activePost #basicInformation .basicInformationGrid, .activePost #basicInformation .basicInformationGrid p{
-        padding: 5px 0;
+        padding: 5.7px 0;
         margin: 0;
     }
 
@@ -366,40 +358,77 @@
         align-self: end;
     }
     
-    /* Additional Information */
-
-    .activePost #additionalInformation{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        width: 90%;
-        justify-items: center;
-        grid-row: 5;
-        grid-column: 1/3;
-        padding-top: 200px;
-        justify-self: stretch;
-    }
     
-    .activePost #additionalInformation h2{
-        grid-column: 1/5;
-        justify-self: center;
+    /* Google Maps Embbed */
+    .embed{
+        grid-row: 6;
+        grid-column: 2;
+        max-width: 750px;
+        height: 300px;
+        align-self: start;
+    }
+
+    /* Custom Information */
+
+   #customInformation{
+       display: grid;
+       justify-items: center;
+   }
+
+   #customInformation h2{
         font-size: 2em;
-        width: 100%;
-        border-bottom: 2px solid #000; 
+        padding: 20px;
+        background: #fff;
+        border: 1px solid #000;
+        font-weight: 500;
+    }
+
+    #customInformation p{
+        max-width: 1000px;
+        margin: -50px 0 50px 0;
+        background-color: rgba(225, 225, 225, 0.5);
+        padding: 50px;
+        padding-top: 70px;
+        z-index: -1;
+        font-weight: 500;
     }
 
     /* Suggested Posts */
-    .activePost #suggestedPosts .card-deck{
+
+    #suggestedPosts{
+        max-width: 2000px;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr!important;
+        justify-items: center;
+        margin: 0 auto;
+        margin-top: 50px;
     }
 
-    /* Google Maps Embbed */
-    .embed{
-        grid-row: 10;
-        grid-column: 2;
-        max-width: 650px;
-        align-self: center;
-        display: none;
+    #suggestedPosts .card{
+        max-width: 250px;
+        margin-right: 50px;
     }
+
+    #suggestedPosts .card .card-body h3{
+        grid-column: 1/3;
+        justify-self: center;
+        font-size: 1.9em;
+    }
+
+    #suggestedPosts .card .card-body{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        font-size: 0.8em;
+        padding: 0;
+        margin: 0;  
+    }
+
+    #suggestedPosts .card .card-body p:last-of-type{
+        grid-column: 1/3;
+        padding-bottom: 20px;
+    }
+
     
+
+
 }
