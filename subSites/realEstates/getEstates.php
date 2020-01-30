@@ -1,12 +1,10 @@
 <?php
 
-require_once("../../includes/dbh.inc.php");
-
     
 
 
 if (isset($_POST["filterEstates"])) {
-
+echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
     $filter=[];
 
     if (isset($_POST["cityEs"])) {

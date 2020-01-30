@@ -1,4 +1,6 @@
-<?php include ('../../includes/headerTop.php'); ?>
+<?php include ('../../includes/headerTop.php'); 
+    require_once '../../includes/dbh.inc.php';  
+?>
 
 <link rel="stylesheet" href="../../css/headerFooter.css">
 <link rel="stylesheet" href="realEstates.css">
@@ -47,17 +49,24 @@
             <select class="form-control" id="state">
                 <option>Select city:</option>
                 <?php 
-                
-                $query_state = "SELECT * FROM city ORDER BY name";
+
+                $query_state = "SELECT * FROM city ORDER BY name ASC";
                 $result_state = mysqli_query($connection, $query_state);
 
-                while($row = mysqli_fetch_array($result_state))
-                {
-                    $id = $row["id"];
-                    $state = $row["name"];
-
-                    echo '<option value="'.$id.'">'.$state.'</option>';
+                if (mysqli_num_rows($result_state) > 0) {
+                    // output data of each row
+                    while($row = mysqli_fetch_array($result_state))
+                    {
+                        $id = $row["id"];
+                        $state = ucfirst($row["name"]);
+    
+                        echo '<option value="'.$id.'">'.$state.'</option>';
+                    }
+                } else {
+                    echo "0 results";
                 }
+
+
 
                 ?>
             </select>
@@ -72,7 +81,7 @@
                 while($row = mysqli_fetch_array($result_state))
                 {
                     $id = $row["id"];
-                    $type = $row["type"];
+                    $type = ucfirst($row["type"]);
 
                     echo '<option value="'.$id.'">'.$type.'</option>';
                 }
@@ -124,7 +133,7 @@
                 </div>
             </div>
         </div>
-
+                <button class="btn btn-success" value="submit" name="filterEstates" type="submit">Submit</button>
     </form>
 
     <div id="searchResults">  
