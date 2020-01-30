@@ -1,10 +1,8 @@
 <?php
 
-    
-
-
+require_once("../../includes/dbh.inc.php");
+ 
 if (isset($_POST["filterEstates"])) {
-echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
     $filter=[];
 
     if (isset($_POST["cityEs"])) {
@@ -12,6 +10,24 @@ echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
     }
     if (isset($_POST["typeEs"])) {
         $filter["type"]=$_POST["typeEs"];
+    }
+    if (isset($_POST["balcony"])){
+        $filter["balcony"]=$_POST["balcony"];
+    }
+    if (isset($_POST["terrace"])){
+        $filter["terrace"]=$_POST["terrace"];
+    }
+    if (isset($_POST["parking"])){
+        $filter["parking"]=$_POST["parking"];
+    }
+    if (isset($_POST["garage"])){
+        $filter["garage"]=$_POST["garage"];
+    }
+    if (isset($_POST["lift"])){
+        $filter["lift"]=$_POST["lift"];
+    }
+    if (isset($_POST["barrierFreeAccess"])){
+        $filter["barrier_free"]=$_POST["barrierFreeAccess"];
     }
     // if (isset($_POST["minEs"])) {
     //     $filter["min"]=$_POST["minEs"];
@@ -53,10 +69,28 @@ echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
     if (count($filter)==1) {
         foreach ($filter as $key => $value) {
             if ($key=="city") {
-                $sql.="city.name='$value'";
+                $sql.="city.id='$value'";
             }
             elseif ($key=="type") {
-                $sql.="estatetypes.type='$value'";
+                $sql.="estatetypes.id='$value'";
+            }
+            elseif ($key=="balcony") {
+                $sql.="estates.balcony=1";
+            }
+            elseif ($key=="terrace") {
+                $sql.="estates.terrace=1";
+            }
+            elseif ($key=="parking") {
+                $sql.="estates.parking=1";
+            }
+            elseif ($key=="garage") {
+                $sql.="estates.garage=1";
+            }
+            elseif ($key=="lift") {
+                $sql.="estates.lift=1";
+            }
+            elseif ($key=="barrier_free") {
+                $sql.="estates.barrier_free=1";
             }
             // ...
         }
@@ -64,13 +98,38 @@ echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
         $and="";
         foreach ($filter as $key => $value) {
             if ($key=="city") {
-                $sql.=$and."city.name='$value'";
+                $sql.=$and."city.id='$value' ";
                 $and="AND ";
             }
             elseif ($key=="type") {
-                $sql.=$and."estatetypes.type='$value'";
+                $sql.=$and."estatetypes.id='$value' ";
                 $and="AND ";
             }
+            elseif ($key=="balcony") {
+                $sql.=$and."estates.balcony=1 ";
+                $and="AND ";
+            }
+            elseif ($key=="terrace") {
+                $sql.=$and."estates.terrace=1 ";
+                $and="AND ";
+            }
+            elseif ($key=="parking") {
+                $sql.=$and."estates.parking=1 ";
+                $and="AND ";
+            }
+            elseif ($key=="garage") {
+                $sql.=$and."estates.garage=1 ";
+                $and="AND ";
+            }
+            elseif ($key=="lift") {
+                $sql.=$and."estates.lift=1 ";
+                $and="AND ";
+            }
+            elseif ($key=="barrier_free") {
+                $sql.=$and."estates.barrier_free=1 ";
+                $and="AND ";
+            }
+            
             // ...
         }
     }else{

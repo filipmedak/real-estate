@@ -7,9 +7,8 @@ if(galleryImages){
         image.onclick = function(){
             //Grab the img url and clean it to load the fullscreen image
             let imageUrl = galleryImages[0].src;
-            
-            let clearImgUrl = imageUrl.split(postID+"/");
-            console.log(clearImgUrl);
+            let clearImgUrl = imageUrl.split("thumbnail/");
+    
             let imagePath = clearImgUrl[0];
             
             //Increase index so img1 == 1
@@ -25,7 +24,7 @@ if(galleryImages){
             //Add image in new element
             let newImg = document.createElement("img");
             newImgWindow.appendChild(newImg);
-            newImg.setAttribute("src", imagePath + postID +"/img" + getLatestOpenedImg + ".jpg");
+            newImg.setAttribute("src", imagePath);
             newImg.setAttribute("id", "current-img");
 
             newImg.onload = function(){
@@ -108,7 +107,6 @@ function changeImg(changeDir){
 
     //Change src on fullscreen image
     newImg.setAttribute("src", "../../img/estates/" + postID + "/img" + calcNewImg + ".jpg");
-    console.log(calcNewImg);
     newImg.setAttribute("id", "current-img");
 
     getLatestOpenedImg = calcNewImg;

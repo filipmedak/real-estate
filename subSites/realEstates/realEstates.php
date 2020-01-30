@@ -46,8 +46,8 @@
     <form action="" method="POST">
         <div class="form-group">
             
-            <select class="form-control" id="state">
-                <option>Select city:</option>
+            <select class="form-control" name="cityEs" id="state">
+                <option value="">Select city:</option>
                 <?php 
 
                 $query_state = "SELECT * FROM city ORDER BY name ASC";
@@ -65,14 +65,11 @@
                 } else {
                     echo "0 results";
                 }
-
-
-
                 ?>
             </select>
              
-            <select class="form-control" id="realEstateType">
-                <option>Type of real estate:</option>
+            <select class="form-control" name="typeEs" id="realEstateType">
+                <option value="">Type of real estate:</option>
                 <?php 
                 
                 $query_state = "SELECT * FROM estatetypes ORDER BY type";
@@ -99,37 +96,29 @@
 
 
             <div id="searchEngineBarTextDetails">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="newBuilding">
-                    <label class="form-check-label" for="inlineCheckbox1">New building</label>
+            <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="checkBalcony" name="balcony">
+                    <label class="form-check-label" for="checkBalcony">Balcony</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="oldBuilding">
-                    <label class="form-check-label" for="inlineCheckbox2">Old building</label>
+                    <input class="form-check-input" type="checkbox" id="checkTerrace" name="terrace">
+                    <label class="form-check-label" for="checkTerrace">Terrace</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="lift">
-                    <label class="form-check-label" for="inlineCheckbox3">Lift</label>
+                    <input class="form-check-input" type="checkbox" id="checkParking" name="parking">
+                    <label class="form-check-label" for="checkParking">Parking</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="balcony">
-                    <label class="form-check-label" for="inlineCheckbox4">Balcony</label>
+                    <input class="form-check-input" type="checkbox" id="checkGarage" name="garage">
+                    <label class="form-check-label" for="checkGarage">Garage</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="garage">
-                    <label class="form-check-label" for="inlineCheckbox5">Garage</label>
+                    <input class="form-check-input" type="checkbox" id="checkLift" name="lift">
+                    <label class="form-check-label" for="checkLift">Lift</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="parking">
-                    <label class="form-check-label" for="inlineCheckbox6">Parking</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="view">
-                    <label class="form-check-label" for="inlineCheckbox7">View</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="discount">
-                    <label class="form-check-label" for="inlineCheckbox8">Discount</label>
+                    <input class="form-check-input" type="checkbox" id="checkBarrierFreeAccess" name="barrierFreeAccess">
+                    <label class="form-check-label" for="checkBarrierFreeAccess">Barrier-free</label>
                 </div>
             </div>
         </div>
