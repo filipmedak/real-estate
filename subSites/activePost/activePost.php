@@ -62,6 +62,9 @@
         $images=scandir($imgPath);
         unset($images[0]);
         unset($images[1]);
+        array_pop($images);
+
+        //print_r($images);
 
         echo '
         <div class="background">
@@ -69,29 +72,25 @@
         <h2 class="text-center pt-5 pb-3">'.$type.' in '.$location.'</h2>
         <p class="smallDescription pt-2">'.$row["price"].'€ ~ '.($row["price"]*7.44).'kn</p>';
 
-        // print_r($images);
-
-
-
         echo'
-        <div id="index-gallery">
-        <!--    <div class="gallery-img">
-                <img src="'.$imgPath.'thumbnail/img1.jpg" class="mainImg galleryImg">
-            </div>
-            <div class="gallery-img">
-                <img src="'.$imgPath.'thumbnail/img2.jpg" class="secImg galleryImg">
-            </div>
-            <div class="gallery-img">
-                <img src="'.$imgPath.'thumbnail/img3.jpg" class="secImg galleryImg">
-            </div>
-            <div class="gallery-img">
-                <img src="'.$imgPath.'thumbnail/img4.jpg" class="secImg galleryImg">
-            </div>-->';
+        <div id="index-gallery">';
+            //Zaustavljamo prikaz više od 4 slike na stranici
+            $i = 0;
             foreach ($images as $key => $value) {
-                echo '
-                <div class="gallery-img">
-                    <img src="'.$imgPath.$value.'" class="mainImg galleryImg">
-                </div>';
+                if($i <= 3){
+                    echo '
+                    <div class="gallery-img">
+                        <img src="'.$imgPath.'/thumbnail/'.$value.'" class="mainImg galleryImg">
+                    </div>';
+                    $i++;
+                }
+                else if($i >= 4){
+                    echo '
+                    <div class="gallery-img">
+                        <img src="" class="mainImg galleryImg d-none">
+                    </div>';
+                    $i++;
+                }
             }
             echo '
         </div>';

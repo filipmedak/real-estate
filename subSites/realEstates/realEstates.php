@@ -41,33 +41,31 @@
 
 <!---------------------------------------------------- NEW CONTENT!! --------------------------------------------------------------->
 
-
 <div id="realEsateContent">
-    <form action="" method="POST">
+    <form action="" method="POST" class="mt-5">
         <div class="form-group">
-            
-            <select class="form-control" name="cityEs" id="state">
-                <option value="">Select city:</option>
-                <?php 
 
-                $query_state = "SELECT * FROM city ORDER BY name ASC";
-                $result_state = mysqli_query($connection, $query_state);
+            <?php
 
-                if (mysqli_num_rows($result_state) > 0) {
-                    // output data of each row
-                    while($row = mysqli_fetch_array($result_state))
-                    {
-                        $id = $row["id"];
-                        $state = ucfirst($row["name"]);
-    
-                        echo '<option value="'.$id.'">'.$state.'</option>';
-                    }
-                } else {
-                    echo "0 results";
+            //Autocorrect
+
+            $query_cities = "SELECT * FROM city ORDER BY id";
+            $result_cities = mysqli_query($connection, $query_cities);
+
+            if(mysqli_num_rows($result_cities) > 0)
+            {
+                while($row = mysqli_fetch_assoc($result_cities)) {
+                    $cities[] = $row;
                 }
-                ?>
-            </select>
-             
+            }
+
+            //print_r($cities);
+
+            ?>
+
+            <input type="text" id="search" class="form-control" value="" placeholder="Insert location:">
+            <div id="match-list"></div>
+           
             <select class="form-control" name="typeEs" id="realEstateType">
                 <option value="">Type of real estate:</option>
                 <?php 
@@ -85,13 +83,12 @@
 
                 ?>
             </select>
-            
 
             <div class="input-group range-slider">
                 <p>Min/max price</p>
                 <span class="rangeValues"></span><br>
-                <input value="500" min="500" max="50000" step="500" type="range">
-                <input value="50000" min="500" max="50000" step="500" type="range">
+                <input value="500" min="500" max="50000" step="500" type="range" id="minSlider">
+                <input value="50000" min="500" max="50000" step="500" type="range" id="maxSlider">
             </div>
 
 
@@ -121,8 +118,9 @@
                     <label class="form-check-label" for="checkBarrierFreeAccess">Barrier-free</label>
                 </div>
             </div>
+            <button class="btn btn-success" value="submit" name="filterEstates" type="submit">Submit</button>
         </div>
-                <button class="btn btn-success" value="submit" name="filterEstates" type="submit">Submit</button>
+                
     </form>
 
     <div id="searchResults">  
@@ -138,6 +136,14 @@
         <a href="#" id="moreBtn"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5 mb-5">More posts.</button></a>
     </div>
 </div>
+
+
+
+<script src="../../js/autoCorrect.js"></script>
+<script type="text/javascript">
+    let cities = <?php echo json_encode($cities) ?>;
+</script>
+
 
 <!---------------------------------------------------- NEW CONTENT!! --------------------------------------------------------------->
 

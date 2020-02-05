@@ -4,6 +4,7 @@
 
 <?php include ('includes/headerMiddle.php'); ?>
 
+<?php require_once 'includes/dbh.inc.php';  ?>
 
 
 <!-- Navigation Links -->
@@ -50,83 +51,88 @@
     <div id='searchEngine' class="text-center p-4">
       <div id="searchEngineBar" class="p-4">
         <div id="searchEngineBarText" class="p-4" data-aos="zoom-in" data-aos-duration="2000">
-          <h2 class="pt-3">Search for real estates!</h2>
-          <!-- Location autoseach-->    
-          <div class="form-group mt-4">
-              <input type="text" id="search" class="form-control" placeholder="Insert location:">
-          </div>
-          <div id="match-list"></div>
-          <!--Type of real estate-->
-          <div class="input-group">
-            <select class="custom-select" id="inputGroupSelect04" method="get">
-              <option selected>Type of real estate:</option>
-              <option value="house">House</option>
-              <option value="apartment">Apartment</option>
-              <option value="cottage">Cottage</option>
-            </select>
-          </div>
-          
-          <div class="rangeSlider">
-            <p>Vrijednost: <span id="demo"></span></p>
-            <input type="range" min="1" max="100" value="50" class="mySlider" id="sliderRange">  
-          </div>
+          <form action="" method="POST" class="mt-5">
+          <div class="form-group">
 
-          <!--Search button-->
-          <a href="#"><button type="button" class="blueButton btn btn-dark mt-3 pl-5 pr-5">Search!</button></a>
-  
-          <!--Expand button-->
-          <div id="accordion" class="mt-3">
-            <div class="card">
-              <div class="card-header" id="searchEngineButtonExtend">
-                <h5 class="mb-0">
-                  <button class="searchEngineButtonExtend btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    More detailed search.
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                  <!--Additional setting for search-->
-                  <div class="form-group">
-                    <div id="searchEngineBarTextDetails">
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="newBuilding">
-                        <label class="form-check-label" for="inlineCheckbox1">New building</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="oldBuilding">
-                        <label class="form-check-label" for="inlineCheckbox2">Old building</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="lift">
-                        <label class="form-check-label" for="inlineCheckbox3">Lift</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="balcony">
-                        <label class="form-check-label" for="inlineCheckbox4">Balcony</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="garage">
-                        <label class="form-check-label" for="inlineCheckbox5">Garage</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="parking">
-                        <label class="form-check-label" for="inlineCheckbox6">Parking</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="view">
-                        <label class="form-check-label" for="inlineCheckbox7">View</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="discount">
-                        <label class="form-check-label" for="inlineCheckbox8">Discount</label>
-                      </div>
-                    </div>
-                  </div>
+                <h2>Find your real estate</h2>
+
+                <?php
+
+                //Autocorrect
+
+                $query_cities = "SELECT * FROM city ORDER BY id";
+                $result_cities = mysqli_query($connection, $query_cities);
+
+                if(mysqli_num_rows($result_cities) > 0)
+                {
+                    while($row = mysqli_fetch_assoc($result_cities)) {
+                        $cities[] = $row;
+                    }
+                }
+
+                //print_r($cities);
+
+                ?>
+
+                <input type="text" id="search" class="form-control" value="" placeholder="Insert location:">
+                <div id="match-list"></div>
+              
+                <select class="form-control" name="typeEs" id="realEstateType">
+                    <option value="">Type of real estate:</option>
+                    <?php 
+                    
+                    $query_state = "SELECT * FROM estatetypes ORDER BY type";
+                    $result_state = mysqli_query($connection, $query_state);
+
+                    while($row = mysqli_fetch_array($result_state))
+                    {
+                        $id = $row["id"];
+                        $type = ucfirst($row["type"]);
+
+                        echo '<option value="'.$id.'">'.$type.'</option>';
+                    }
+
+                    ?>
+                </select>
+
+                <div class="input-group range-slider">
+                    <p>Min/max price</p>
+                    <span class="rangeValues"></span><br>
+                    <input value="500" min="500" max="50000" step="500" type="range" id="minSlider">
+                    <input value="50000" min="500" max="50000" step="500" type="range" id="maxSlider">
                 </div>
-              </div>
+
+
+                <div id="searchEngineBarTextDetails">
+                <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="checkBalcony" name="balcony">
+                        <label class="form-check-label" for="checkBalcony">Balcony</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="checkTerrace" name="terrace">
+                        <label class="form-check-label" for="checkTerrace">Terrace</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="checkParking" name="parking">
+                        <label class="form-check-label" for="checkParking">Parking</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="checkGarage" name="garage">
+                        <label class="form-check-label" for="checkGarage">Garage</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="checkLift" name="lift">
+                        <label class="form-check-label" for="checkLift">Lift</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="checkBarrierFreeAccess" name="barrierFreeAccess">
+                        <label class="form-check-label" for="checkBarrierFreeAccess">Barrier-free</label>
+                    </div>
+                </div>
+                <button class="btn btn-success" value="submit" name="filterEstates" type="submit">Submit</button>
             </div>
-          </div>
+                  
+          </form>
         </div>
       </div>
     </div>
@@ -229,5 +235,11 @@
       </div>
     </div>
     <!-- END -->
+
+  <script src="js/valueSlider.js"></script>               
+  <script src="js/autoCorrect.js"></script>
+    <script type="text/javascript">
+    let cities = <?php echo json_encode($cities) ?>;
+  </script>
 
 <?php include ('includes/footer.php'); ?>

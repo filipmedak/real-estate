@@ -184,6 +184,10 @@ html{
     margin-bottom: -8px;
 }
 
+.navigationDisplayToggle{
+    display: none;
+}
+
 #navigation .dropdown-item{
     text-align: center;
     white-space: normal;
@@ -211,7 +215,6 @@ html{
     width: 75px!important;
     border: 2px solid #000;
 }
-
 
 #croIcon{
     margin: 0 0 5px 0;
@@ -323,62 +326,126 @@ html{
     justify-items: center;
     z-index: 200;
 }
+/* Search Bar */
 
 #searchEngineBarText{
-    display: grid;
-    align-items: center;
-    max-width: 500px;
     margin: 0 auto;
     background: white;
     border: 2px solid #000;
 }
 
-#searchEngineBarTextDetails{
-    grid-template-columns: 1fr;
+#searchEngineBarText .form-group{
     display: grid;
+    max-width: 325px;
+    height: 300px;
+    grid-row-gap: 15px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: -30px;
 }
 
-#collapseTwo{
-    max-width: 300px;
+#searchEngineBarText .form-group h2{
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
 }
 
-/* Value slider */
-
-#searchEngineBarText .rangeSlider{
-    width: 100%;
+#searchEngineBarText .form-group input:first-of-type{
+    margin-top: 10px;
 }
 
-#searchEngineBarText .rangeSlider .mySlider{
-    width: 100%;
+#searchEngineBarText .form-group select:first-of-type{
+    margin-top: -20px;
 }
 
-#collapseTwo .form-control{
-    font-size: 0.77em;
-    white-space: normal;
+.custom-select{
+    background-image: url("../../img/plusIcon.svg")!important;
 }
 
-#accordion .card{
-    border: 2px solid #000;
+
+/* City name autosearch - capitalize */
+.firstUpper h4:first-letter{
+    text-transform: capitalize;
 }
 
-.blueButton{
+.firstUpper{
+    color: #3B4483;
+    font-weight: bolder;
+    padding: 10px 35% 0 35%!important;
+    border: 2px solid #3B4483;
+    position: absolute;
+    z-index: 999999;
+}
+
+.firstUpper:hover{
     background: #3B4483;
+    color: #fff;
+    font-weight: bolder;
 }
 
-#searchEngineButtonExtend{
+/* Value Slider */
+#searchEngineBarText .range-slider{
+    display: block;
+}
+
+#searchEngineBarText .range-slider input{
+    width: 85%;
+    cursor: pointer;
+    overflow: visible;
+}
+
+#searchEngineBarText .range-slider input:last-of-type{
+    margin-left: -240px;
+} 
+
+input[type=range] 
+{
+    -webkit-appearance: none;
+    margin: 10px 0;
+}
+
+input[type=range]:focus {
+    outline: none;
+  }
+
+input[type=range]::-webkit-slider-runnable-track 
+{
+    width: 100%;
+    height: 12.8px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
     background: #e1e1e1;
+    border: 0px solid #000101;
 }
 
-.searchEngineButtonExtend{
-    color: #000;
-}
-
-.navigationDisplayToggle{
-    display: none;
-}
-
-.searchEngineButton{
+input[type=range]::-webkit-slider-thumb 
+{
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 39px;
+    border-radius: 7px;
     background: #3B4483;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -3.6px;
+    position: relative;
+    z-index: 10000;
+}
+
+#searchEngineBarTextDetails{
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    justify-items: start;
+    margin-left: 10px;
+}
+
+/* Submit button */
+#searchEngineBarText .form-group button{
+    background: #3B4483;
+    color: #fff;
+    border: 2px solid #000;
+    margin-top: 20px;
 }
 
 /* Sticky language */
@@ -631,18 +698,6 @@ footer{
     }
 
     /* SearchEngine */
-    #searchEngineBarTextDetails{
-        grid-template-columns: 1fr 1fr;
-    }
-
-    #collapseTwo{
-        max-width: none;
-    }
-
-    #collapseTwo .form-control{
-        font-size: 1em;
-        white-space: normal;
-    }
 
     /* Promo */
     #promo .card-deck{

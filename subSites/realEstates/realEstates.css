@@ -4,6 +4,27 @@
     margin: 0 auto;
 }
 
+/* City name autosearch - capitalize */
+.firstUpper h4:first-letter{
+    text-transform: capitalize;
+}
+
+.firstUpper{
+    color: #3B4483;
+    font-weight: bolder;
+    padding: 10px 125px 0 125px!important;
+    border: 2px solid #3B4483;
+    position: absolute;
+    z-index: 999999;
+}
+
+.firstUpper:hover{
+    background: #3B4483;
+    color: #fff;
+    font-weight: bolder;
+}
+
+
 /* Search Bar */
 
 #realEsateContent .form-group{
@@ -15,13 +36,26 @@
     margin-bottom: 50px;
 }
 
+#realEsateContent .form-group input:first-of-type{
+    margin-top: 10px;
+}
+
 #realEsateContent .form-group select:first-of-type{
-    margin-top: 25px;
+    margin-top: -20px;
 }
 
 .custom-select{
     background-image: url("../../img/plusIcon.svg")!important;
 }
+
+/* Submit button */
+#realEsateContent .form-group button{
+    background: #3B4483;
+    color: #fff;
+    margin-top: 30px;
+    border: 2px solid #000;
+}
+
 
 /* Value Slider */
 #realEsateContent .range-slider{

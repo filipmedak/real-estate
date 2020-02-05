@@ -37,7 +37,7 @@ echo '
             </li>
             </div>
 
-            <!--<div class="navigationDisplayToggle">
+            <div class="navigationDisplayToggle">
             Hello, Pero P.
             </div>
 
@@ -48,11 +48,11 @@ echo '
                 </a>
             </li>
             </div>
-            -->
+            <!--
             <div>
                 <a href="includes/login.php" class="btn btn-primary">Sign in</a>
             </div>
-
+            -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
