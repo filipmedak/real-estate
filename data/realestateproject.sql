@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2020 at 03:29 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Generation Time: Feb 07, 2020 at 01:45 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,7 +43,9 @@ INSERT INTO `city` (`id`, `name`) VALUES
 (3, 'rijeka'),
 (4, 'split'),
 (5, 'osijek'),
-(6, 'varaždin');
+(6, 'varaždin'),
+(7, 'TestniGrad'),
+(8, 'TestniGrad2');
 
 -- --------------------------------------------------------
 
@@ -113,23 +115,24 @@ CREATE TABLE `estates` (
   `parking` tinyint(1) DEFAULT NULL,
   `lift` tinyint(1) DEFAULT NULL,
   `barrier_free` tinyint(1) DEFAULT NULL,
-  `internet` tinyint(1) DEFAULT NULL
+  `internet` tinyint(1) DEFAULT NULL,
+  `garage` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 --
 -- Dumping data for table `estates`
 --
 
-INSERT INTO `estates` (`id`, `type`, `city`, `price`, `rooms`, `floors`, `property_size`, `living_space`, `balcony`, `terrace`, `construction_year`, `last_renovation`, `description`, `energy_class`, `heating_system`, `parking`, `lift`, `barrier_free`, `internet`) VALUES
-(1, 2, 1, 95000, 2, 1, 45, 34, 1, 0, 1990, 2000, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 1, 3, 1, 0, 0, 1),
-(3, 1, 3, 75000, 3, 2, 56, 45, 1, 0, 2000, 2004, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 4, 2, 1, 1, 0, 0),
-(4, 3, 6, 35000, 1, 2, 67, 45, 1, 1, 2009, 2019, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 1, 5, 1, 0, 0, 1),
-(5, 1, 5, 20000, 2, 1, 45, 34, 0, 0, 1990, 2019, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 2, 6, 1, 1, 1, 1),
-(6, 2, 2, 58000, 3, 1, 56, 45, 1, 1, 1999, 2004, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 3, 2, 1, 1, 1, 0),
-(7, 4, 2, 58000, 3, 1, 67, 34, 0, 0, 2000, 2004, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 6, 1, 1, 0, 0, 0),
-(8, 1, 5, 58000, 3, 1, 45, 45, 0, 0, 2009, 2019, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 1, 2, 1, 1, 0, 0),
-(9, 2, 1, 35000, 1, 3, 67, 45, 1, 1, 2006, 2018, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 5, 4, 1, 0, 1, 1),
-(10, 1, 6, 95000, 2, 2, 56, 42, 1, 1, 2009, 2019, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 6, 5, 1, 1, 1, 0);
+INSERT INTO `estates` (`id`, `type`, `city`, `price`, `rooms`, `floors`, `property_size`, `living_space`, `balcony`, `terrace`, `construction_year`, `last_renovation`, `description`, `energy_class`, `heating_system`, `parking`, `lift`, `barrier_free`, `internet`, `garage`) VALUES
+(1, 2, 1, 95000, 2, 1, 45, 34, 1, 0, 1990, 2000, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 1, 3, 1, 0, 0, 1, 0),
+(3, 1, 3, 75000, 3, 2, 56, 45, 1, 0, 2000, 2004, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 4, 2, 1, 1, 0, 0, 1),
+(4, 3, 6, 35000, 1, 2, 67, 45, 1, 1, 2009, 2019, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 1, 5, 1, 0, 0, 1, 1),
+(5, 1, 5, 20000, 2, 1, 45, 34, 0, 0, 1990, 2019, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 2, 6, 1, 1, 1, 1, 0),
+(6, 2, 2, 58000, 3, 1, 56, 45, 1, 1, 1999, 2004, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 3, 2, 1, 1, 1, 0, 1),
+(7, 4, 2, 58000, 3, 1, 67, 34, 0, 0, 2000, 2004, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 6, 1, 1, 0, 0, 0, 0),
+(8, 1, 5, 58000, 3, 1, 45, 45, 0, 0, 2009, 2019, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 1, 2, 1, 1, 0, 0, 0),
+(9, 2, 1, 35000, 1, 3, 67, 45, 1, 1, 2006, 2018, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 5, 4, 1, 0, 1, 1, 0),
+(10, 1, 6, 95000, 2, 2, 56, 42, 1, 1, 2009, 2019, 'Suspendisse sodales magna sed arcu vestibulum imperdiet. Nulla mollis id purus eget fermentum. Proin eu consequat neque. Nulla rutrum non lorem in sodales. Proin ipsum libero, ullamcorper eu mattis nec, viverra id nunc. Curabitur eu magna nunc. Vestibulum in augue tortor.', 6, 5, 1, 1, 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -256,7 +259,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `countries`
