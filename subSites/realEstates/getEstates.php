@@ -157,7 +157,7 @@ if (isset($_POST["filterEstates"])) {
     FROM estates
     INNER JOIN city ON (estates.city = city.id)
     INNER JOIN estatetypes ON (estates.type = estatetypes.id)
-    INNER JOIN energy_classes ON (estates.energy_class = energy_classes.id)"; 
+    LEFT JOIN energy_classes ON (estates.energy_class = energy_classes.id)"; 
     $result = $connection->query($sql);
     $result=fillResults($result);
 }

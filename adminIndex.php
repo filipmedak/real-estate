@@ -464,11 +464,11 @@ if (mysqli_num_rows($result) > 0) {
     <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="assets/extra-libs/sparkline/sparkline.js"></script>
     <!--Wave Effects -->
-    <script src="js/waves.js"></script>
+    <script src="js/admin/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
+    <script src="js/admin/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <script src="js/custom.min.js"></script>
+    <script src="js/admin/custom.min.js"></script>
     <!--This page JavaScript -->
     <!-- <script src="js/pages/dashboards/dashboard1.js"></script> -->
     <!-- Charts js Files -->
@@ -479,7 +479,7 @@ if (mysqli_num_rows($result) > 0) {
     <script src="assets/libs/flot/jquery.flot.stack.js"></script>
     <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="dist/js/pages/chart/chart-page-init.js"></script>
+    <!-- <script src="js/admin/pages/chart/chart-page-init.js"></script> -->
 
 </body>
 
