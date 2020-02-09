@@ -1,5 +1,7 @@
 <?php
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 //headerMiddle.php
 
 echo '
@@ -38,12 +40,21 @@ echo '
             </div>
 
             <div class="navigationDisplayToggle">
-            Hello, Pero P.
+            
+            ';
+
+            if (isset($_SESSION["loggedin"])) {
+                echo $_SESSION["name"];
+            }else{
+                echo 'Not logged in';
+            }
+
+            echo'
             </div>
 
             <div class="bd-highlight font-weight-bold" id="dropdownProfile">
             <li class="nav-item dropdown mt-2">
-                <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="includes/login.php" id="navbarDropdownMenuLink" >
                     <i class="fas fa-user"></i>
                 </a>
             </li>
