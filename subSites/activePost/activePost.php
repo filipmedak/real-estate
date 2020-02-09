@@ -56,8 +56,8 @@
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-        $locationOrg = $row["city"];
-        $typeOrg = $row["type"];
+        $locationOrg = $row['city'];
+        $typeOrg = $row['type'];
 
         $location=ucfirst($row["city"]);
         $type=ucfirst($row["type"]);
@@ -266,39 +266,41 @@
                 FROM estates
                 INNER JOIN city ON (estates.city = city.id)
                 INNER JOIN estatetypes ON (estates.type = estatetypes.id)
-                INNER JOIN energy_classes ON (estates.energy_class = energy_classes.id) 
-                WHERE estatetypes.type = $typeOrg";
+                LEFT JOIN energy_classes ON (estates.energy_class = energy_classes.id) 
+                WHERE city.name = '$locationOrg' AND estates.id<>'$id'";
 
-                //WHERE city.name=$locationComp OR estatetypes.type=$typeComp 
-                //WHERE $location=$locationComp OR $type=$typeComp"; 
-
-                // $locationOrg = $row["city"];
-                // $typeOrg = $row["type"];
-               
+                $i = 0;
 
                 $resultAd = $connection->query($sqlAd);
                 if ($resultAd->num_rows > 0) {
-                    $row = $resultAd->fetch_assoc();
+                    while($row = $resultAd->fetch_assoc()) {
+                       
+                        $idAd = $row["id"];
+                        $locationAd=ucfirst($row["city"]);
+                        $typeAd=ucfirst($row["type"]);
+                        $imgPathAd='../../img/estates/'.$idAd.'/';
+                        
+                       
 
-                    $idAd = $row["id"];
-                    $locationAd=ucfirst($row["city"]);
-                    $typeAd=ucfirst($row["type"]);
-                    $imgPathAd='../../img/estates/'.$idAd.'/';
-                    
-                    echo '
-                    <div class="card shadow-lg mb-5" data-aos="fade-right" data-aos-duration="1500">
-                        <img src="'.$imgPathAd.'img1.jpg" class="card-img-top" alt="Real estate image">
-                        <div class="card-body">
-                            <h3 class="card-title text-center pt-3 pb-1">'.$typeAd.' in '.$locationAd.'</h5>
-                            <p class="card-text">Price: <b>'.$row["price"].'€</b></p>
-                            <p class="card-text">Type: <b>'.$type.'</b></p>
-                            <p class="card-text">Location: <b>'.$location.'</b></p>
-                            <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>'.$row["property_size"].'²</b></p>
-                            <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>'.$row["rooms"].'</b></p>
-                            <p class="card-text text-center text-muted">ID: <b>'.$row["id"].'</b></p>
-                            <p class="card-text text-start text-muted""><a href="http://localhost/PHP_Projekt/subSites/activePost/activePost.php?id='.$row["id"].'"><b>More ></b></a></p>
-                        </div>
-                    </div>';
+                        if($i < 4){
+                            echo '
+                            <div class="card shadow-lg mb-5" data-aos="fade-right" data-aos-duration="1500">
+                                <img src="'.$imgPathAd.'img1.jpg" class="card-img-top" alt="Real estate image">
+                                <div class="card-body">
+                                    <h3 class="card-title text-center pt-3 pb-1">'.$typeAd.' in '.$locationAd.'</h5>
+                                    <p class="card-text">Price: <b>'.$row["price"].'€</b></p>
+                                    <p class="card-text">Type: <b>'.$type.'</b></p>
+                                    <p class="card-text">Location: <b>'.$location.'</b></p>
+                                    <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>'.$row["property_size"].'²</b></p>
+                                    <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>'.$row["rooms"].'</b></p>
+                                    <p class="card-text text-center text-muted">ID: <b>'.$row["id"].'</b></p>
+                                    <p class="card-text text-start text-muted""><a href="http://localhost/PHP_Projekt/subSites/activePost/activePost.php?id='.$row["id"].'"><b>More ></b></a></p>
+                                </div>
+                            </div>';
+                     
+                        }  
+                        $i++;
+                    }
                 }
     echo' </div> 
     </div>
