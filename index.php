@@ -238,7 +238,7 @@
 
   <script src="js/valueSlider.js"></script>               
   <script src="js/autoCorrect.js"></script>
-    <script type="text/javascript">
+  <script type="text/javascript">
     let cities = <?php echo json_encode($cities) ?>;
   </script>
 

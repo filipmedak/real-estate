@@ -56,6 +56,9 @@
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
+        $locationOrg = $row["city"];
+        $typeOrg = $row["type"];
+
         $location=ucfirst($row["city"]);
         $type=ucfirst($row["type"]);
         $imgPath='../../img/estates/'.$id.'/';
@@ -64,7 +67,7 @@
         unset($images[1]);
         array_pop($images);
 
-        //print_r($images);
+        //print_r($locationOrg);
 
         echo '
         <div class="background">
@@ -184,65 +187,65 @@
                 }
 
                 
-                    if($row["terrace"] == 1){
-                        echo '<div><p>Terrace</p><p>✔</p></div>';
-                    }
-                    else if($row["terrace"] == 0){
-                        echo '<div class="ghost"><p>Terrace</p><p>✘</p></div>';
-                    }
-                    else{
-                        echo '';
-                    }
+                if($row["terrace"] == 1){
+                    echo '<div><p>Terrace</p><p>✔</p></div>';
+                }
+                else if($row["terrace"] == 0){
+                    echo '<div class="ghost"><p>Terrace</p><p>✘</p></div>';
+                }
+                else{
+                    echo '';
+                }
 
-                        if($row["parking"] == 1){
-                            echo '<div><p>Parking</p><p>✔</p></div>';
-                        }
-                        else if($row["terrace"] == 0){
-                            echo '<div class="Parking"><p>Garage</p><p>✘</p></div>';
-                        }
-                        else{
-                            echo '';
-                        }
+                if($row["parking"] == 1){
+                    echo '<div><p>Parking</p><p>✔</p></div>';
+                }
+                else if($row["terrace"] == 0){
+                    echo '<div class="Parking"><p>Garage</p><p>✘</p></div>';
+                }
+                else{
+                    echo '';
+                }
                         
-                            if($row["garage"] == 1){
-                                echo '<div><p>Garage</p><p>✔</p></div>';
-                            }
-                            else if($row["terrace"] == 0){
-                                echo '<div class="ghost"><p>Garage</p><p>✘</p></div>';
-                            }
-                            else{
-                                echo '';
-                            }
+                if($row["garage"] == 1){
+                    echo '<div><p>Garage</p><p>✔</p></div>';
+                }
+                else if($row["terrace"] == 0){
+                    echo '<div class="ghost"><p>Garage</p><p>✘</p></div>';
+                }
+                else{
+                    echo '';
+                }
                             
-                                if($row["lift"] == 1){
-                                    echo '<div><p>Lift</p><p>✔</p></div>';
-                                }
-                                else if($row["terrace"] == 0){
-                                    echo '<div class="ghost"><p>Lift</p><p>✘</p></div>';
-                                }
-                                else{
-                                    echo '';
-                                }
+                if($row["lift"] == 1){
+                    echo '<div><p>Lift</p><p>✔</p></div>';
+                }
+                else if($row["terrace"] == 0){
+                    echo '<div class="ghost"><p>Lift</p><p>✘</p></div>';
+                }
+                else{
+                    echo '';
+                }
 
-                                    if($row["barrier_free"] == 1){
-                                        echo '<div><p>Barrier-free access</p><p>✔</p></div>';
-                                    }
-                                    else if($row["terrace"] == 0){
-                                        echo '<div class="ghost"><p>Barrier-free access</p><p>✘</p></div>';
-                                    }
-                                    else{
-                                        echo '';
-                                    }
+                if($row["barrier_free"] == 1){
+                    echo '<div><p>Barrier-free access</p><p>✔</p></div>';
+                }
+                else if($row["terrace"] == 0){
+                    echo '<div class="ghost"><p>Barrier-free access</p><p>✘</p></div>';
+                }
+                else{
+                    echo '';
+                }
 
-                                        if($row["internet"] == 1){
-                                            echo '<div><p>Internet access</p><p>✔</p></div>';
-                                        }
-                                        else if($row["terrace"] == 0){
-                                            echo '<div class="ghost"><p>Internet access</p><p>✘</p></div>';
-                                        }
-                                        else{
-                                            echo '';
-                                        }
+                if($row["internet"] == 1){
+                    echo '<div><p>Internet access</p><p>✔</p></div>';
+                }
+                else if($row["terrace"] == 0){
+                    echo '<div class="ghost"><p>Internet access</p><p>✘</p></div>';
+                }
+                else{
+                    echo '';
+                }
                     
         echo'     
         </div>
@@ -254,60 +257,50 @@
     </div>
 
     <div id="suggestedPosts">
-        <div class="card-deck">
-            <div class="card shadow-lg mb-5" data-aos="fade-right" data-aos-duration="1500">
-                <img src="../../img/promoImage01.jpg" class="card-img-top" alt="Real estate image">
-                <div class="card-body">
-                    <h3 class="card-title text-center pt-3 pb-1">House in Zagreb</h5>
-                    <p class="card-text">Price: <b>60,000€</b></p>
-                    <p class="card-text">Type: <b>House</b></p>
-                    <p class="card-text">Location: <b>Zagreb</b></p>
-                    <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>53,38m²</b></p>
-                    <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>5</b></p>
-                    <p class="card-text text-center text-muted">ID: <b>7328193</b></p>
-                    <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
-                </div>
-            </div>
-            <div class="card shadow-lg mb-5" data-aos="fade-right" data-aos-duration="1500">
-                <img src="../../img/promoImage02.jpg" class="card-img-top" alt="Real estate image">
-                <div class="card-body">
-                    <h3 class="card-title text-center pt-3 pb-1">House in Zagreb</h5>
-                    <p class="card-text">Price: <b>60,000€</b></p>
-                    <p class="card-text">Type: <b>House</b></p>
-                    <p class="card-text">Location: <b>Zagreb</b></p>
-                    <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>53,38m²</b></p>
-                    <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>5</b></p>
-                    <p class="card-text text-center text-muted">ID: <b>7328193</b></p>
-                    <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
-                </div>
-            </div>
-            <div class="card shadow-lg mb-5" data-aos="fade-right" data-aos-duration="1500">
-                <img src="../../img/promoImage03.jpg" class="card-img-top" alt="Real estate image">
-                <div class="card-body">
-                    <h3 class="card-title text-center pt-3 pb-1">House in Zagreb</h5>
-                    <p class="card-text">Price: <b>60,000€</b></p>
-                    <p class="card-text">Type: <b>House</b></p>
-                    <p class="card-text">Location: <b>Zagreb</b></p>
-                    <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>53,38m²</b></p>
-                    <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>5</b></p>
-                    <p class="card-text text-center text-muted">ID: <b>7328193</b></p>
-                    <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
-                </div>
-            </div>
-            <div class="card shadow-lg mb-5" data-aos="fade-right" data-aos-duration="1500">
-                <img src="../../img/promoImage04.jpg" class="card-img-top" alt="Real estate image">
-                <div class="card-body">
-                    <h3 class="card-title text-center pt-3 pb-1">House in Zagreb</h5>
-                    <p class="card-text">Price: <b>60,000€</b></p>
-                    <p class="card-text">Type: <b>House</b></p>
-                    <p class="card-text">Location: <b>Zagreb</b></p>
-                    <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>53,38m²</b></p>
-                    <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>5</b></p>
-                    <p class="card-text text-center text-muted">ID: <b>7328193</b></p>
-                    <p class="card-text text-start text-muted""><a href="#"><b>More ></b></a></p>
-                </div>
-            </div>
-        </div>
+        <div class="card-deck">'; 
+
+                $sqlAd="SELECT estates.*,
+                city.name as `city`,
+                estatetypes.type,
+                energy_classes.class as `en-class`
+                FROM estates
+                INNER JOIN city ON (estates.city = city.id)
+                INNER JOIN estatetypes ON (estates.type = estatetypes.id)
+                INNER JOIN energy_classes ON (estates.energy_class = energy_classes.id) 
+                WHERE estatetypes.type = $typeOrg";
+
+                //WHERE city.name=$locationComp OR estatetypes.type=$typeComp 
+                //WHERE $location=$locationComp OR $type=$typeComp"; 
+
+                // $locationOrg = $row["city"];
+                // $typeOrg = $row["type"];
+               
+
+                $resultAd = $connection->query($sqlAd);
+                if ($resultAd->num_rows > 0) {
+                    $row = $resultAd->fetch_assoc();
+
+                    $idAd = $row["id"];
+                    $locationAd=ucfirst($row["city"]);
+                    $typeAd=ucfirst($row["type"]);
+                    $imgPathAd='../../img/estates/'.$idAd.'/';
+                    
+                    echo '
+                    <div class="card shadow-lg mb-5" data-aos="fade-right" data-aos-duration="1500">
+                        <img src="'.$imgPathAd.'img1.jpg" class="card-img-top" alt="Real estate image">
+                        <div class="card-body">
+                            <h3 class="card-title text-center pt-3 pb-1">'.$typeAd.' in '.$locationAd.'</h5>
+                            <p class="card-text">Price: <b>'.$row["price"].'€</b></p>
+                            <p class="card-text">Type: <b>'.$type.'</b></p>
+                            <p class="card-text">Location: <b>'.$location.'</b></p>
+                            <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: <b>'.$row["property_size"].'²</b></p>
+                            <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>'.$row["rooms"].'</b></p>
+                            <p class="card-text text-center text-muted">ID: <b>'.$row["id"].'</b></p>
+                            <p class="card-text text-start text-muted""><a href="http://localhost/PHP_Projekt/subSites/activePost/activePost.php?id='.$row["id"].'"><b>More ></b></a></p>
+                        </div>
+                    </div>';
+                }
+    echo' </div> 
     </div>
 
 </div>';
