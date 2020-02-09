@@ -267,7 +267,7 @@
                 INNER JOIN city ON (estates.city = city.id)
                 INNER JOIN estatetypes ON (estates.type = estatetypes.id)
                 INNER JOIN energy_classes ON (estates.energy_class = energy_classes.id) 
-                WHERE estatetypes.type = $typeOrg";
+                WHERE estatetypes.type = '$typeOrg'";
 
                 //WHERE city.name=$locationComp OR estatetypes.type=$typeComp 
                 //WHERE $location=$locationComp OR $type=$typeComp"; 

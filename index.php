@@ -1,4 +1,8 @@
-<?php include ('includes/headerTop.php'); ?>
+<?php 
+
+session_start();
+
+include ('includes/headerTop.php'); ?>
 
 <link rel="stylesheet" href="css/style.css">
 
