@@ -45,11 +45,14 @@
     $sql="SELECT estates.*,
     city.name as `city`,
     estatetypes.type,
-    energy_classes.class as `en-class`
+    energy_classes.class as `en-class`,
+    heating.type as `he-type`
     FROM estates
     INNER JOIN city ON (estates.city = city.id)
     INNER JOIN estatetypes ON (estates.type = estatetypes.id)
-    LEFT JOIN energy_classes ON (estates.energy_class = energy_classes.id) WHERE estates.id=$id"; 
+    LEFT JOIN energy_classes ON (estates.energy_class = energy_classes.id) 
+    LEFT JOIN heating ON (estates.heating_system = heating.id) 
+    WHERE estates.id=$id"; 
     
 
     $result = $connection->query($sql);
@@ -152,11 +155,11 @@
             </div> 
             <div class="basicInformationGrid">
                 <p class="blue">Heating:</p>
-                <p class="boldBlack">'.$row["heating_system"].'</p>
+                <p class="boldBlack">'.$row["he-type"].'</p>
             </div>  
             <div class="basicInformationGrid">
                <p class="blue">Energy class:</p>
-               <p class="boldBlack">'.$row["energy_class"].'</p>
+               <p class="boldBlack">'.$row["en-class"].'</p>
             </div>  
             <div class="basicInformationGrid">
                 <p class="blue">Year of construction:</p>

@@ -29,12 +29,12 @@ if (isset($_POST["filterEstates"])) {
     if (isset($_POST["barrierFreeAccess"])){
         $filter["barrier_free"]=$_POST["barrierFreeAccess"];
     }
-    // if (isset($_POST["minEs"])) {
-    //     $filter["min"]=$_POST["minEs"];
-    // }
-    // if (isset($_POST["maxEs"])) {
-    //     $filter["max"]=$_POST["maxEs"];
-    // }
+    if (isset($_POST["minSlider"])){
+        $filter["minPrice"]=$_POST["minSlider"];
+    }
+    if (isset($_POST["maxSlider"])){
+        $filter["maxPrice"]=$_POST["maxSlider"];
+    }
 
     //Provjerava da li postoje prazne vrijednosti, zbog toga što inputi imaju value=""
     function checkForValues($filter){
@@ -67,67 +67,76 @@ if (isset($_POST["filterEstates"])) {
 
     // Ovisno o količini elemenata u polju filter, prilagodi sql upit
     if (count($filter)==1) {
+        $and="";
         foreach ($filter as $key => $value) {
-            if ($key=="city") {
-                $sql.="city.id='$value'";
-            }
-            elseif ($key=="type") {
-                $sql.="estatetypes.id='$value'";
-            }
-            elseif ($key=="balcony") {
-                $sql.="estates.balcony=1";
-            }
-            elseif ($key=="terrace") {
-                $sql.="estates.terrace=1";
-            }
-            elseif ($key=="parking") {
-                $sql.="estates.parking=1";
-            }
-            elseif ($key=="garage") {
-                $sql.="estates.garage=1";
-            }
-            elseif ($key=="lift") {
-                $sql.="estates.lift=1";
-            }
-            elseif ($key=="barrier_free") {
-                $sql.="estates.barrier_free=1";
-            }
+            // if ($key=="city") {
+            //     $sql.="city.id='$value'";
+            // }
+            // elseif ($key=="type") {
+            //     $sql.="estatetypes.id='$value'";
+            // }
+            // elseif ($key=="balcony") {
+            //     $sql.="estates.balcony=1";
+            // }
+            // elseif ($key=="terrace") {
+            //     $sql.="estates.terrace=1";
+            // }
+            // elseif ($key=="parking") {
+            //     $sql.="estates.parking=1";
+            // }
+            // elseif ($key=="garage") {
+            //     $sql.="estates.garage=1";
+            // }
+            // elseif ($key=="lift") {
+            //     $sql.="estates.lift=1";
+            // }
+            // elseif ($key=="barrier_free") {
+            //     $sql.="estates.barrier_free=1";
+            // }
             // ...
         }
     }elseif (count($filter)>1) {
         $and="";
         foreach ($filter as $key => $value) {
             if ($key=="city") {
-                $sql.=$and."city.id='$value' ";
-                $and="AND ";
+                $sql.="city.id='$value' AND ";
+                //$and="AND ";
             }
             elseif ($key=="type") {
-                $sql.=$and."estatetypes.id='$value' ";
-                $and="AND ";
+                $sql.="estatetypes.id='$value' AND ";
+                //$and="AND ";
             }
             elseif ($key=="balcony") {
-                $sql.=$and."estates.balcony=1 ";
-                $and="AND ";
+                $sql.="estates.balcony=1 AND ";
+                //$and="AND ";
             }
             elseif ($key=="terrace") {
-                $sql.=$and."estates.terrace=1 ";
-                $and="AND ";
+                $sql.="estates.terrace=1 AND ";
+                //$and="AND ";
             }
             elseif ($key=="parking") {
-                $sql.=$and."estates.parking=1 ";
-                $and="AND ";
+                $sql.="estates.parking=1 AND ";
+                //$and="AND ";
             }
             elseif ($key=="garage") {
-                $sql.=$and."estates.garage=1 ";
-                $and="AND ";
+                $sql.="estates.garage=1 AND ";
+                //$and="AND ";
             }
             elseif ($key=="lift") {
-                $sql.=$and."estates.lift=1 ";
-                $and="AND ";
+                $sql.="estates.lift=1 AND ";
+                //$and="AND ";
             }
             elseif ($key=="barrier_free") {
-                $sql.=$and."estates.barrier_free=1 ";
-                $and="AND ";
+                $sql.="estates.barrier_free=1 AND ";
+                //$and="AND ";
+            }
+            elseif ($key=="minPrice") {
+                $sql.="estates.price>='$value' AND ";
+                //$and="AND ";
+            }
+            elseif ($key=="maxPrice") {
+                $sql.="estates.price<='$value'";
+               //$and="AND ";
             }
             
             // ...
@@ -136,7 +145,7 @@ if (isset($_POST["filterEstates"])) {
         $sql.="true";
     }
 
-    // Za debug 
+    //Za debug 
     // echo '<pre>';
     // print_r($filter);
     // echo '</pre>';

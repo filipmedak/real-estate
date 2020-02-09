@@ -45,27 +45,26 @@
     <form action="" method="POST" class="mt-5">
         <div class="form-group">
 
-            <?php
+            <!-- Type real estate -->
+            <select class="form-control" name="cityEs" id="realEstateCity">
+                <option value="">Select city:</option>
+                <?php 
+                
+                $query_state = "SELECT * FROM city ORDER BY name ASC";
+                $result_state = mysqli_query($connection, $query_state);
 
-            //Autocorrect
+                while($row = mysqli_fetch_array($result_state))
+                {
+                    $id = $row["id"];
+                    $name = ucfirst($row["name"]);
 
-            $query_cities = "SELECT * FROM city ORDER BY id";
-            $result_cities = mysqli_query($connection, $query_cities);
-
-            if(mysqli_num_rows($result_cities) > 0)
-            {
-                while($row = mysqli_fetch_assoc($result_cities)) {
-                    $cities[] = $row;
+                    echo '<option value="'.$id.'">'.$name.'</option>';
                 }
-            }
 
-            //print_r($cities);
+                ?>
+            </select>
 
-            ?>
-
-            <input type="text" id="search" class="form-control" value="" placeholder="Insert location:">
-            <div id="match-list"></div>
-           
+            <!-- Type real estate -->
             <select class="form-control" name="typeEs" id="realEstateType">
                 <option value="">Type of real estate:</option>
                 <?php 
@@ -85,10 +84,26 @@
             </select>
 
             <div class="input-group range-slider">
+
                 <p>Min/max price</p>
                 <span class="rangeValues"></span><br>
-                <input value="500" min="500" max="50000" step="500" type="range" id="minSlider">
-                <input value="50000" min="500" max="50000" step="500" type="range" id="maxSlider">
+
+                <?php 
+                //Grab max price from database
+                $query_state = "SELECT MIN(price) AS minPrice, MAX(price) AS maxPrice FROM estates";
+                $result_state = mysqli_query($connection, $query_state);
+                
+                while($row = mysqli_fetch_array($result_state))
+                {
+                    $minPrice = $row["minPrice"];
+                    $maxPrice = $row["maxPrice"];
+                    
+                    echo'
+                    <input value="'.$minPrice.'" min="'.$minPrice.'" max="'.$maxPrice.'" step="1000" type="range" id="minSlider" name="minSlider">
+                    <input value="'.$maxPrice.'" min="'.$minPrice.'" max="'.$maxPrice.'" step="1000" type="range" id="maxSlider" name="maxSlider">';
+                }
+                ?>
+                
             </div>
 
 
@@ -136,14 +151,6 @@
         <a href="#" id="moreBtn"><button type="button" class="btn btn-dark mt-3 pl-5 pr-5 mb-5">More posts.</button></a>
     </div>
 </div>
-
-
-
-<script src="../../js/autoCorrect.js"></script>
-<script type="text/javascript">
-    let cities = <?php echo json_encode($cities) ?>;
-</script>
-
 
 <!---------------------------------------------------- NEW CONTENT!! --------------------------------------------------------------->
 
