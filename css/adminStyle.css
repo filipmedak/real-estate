@@ -67,7 +67,7 @@ body[data-theme="dark"] {
   /* Settings for the  element */
   /* Body bg and color */
   color: #b2b9bf;
-  background: #212529;
+  background: #244C72;
   /* scafholdings scss override */
   /* Background colors */
   /* Background Alt colors */
@@ -128,7 +128,7 @@ body[data-theme="dark"] {
   body[data-theme="dark"] .card-footer,
   body[data-theme="dark"] .typeahead.form-control,
   body[data-theme="dark"] .select2-dropdown {
-    background-color: #272b34 !important; }
+    background-color: #244C72 !important; }
   body[data-theme="dark"] .jumbotron,
   body[data-theme="dark"] .page-wrapper,
   body[data-theme="dark"] .progress,

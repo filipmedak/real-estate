@@ -3,7 +3,7 @@
     $servername="localhost";
     $dbUsername="root";
     $dbPassword="";
-    $dbName="realestateproject";
+    $dbName="estateproject";
     
 
     $connection=mysqli_connect($servername, $dbUsername, $dbPassword, $dbName);

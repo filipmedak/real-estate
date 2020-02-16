@@ -8,11 +8,13 @@ function getValue(){
 
     //Value display
     let displayElement = parent.getElementsByClassName("rangeValues")[0];
-    displayElement.innerHTML = "$ " + minSlide + "- $" + maxSlide;
+    displayElement.innerHTML = "€ " + minSlide + "- €" + maxSlide;
 
     //console.log(slides[0].value);
     // console.log(minSlide);
+
 }
+
 
 window.onload = function(){
     //Grab whole div by class
@@ -28,9 +30,11 @@ window.onload = function(){
             if( sliders[y].type ==="range" )
             {
                 sliders[y].oninput = getValue;
+                
                 // Manually trigger event first time to display values
                 sliders[y].oninput();
             }
         }
     }
 } 
+

@@ -110,7 +110,7 @@ function changeImg(changeDir){
     }
 
     //Change src on fullscreen image
-    newImg.setAttribute("src", "../../img/estates/" + postID + "/img" + calcNewImg + ".jpg");
+    newImg.setAttribute("src", "img/estates/" + postID + "/img" + calcNewImg + ".jpg");
     newImg.setAttribute("id", "current-img");
 
     getLatestOpenedImg = calcNewImg;

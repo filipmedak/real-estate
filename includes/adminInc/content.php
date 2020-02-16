@@ -82,8 +82,9 @@ if (isset($_POST["post_estate"])) {
         $description=$_POST["description"];
     }else{$description="No description provided";}
     
-    $sql = "INSERT INTO estates (type, city, price, rooms, property_size, internet, parking, barrier_free, garage, lift, description)
-        VALUES ('$type_id', '$city_id', '$price', '$rooms', '$property_size', '$internet', '$parking', '$barrier_free', '$garage', '$lift', '$description')";
+    $userId=$_SESSION["user_id"];
+    $sql = "INSERT INTO estates (posted_by, type, city, price, rooms, floors, property_size, internet, parking, barrier_free, garage, lift, description)
+        VALUES ('$userId','$type_id', '$city_id', '$price', '$rooms', '$floors', '$property_size', '$internet', '$parking', '$barrier_free', '$garage', '$lift', '$description')";
     
     if ($connection->query($sql) === TRUE) {
         echo'<div class="alert alert-success" role="alert">
@@ -113,11 +114,13 @@ if (isset($_POST["post_estate"])) {
         $ext = $info['extension'];
         $newname = 'img'.($i+1).'.'.$ext; 
 
-        $target = 'img/estates/'.$id.'/thumbnail/'.$newname;
-        move_uploaded_file( $_FILES['images']['tmp_name'][$i], $target);
+        $target1 = 'img/estates/'.$id.'/thumbnail/'.$newname;
+        move_uploaded_file( $_FILES['images']['tmp_name'][$i], $target1);
 
-        $target = 'img/estates/'.$id.'/'.$newname;
-        move_uploaded_file( $_FILES['images']['tmp_name'][$i], $target);
+        $target2 = 'img/estates/'.$id.'/'.$newname;
+
+
+        copy($target1,$target2);
 
         
     
@@ -129,11 +132,11 @@ if (isset($_POST["post_estate"])) {
 ?>
 
 <div class="row">
-    <div class="col-md-6">
-        <div class="card">
+<div class="col-9 mx-auto">
+            <div class="card">
             <form class="form-horizontal" action="" method="POST" enctype='multipart/form-data'>
                 <div class="card-body">
-                    <h4 class="card-title">Ad an estate</h4>
+                    <h4 class="card-title my-5 text-center">Ad an estate</h4>
 
                     <!-- ============================================================== -->
                                             <!-- CITY INPUT -->
@@ -148,7 +151,7 @@ if (isset($_POST["post_estate"])) {
                                     $result = mysqli_query($connection, $sql);
 
                                     while($row = mysqli_fetch_array($result)){
-                                        echo '<option value="'.$row["id"].'">'.ucfirst($row["name"]).'</option>';
+                                        echo '<option value="'.$row["pbr"].'">'.ucfirst($row["name"]).'</option>';
                                     }
                                     ?>
                             </select>
@@ -201,7 +204,45 @@ if (isset($_POST["post_estate"])) {
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-3 text-right">Optional info</label>
+                        <label for="p_size" class="col-sm-3 text-right control-label col-form-label">Living space m2</label>
+                        <div class="col-sm-9">
+                            <input name="living_space" type="number" class="form-control" id="p_size" placeholder="Living space">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="p_size" class="col-sm-3 text-right control-label col-form-label">Year of construction</label>
+                        <div class="col-sm-9">
+                            <input name="construction_year" type="number" class="form-control" id="p_size" placeholder="Year of construction">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="p_size" class="col-sm-3 text-right control-label col-form-label">Last renovated(Year)</label>
+                        <div class="col-sm-9">
+                            <input name="last_renovation" type="number" class="form-control" id="p_size" placeholder="Year of last renovation">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 text-right control-label col-form-label">Energy class</label>
+                        <div class="col-sm-9">
+                            <select class="select2 form-control custom-select" name="energy_class" style="width: 100%; height:36px;" required>
+                                <option value="">Energy class:</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="p_size" class="col-sm-3 text-right control-label col-form-label">Heating system</label>
+                        <div class="col-sm-9">
+                            <input name="heating_system" type="text" class="form-control" id="" placeholder="Heating">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 text-right">Additional info</label>
                         <div class="col-md-9">
                             <div class="custom-control custom-checkbox mr-sm-2">
                                 <input name="parking" type="checkbox" class="custom-control-input" id="customControlAutosizing1">
@@ -224,6 +265,14 @@ if (isset($_POST["post_estate"])) {
                                 <input name="internet" type="checkbox" class="custom-control-input" id="customControlAutosizing5">
                                 <label class="custom-control-label" for="customControlAutosizing5">Internet</label>
                             </div>
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input name="balcony" type="checkbox" class="custom-control-input" id="customControlAutosizing6">
+                                <label class="custom-control-label" for="customControlAutosizing6">Balcony</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input name="terrace" type="checkbox" class="custom-control-input" id="customControlAutosizing7">
+                                <label class="custom-control-label" for="customControlAutosizing7">Terrace</label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -235,145 +284,16 @@ if (isset($_POST["post_estate"])) {
                     <div class="form-group row">
                         <label class="col-sm-3 text-right">Image Upload</label>
                         <div class="col-md-9">
-                            <!-- <div class="custom-file">
-                                <input type="file" name="images[]" class="custom-file-input" id="images" multiple required>
-                                <label class="custom-file-label" for="images">Choose images...</label>
-                            </div> -->
-                            <input type="file" name="images[]" id="images" multiple required>
+                            <input type="file" name="images[]" id="images" multiple required accept="image/jpg">
                         </div>
                     </div>
                 </div>
                 <div class="border-top">
-                    <div class="card-body">
-                        <button type="submit" name="post_estate" class="btn btn-primary">Post estate</button>
+                    <div class="card-body ">
+                        <button type="submit" name="post_estate" class="btn btn-primary mx-auto d-block">Post estate</button>
                     </div>
                 </div>
             </form>
         </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card border-top">
-        <form class="form-horizontal" action="" method="POST" enctype='multipart/form-data'>
-                <div class="card-body">
-                    <h4 class="card-title">Modify existing estate</h4>
-
-                    <!-- ============================================================== -->
-                                            <!-- CITY INPUT -->
-                    <!-- ============================================================== -->
-                    <div class="form-group row">
-                        <label class="col-sm-3 text-right control-label col-form-label">Select city</label>
-                        <div class="col-sm-9">
-                            <select class="select2 form-control custom-select" name="city_id" style="width: 100%; height:36px;" required>
-                                    <?php
-
-                                    $sql = "SELECT * FROM city ORDER BY name ASC";
-                                    $result = mysqli_query($connection, $sql);
-
-                                    while($row = mysqli_fetch_array($result)){
-                                        echo '<option value="'.$row["id"].'">'.ucfirst($row["name"]).'</option>';
-                                    }
-                                    ?>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                                            <!-- TYPE INPUT -->
-                    <!-- ============================================================== -->
-                    <div class="form-group row">
-                        <label class="col-sm-3 text-right control-label col-form-label">Type of estate</label>
-                        <div class="col-sm-9">
-                            <select class="select2 form-control custom-select" name="type_id" style="width: 100%; height:36px;" required>
-                                    <?php
-
-                                    $sql = "SELECT * FROM estateTypes ORDER BY type ASC";
-                                    $result = mysqli_query($connection, $sql);
-
-                                    while($row = mysqli_fetch_array($result)){
-                                        echo '<option value="'.$row["id"].'">'.ucfirst($row["type"]).'</option>';
-                                    }
-                                    ?>
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label for="price" class="col-sm-3 text-right control-label col-form-label">Price (€)</label>
-                        <div class="col-sm-9">
-                            <input name="price" type="number" class="form-control" id="price" placeholder="Price Here" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="rooms" class="col-sm-3 text-right control-label col-form-label">Number of
-                            rooms</label>
-                        <div class="col-sm-9">
-                            <input name="rooms" type="number" class="form-control" id="rooms" placeholder="Rooms Here">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="floors" class="col-sm-3 text-right control-label col-form-label">Floors</label>
-                        <div class="col-sm-9">
-                            <input name="floors" type="number" class="form-control" id="floors" placeholder="Floors">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="p_size" class="col-sm-3 text-right control-label col-form-label">Property size m2</label>
-                        <div class="col-sm-9">
-                            <input name="property-size" type="number" class="form-control" id="p_size" placeholder="Property size">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 text-right">Optional info</label>
-                        <div class="col-md-9">
-                            <div class="custom-control custom-checkbox mr-sm-2">
-                                <input name="parking" type="checkbox" class="custom-control-input" id="custom1">
-                                <label class="custom-control-label" for="custom1">Parking</label>
-                            </div>
-                            <div class="custom-control custom-checkbox mr-sm-2">
-                                <input name="garage" type="checkbox" class="custom-control-input" id="custom3">
-                                <label class="custom-control-label" for="custom3">Garage</label>
-                            </div>
-                            <div class="custom-control custom-checkbox mr-sm-2">
-                                <input name="lift" type="checkbox" class="custom-control-input" id="custom2">
-                                <label class="custom-control-label" for="custom2">Lift</label>
-                            </div>
-                            <div class="custom-control custom-checkbox mr-sm-2">
-                                <input name="barrier-free" type="checkbox" class="custom-control-input" id="custom4">
-                                <label class="custom-control-label" for="custom4">Barrier free
-                                    access</label>
-                            </div>
-                            <div class="custom-control custom-checkbox mr-sm-2">
-                                <input name="internet" type="checkbox" class="custom-control-input" id="custom5">
-                                <label class="custom-control-label" for="custom5">Internet</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Description</label>
-                        <div class="col-sm-9">
-                            <textarea name="description" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 text-right">Image Upload</label>
-                        <div class="col-md-9">
-                            <!-- <div class="custom-file">
-                                <input type="file" name="images[]" class="custom-file-input" id="images" multiple required>
-                                <label class="custom-file-label" for="images">Choose images...</label>
-                            </div> -->
-                            <input type="file" name="images[]" id="images" multiple required>
-                        </div>
-                    </div>
-                </div>
-                <div class="border-top">
-                    <div class="card-body">
-                        <button type="submit" name="modify_estate" class="btn btn-info">Modify estate</button>
-                    </div>
-                </div>
-            </form>    
-            
-
-        
-        </div>
-    </div>                                
+                            
 </div>

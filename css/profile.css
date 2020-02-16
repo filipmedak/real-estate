@@ -1,0 +1,54 @@
+/* User profiles */
+#userPosts{
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1800px;
+    grid-column-gap: 20px;
+}
+
+#userPosts .card-body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#userPosts .card-body p{
+    font-size: 0.8em;
+    grid-column-gap: 20px;
+}
+
+#userPosts .card-body p:last-of-type{
+    grid-column: 1/3;
+}
+
+#userPosts .card-body h3{
+    grid-column: 1/3;
+}
+
+
+/* Profile buttons */
+
+#profileBtn{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    justify-content: center;	
+    margin-bottom: 50px;
+    grid-column-gap: 10px;
+}
+
+@media only screen and (min-width: 580px) {
+    #userPosts{
+        grid-template-columns: 1fr 1fr;
+    }
+  }
+
+@media only screen and (min-width: 820px) {
+#userPosts{
+    grid-template-columns: 1fr 1fr 1fr;
+}
+}
+
+@media only screen and (min-width: 1000px) {
+#userPosts{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+}
