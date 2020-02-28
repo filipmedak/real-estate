@@ -1,3 +1,16 @@
+body::-webkit-scrollbar {
+    width: 1em;
+}
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #244C72;
+  border-left: 0.5px solid rgb(0, 0, 0);
+  outline: 1px solid slategrey;
+}
+
+
 /* Basic settings */
 html, body{
     max-width: 100%;
@@ -383,6 +396,23 @@ html{
 .firstUpper h4:first-letter{
     text-transform: capitalize;
 }
+.search-input{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.search-input i{
+    background-color: #244C72;
+    color: #fff;
+    display: block;
+    padding:10.9px;
+    border-bottom-left-radius: .25rem;
+    border-top-left-radius: .25rem;
+}
+.search-input input{
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
 
 .firstUpper{
     color: #244C72;
@@ -746,8 +776,8 @@ footer{
 
 /* Alert */
 .alert-warning{
-    margin-top: 25px;
-    height: 100px;
+    margin-top: 35px;
+    max-height: 150px;
     background: transparent;
     border: 2px solid #244C72;
     color: #000!important;
@@ -758,8 +788,15 @@ footer{
     color: #000!important;
 }
 
+.form-container .form-signin .mx-auto{
+    width: 80%!important;
+}
+
 @media (min-width: 700px) 
 {
+    .form-container .form-signin .mx-auto{
+        width: 85%!important;
+    }
     /* Alert */
     .alert-warning{
         grid-column: 1/3;
@@ -771,6 +808,9 @@ footer{
 
 @media (min-width: 992px) 
 {   
+    .form-container .form-signin .mx-auto{
+        width: 75%!important;
+    }
     /* Navigation */
     .navbar{
         grid-template-columns: 1fr 2fr 1fr;
@@ -843,6 +883,7 @@ footer{
         white-space: nowrap;
         justify-self: center;
         font-weight: bold;
+        margin-right: 150px;
     }
 
     .hiddenDesktop{
@@ -864,6 +905,10 @@ footer{
 
     #gerIcon{
         margin: 5px 20px 5px 0;
+    }
+
+    #logo{
+        margin-left: 55px;
     }
 
     /* SearchEngine */
@@ -906,8 +951,8 @@ footer{
         padding-left: 100px;
     }
 
-    #footerSection3 input{
-        margin-right: 200px;
+    #footerSection3{
+        margin-right: 200px!important;
     }
 }
 
@@ -934,6 +979,10 @@ footer{
 
 @media (min-width: 1500px) 
 { 
+    .form-container .form-signin .mx-auto{
+        width: 45%!important;
+    }
+    
     /* Alert */
     .alert-warning{
         grid-column: 2/4;
@@ -941,11 +990,8 @@ footer{
 }
 
 /* Login.php style */
-.form-container .form-signin .mx-auto{
-    width: 45%!important;
-}
 
-.form-container .form-signin button{
+.form-container .form-signin .btn{
     background: #244C72!important;
 }
 

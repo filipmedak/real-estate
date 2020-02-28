@@ -321,7 +321,7 @@ INSERT INTO `city` (`pbr`, `name`) VALUES
 CREATE TABLE `estates` (
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `id` int(10) UNSIGNED NOT NULL,
-  `posted_at` date NOT NULL DEFAULT current_timestamp(),
+  `posted_at` date NOT NULL,
   `posted_by` int(10) UNSIGNED NOT NULL,
   `city` int(10) NOT NULL,
   `type` int(10) UNSIGNED NOT NULL,
@@ -416,7 +416,7 @@ CREATE TABLE `users` (
   `email` varchar(150) COLLATE utf8_croatian_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_croatian_ci NOT NULL,
   `phone_nmb` varchar(10) COLLATE utf8_croatian_ci NOT NULL,
-  `registerd_date` date NOT NULL DEFAULT current_timestamp(),
+  `registerd_date` date NOT NULL,
   `isAdmin` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 

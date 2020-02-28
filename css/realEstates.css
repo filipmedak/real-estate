@@ -30,7 +30,7 @@
 #realEsateContent .form-group{
     display: grid;
     width: 325px;
-    height: 400px;
+    /* height: 400px; */
     grid-row-gap: 15px;
     margin: 0 auto;
     margin-bottom: 50px;
@@ -192,7 +192,7 @@ input[type=range]::-webkit-slider-thumb
         position: sticky;
         top: 0;
         left: 0;
-        z-index: 99999;
+        z-index: 10000;
     }
 
     /*Content*/

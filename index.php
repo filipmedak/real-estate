@@ -1,5 +1,12 @@
 <?php
 
+// TO DO
+// money format
+// search for estates
+// pagination
+// remove img after deleting estates
+// back return on previous filter
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -12,10 +19,10 @@ require_once('includes/dbh.inc.php');
 include 'pages/html-head.php';
 echo '<title>Real Estate Site</title>';
 // ===============================
-// ADD STYLESHEETS HERE
-echo '<link rel="stylesheet" href="css/realEstates.css">';//FOR REAL ESTATE PAGE
-echo '<link rel="stylesheet" href="css/activePost.css">';//FOR ACTIVE POSTS PAGE
-echo '<link rel="stylesheet" href="css/profile.css">';//FOR REAL ESTATE PAGE
+// STYLESHEETS HERE
+echo '<link rel="stylesheet" href="css/realEstates.css">';
+echo '<link rel="stylesheet" href="css/activePost.css">';
+echo '<link rel="stylesheet" href="css/profile.css">';
 // ===============================
 echo '</head>';
 echo '<body>';
@@ -34,11 +41,7 @@ if (isset($_GET["p"])) {
 // ===============================
 include 'pages/footer.php';
 // ===============================
-// ADD SCRIPTS HERE
-// if(){
-//     <script src="js/valueSlider.js"></script>               
-//     <script src="js/autoCorrect.js"></script>
-// }
+// SCRIPTS HERE
 if (isset($_GET["p"]) && isset($_GET["p"])=="inc/activePost") {
     echo '<script src="js/gallery.js"></script>';
 }

@@ -29,7 +29,7 @@
         <div class="background">
         <div class="activePost">
         <h2 class="text-center pt-5 pb-3">'.$type.' in '.$location.'</h2>
-        <p class="smallDescription pt-2">'.$row["price"].'€ ~ '.($row["price"]*7.44).'kn</p>';
+        <p class="smallDescription pt-2">'.$row["price"].' € ~ '.($row["price"]*7.44).' HRK</p>';
 
         echo'
         <div id="index-gallery">';

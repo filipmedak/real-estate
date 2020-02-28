@@ -1,10 +1,30 @@
 <?php
 
+function delete_directory($dirname) {
+    if (is_dir($dirname))
+          $dir_handle = opendir($dirname);
+    if (!$dir_handle)
+         return false;
+    while($file = readdir($dir_handle)) {
+          if ($file != "." && $file != "..") {
+               if (!is_dir($dirname."/".$file))
+                    unlink($dirname."/".$file);
+               else
+                    delete_directory($dirname.'/'.$file);
+          }
+    }
+    closedir($dir_handle);
+    rmdir($dirname);
+    return true;
+    }
+
 if(isset($_GET["do"]) && $_GET["do"]="delete")
 {
         $postId=$_GET["postId"];
 		$query = "DELETE FROM estates WHERE id=$postId";
-		$result = mysqli_query($connection, $query);
+        $result = mysqli_query($connection, $query);
+        
+        $imgDelResult=delete_directory('img/estates/'.$postId);
         
         if($result)
         {
@@ -17,6 +37,18 @@ if(isset($_GET["do"]) && $_GET["do"]="delete")
             echo'<div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">Error!</h4>
             <p>'.$connection->error.'</p>
+            </div>';
+        }
+        if($imgDelResult)
+        {
+            echo'<div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Successfully deleted estate images!</h4>
+                </div>';
+        }
+        else
+        {
+            echo'<div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Error while deleting estate images!</h4>
             </div>';
         }
 	

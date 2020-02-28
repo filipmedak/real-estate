@@ -8,41 +8,6 @@ else{
 }
 
 if (isset($_POST["filterEstates"])) {
-    $filter=[];
-
-    if (isset($_POST["cityEs"])) {
-        $filter["city"]=$_POST["cityEs"];
-    }
-    if (isset($_POST["typeEs"])) {
-        $filter["type"]=$_POST["typeEs"];
-    }
-    if (isset($_POST["balcony"])){
-        $filter["balcony"]=$_POST["balcony"];
-    }
-    if (isset($_POST["terrace"])){
-        $filter["terrace"]=$_POST["terrace"];
-    }
-    if (isset($_POST["parking"])){
-        $filter["parking"]=$_POST["parking"];
-    }
-    if (isset($_POST["garage"])){
-        $filter["garage"]=$_POST["garage"];
-    }
-    if (isset($_POST["lift"])){
-        $filter["lift"]=$_POST["lift"];
-    }
-    if (isset($_POST["barrierFreeAccess"])){
-        $filter["barrier_free"]=$_POST["barrierFreeAccess"];
-    }
-    if (isset($_POST["minEs"])) {
-        $filter["min"]=$_POST["minEs"];
-    }
-    if (isset($_POST["maxEs"])) {
-        $filter["max"]=$_POST["maxEs"];
-    }
-    if (isset($_POST["en_class"])) {
-        $filter["en_class"]=$_POST["en_class"];
-    }
 
     //Provjerava da li postoje prazne vrijednosti, zbog toga što inputi imaju value=""
     function checkForValues($filter){
@@ -78,6 +43,10 @@ if (isset($_POST["filterEstates"])) {
                 $sql.="AND city.pbr='$value' ";
                 
             }
+            elseif ($key=="search") { 
+                $sql.="AND (estatetypes.type LIKE '%$value%' OR city.name LIKE '%$value%' OR estates.description LIKE '%$value%') ";
+                
+            }
             elseif ($key=="type") {
                 $sql.="AND estatetypes.id='$value' ";
                 
@@ -107,15 +76,23 @@ if (isset($_POST["filterEstates"])) {
                 
             }
             elseif ($key=="min") {
-                $sql.="AND estates.price>$value ";
+                $sql.="AND estates.price>=$value ";
                 
             }
             elseif ($key=="max") {
-                $sql.="AND estates.price<$value ";
+                $sql.="AND estates.price<=$value ";
                 
             }
             elseif ($key=="en_class") {
                 $sql.="AND estates.energy_class='$value' ";
+            }
+            elseif ($key=="sort") {
+                if ($value=="ASC" || $value=="DESC") {
+                    $sql.="ORDER BY `estates`.`posted_at` $value ";
+                }else{
+                    $sql.="ORDER BY $value ";
+                }
+                
             }
             
             // ...
@@ -128,12 +105,12 @@ if (isset($_POST["filterEstates"])) {
     // print_r($filter);
     // echo '</pre>';
     // echo $sql;
-
+    $_SESSION["lastUsedFilter"]=$sql;
     $result = $connection->query($sql);
     $result=fillResults($result);
     
 }else{
-
+//If the admin is coming from another sub page to view estates posted by specific userID
     if (isset($_GET["userId"])){
         $userId=$_GET["userId"];
         $sql = "SELECT 
@@ -148,6 +125,7 @@ if (isset($_POST["filterEstates"])) {
         INNER JOIN city ON (estates.city = city.pbr)
         INNER JOIN estatetypes ON (estates.type = estatetypes.id)
         LEFT JOIN users ON (estates.posted_by=users.id) WHERE estates.status=1 AND estates.posted_by=$userId LIMIT 12 OFFSET $offset "; 
+        $_SESSION["lastUsedFilter"]=$sql;
         $result = $connection->query($sql);
         $result=fillResults($result);
     }else{
@@ -163,6 +141,7 @@ if (isset($_POST["filterEstates"])) {
         INNER JOIN city ON (estates.city = city.pbr)
         INNER JOIN estatetypes ON (estates.type = estatetypes.id)
         LEFT JOIN users ON (estates.posted_by=users.id) WHERE estates.status=1 LIMIT 12 OFFSET $offset ";
+        $_SESSION["lastUsedFilter"]=$sql;
         $result = $connection->query($sql);
         $result=fillResults($result);
     }
@@ -173,7 +152,6 @@ if (isset($_POST["filterEstates"])) {
 
 function fillResults($result){
     $resultAds="";
-    // $_SESSION["numRows"]=$result->num_rows;
     if ($result->num_rows > 0) {
 
         while($row = $result->fetch_assoc()) {
@@ -185,7 +163,8 @@ function fillResults($result){
             $location=ucfirst($row["city"]);
             $type=ucfirst($row["type"]);
     
-            $resultAds.='<div class="card shadow-lg mt-5 mb-5" data-aos="fade-up" data-aos-duration="1500">
+            $resultAds.='
+        <div class="card shadow-lg mt-5 mb-5" data-aos="fade-up" data-aos-duration="1500">
             <img src='.$imgPath.$images[2].' class="card-img-top" alt="Real estate image">
             <div class="card-body">
                 <h3 class="card-title text-center pb-1">'.$type.' in '.$location.'</h3>
@@ -201,10 +180,10 @@ function fillResults($result){
         }
     
     } else {$resultAds.='
-    <div class="alert alert-dismissible alert-warning">
+    <div class="alert alert-dismissible alert-warning mx-5">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <h4 class="alert-heading">No matches!</h4>
-        <p class="mb-0">Try <a href="#" class="alert-link">reseting the filter</a>.</p>
+        <p>There are no estates that match the given criteria, change the criteria or try <a href="index.php?p=estates" class="alert-link">reseting the filter</a>.</p>
     </div>';}
 
     return $resultAds;

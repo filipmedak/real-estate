@@ -30,6 +30,22 @@ if (isset($_POST["post_estate"])) {
         $parking=1;
     }else{$parking=0;}
 
+    if (isset($_POST["heating"])) {
+        $heating=$_POST["heating"];
+    }else{$heating="Not specified";}
+
+    if (isset($_POST["energy_class"])) {
+        $energy_class=$_POST["energy_class"];
+    }else{$energy_class="Not specified";}
+
+    if (isset($_POST["construction_year"])) {
+        $construction_year=$_POST["construction_year"];
+    }else{$construction_year="Not specified";}
+
+    if (isset($_POST["last_renovation"])) {
+        $last_renovation=$_POST["last_renovation"];
+    }else{$last_renovation="Not specified";}
+
     if (isset($_POST["barrier-free"])) {
         $barrier_free=1;
     }else{$barrier_free=0;}
@@ -51,8 +67,8 @@ if (isset($_POST["post_estate"])) {
     }else{$description="No description provided";}
     
     $userId=$_SESSION["user_id"];
-    $sql = "INSERT INTO estates (posted_by, type, city, price, rooms, property_size, internet, parking, barrier_free, garage, lift, description, living_space)
-        VALUES ('$userId', '$type_id', '$city_id', '$price', '$rooms', '$property_size', '$internet', '$parking', '$barrier_free', '$garage', '$lift', '$description', '$living_space')";
+    $sql = "INSERT INTO estates (posted_by, type, city, price, rooms, property_size, internet, parking, barrier_free, garage, lift, description, living_space, floors, heating_system, energy_class, construction_year, last_renovation)
+        VALUES ('$userId', '$type_id', '$city_id', '$price', '$rooms', '$property_size', '$internet', '$parking', '$barrier_free', '$garage', '$lift', '$description', '$living_space', '$floors', '$heating', '$energy_class', '$construction_year', '$last_renovation')";
     
     if ($connection->query($sql) === TRUE) {
         echo'<div class="alert alert-success" role="alert">
@@ -60,9 +76,9 @@ if (isset($_POST["post_estate"])) {
             </div>';
     } else {
         echo'<div class="alert alert-danger" role="alert">
-                <h4 class="alert-heading">Error!</h4>
-                <p>'.$connection->error.'</p>
+                <h4 class="alert-heading">There was an error, please try again!</h4>
             </div>';
+            // <p>'.$connection->error.'</p>'.$sql.'
     }
 
     // --------------------------------MULTIPLE IMAGE UPLOAD
@@ -182,9 +198,9 @@ else{
             <div class="card-body">
                 <h3 class="card-title text-center pb-1">'.$type.' in '.$location.'</h3>
                 <p class="card-text">Price: <b>'.$row["price"].'€</b></p>
-                <p class="card-text"><i class="fas fa-bed"></i>Rooms: <b>'.$row["rooms"].'</b></p>
+                <p class="card-text"><i class="fas fa-bed"></i> Rooms: <b>'.$row["rooms"].'</b></p>
                 <p class="card-text">Location: <b>'.$location.'</b></p>
-                <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i>Size: '.$row["property_size"].'m²</b></p>
+                <p class="card-text"><i class="fas fa-expand-arrows-alt"></i></i> Size: '.$row["property_size"].'m²</b></p>
                 <p class="card-text">E-class: <b>'.$row["energy_class"].'</b></p>
                 <p class="card-text text-center text-muted">ID: <b>'.$row["id"].'</b></p>
                 <p class="card-text text-center text-muted hov"><a href="index.php?id='.$row["id"].'&p=inc/activePost"><b>More info ></b></a></p>
@@ -286,7 +302,7 @@ else{
                         <div class="form-group row">
                             <label for="p_size" class="col-sm-5 text-right control-label col-form-label">Living space m2</label>
                             <div class="col-sm-7">
-                                <input name="living_space" type="number" class="form-control" id="p_size" placeholder="Living space">
+                                <input name="living_space" type="number" class="form-control" id="l_space" placeholder="Living space">
                             </div>
                         </div>
                     </div>
@@ -297,7 +313,7 @@ else{
                         <div class="form-group row">
                             <label for="p_size" class="col-sm-5 text-right control-label col-form-label">Year of construction</label>
                             <div class="col-sm-7">
-                                <input name="construction_year" type="number" class="form-control" id="p_size" placeholder="Year of construction">
+                                <input name="construction_year" type="number" class="form-control" id="y_construction" placeholder="Year of construction">
                             </div>
                         </div>
                         <!-- ============================================================== -->
@@ -306,7 +322,7 @@ else{
                         <div class="form-group row">
                             <label for="p_size" class="col-sm-5 text-right control-label col-form-label">Last renovated(Year)</label>
                             <div class="col-sm-7">
-                                <input name="last_renovation" type="number" class="form-control" id="p_size" placeholder="Year of last renovation">
+                                <input name="last_renovation" type="number" class="form-control" id="ly_renov" placeholder="Year of last renovation">
                             </div>
                         </div>
                         <!-- ============================================================== -->
@@ -332,7 +348,7 @@ else{
                         <div class="form-group row">
                             <label for="p_size" class="col-sm-5 text-right control-label col-form-label">Heating system</label>
                             <div class="col-sm-7">
-                                <input name="heating_system" type="text" class="form-control" id="" placeholder="Heating">
+                                <input name="heating" type="text" class="form-control" id="" placeholder="Heating">
                             </div>
                         </div>
                         <!-- ============================================================== -->

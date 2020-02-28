@@ -45,8 +45,34 @@
                 <div class="input-group range-slider">
                     <p>Min/max price</p>
                     <span class="rangeValues"></span><br>
-                    <input value="500" min="500" max="100000" step="500" type="range" id="minSlider" name="minEs">
-                    <input value="100000" min="500" max="100000" step="500" type="range" id="maxSlider" name="maxEs">
+                    <?php 
+                
+                $sql = "SELECT MIN(price) as `min`, MAX(price) as `max` FROM estates";
+                $result = mysqli_query($connection, $sql);
+                $ranges = mysqli_fetch_array($result);
+
+                if (isset($filter["min"])) {
+                    $minFilter=$filter["min"];
+                }else{
+                    $minFilter=$ranges["min"];
+                }
+                if (isset($filter["max"])) {
+                    $maxFilter=$filter["max"];
+                }else{
+                    $maxFilter=$ranges["max"];
+                }
+
+                $min=$ranges["min"];
+                $max=$ranges["max"];
+                
+                echo '
+                <input value="'.$minFilter.'" min="'.$min.'" max="'.$max.'" step="1000" type="range" id="minSlider" name="minEs">
+                <input value="'.$maxFilter.'" min="'.$min.'" max="'.$max.'" step="1000" type="range" id="maxSlider" name="maxEs">';
+                
+
+                ?>
+                    <!-- <input value="500" min="500" max="100000" step="500" type="range" id="minSlider" name="minEs">
+                    <input value="100000" min="500" max="100000" step="500" type="range" id="maxSlider" name="maxEs"> -->
                 </div>
 
 
